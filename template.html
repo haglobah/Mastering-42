@@ -1,0 +1,96 @@
+◊(require racket/list racket/string pollen/pagetree racket/path)
+<!DOCTYPE html>
+<html lang="de-DE">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" value="◊(select 'h1 doc)">
+        <meta property="og:image" value="◊(find-link here 'src/Images/hacker-school-logo-1.png)">
+        <title>◊(select 'h1 doc)</title> <!-- or ◊|here| -->
+        ◊(define concepts (flatten (filter-map children (flatten (map children (children 'pagetree-root))))))
+        ◊(define rootSite (first (children 'pagetree-root)))
+        ◊(define categories (children rootSite))
+        ◊(define currentCategory (get-folder-name here))
+        ◊(define currentCategoryIndex (unless (equal? currentCategory #f) (string-append currentCategory "/index.html")))
+        ◊(define currentConcepts (if (equal? currentCategory #f)
+                                     #f
+                                     (children (string->symbol currentCategoryIndex))))
+        <link rel="stylesheet" href="◊(find-link here 'style.css)">
+        <link rel="stylesheet" href="◊(find-link here 'pygments.css)">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a class="nav-logo" href="◊(find-link here rootSite)">
+                    <img src="◊(find-link here 'src/Images/42-img.png)" alt="Mastering 42">
+                </a>
+                <input type="checkbox" name="hamburger-button" id="nav-toggle">
+                <div class="nav-list">
+                    ◊for/splice[[(category (in-list categories))]]{
+                    ◊(if (equal? (get-folder-name category) currentCategory)
+                         (->html `(a ((href ,(find-link here category))
+                                      (class "nav-item active")) ,(get-folder-name category)))
+                         (->html `(a ((href ,(find-link here category))
+                                      (class "nav-item")) ,(get-folder-name category))))}
+                </div>
+                <label for="nav-toggle"></label>
+            </nav>
+        </header>
+        <main>
+            <div class="sidenav">
+           ◊(if (equal? currentCategory #f)
+                (->html `(div ((class "nav-node active"))
+                               (a ((href "#")) "Übersicht")
+                         ,◊for/splice[[(category (in-list categories))]]{
+                              ◊`(div ((class "nav-node"))
+                                     (a ((href ,(find-link here category)))
+                                        ,(get-folder-name category)))}))
+
+                (->html ◊for/splice[[(category (in-list categories))]]{
+                    ◊(if (compare-path category currentCategoryIndex)
+                         `(div ((class ,(if (compare-path category here)
+                                            "nav-node active"
+                                            "nav-node")))
+                               (a ((href ,(find-link here category)))
+                                  ,(get-folder-name category))
+                               ,◊for/splice[[(concept (in-list currentConcepts))]]{
+                                           ◊`(div ((class ,(if (compare-path concept here)
+                                                          "nav-node active"
+                                                          "nav-node")))
+                                                  (a ((href ,(find-link here concept))) 
+                                                     ,(or (select 'h1 concept) "Ohne Titel")))})
+                         `(div ((class "nav-node"))
+                               (a ((href ,(find-link here category)))
+                                  ,(get-folder-name category))))}))
+            </div>
+            <div class="content">
+                ◊when/splice[(member here concepts)]{
+                <input type="checkbox" id="side-toggle">
+                <label for="side-toggle">Alle Sidepanels auf-/zuklappen</label>
+                <!--<div class="meta">
+                    <a href="◊(find-link here (get-pdf-path here))" class="pdf" target="_blank" rel="noopener noreferrer">Konzept herunterladen</a>
+                </div>!-->}
+                ◊(->html doc)
+                <div class="adjacent-nav">
+                    ◊(define prev-page (previous here))
+                    ◊when/splice[prev-page]{
+                    <div id="prev">← <a href="/◊|prev-page|">◊(or (select 'h1 prev-page) "Ohne Titel")</a></div>}
+                    ◊(define next-page (next here))
+                    ◊when/splice[next-page]{
+                    <div id="next"><a href="/◊|next-page|">◊(or (select 'h1 next-page) "Ohne Titel")</a> →</div>}
+                </div>
+            </div>
+        </main>
+    <footer>
+        <p class="copyright">
+            © Hacker School ◊(get-year)
+        </p>
+        <div class="links">
+            <a href="https://hacker-school.de/datenschutz/">Datenschutz</a>
+            <a href="https://hacker-school.de/impressum/">Impressum</a>
+        </div>
+    </footer>
+    <script src="◊(find-link here 'get-path.js)"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+#lang pollen
+
+◊index.html{
+    ◊holy-graph/index.html{
+        ◊;holy-graph/libft.html
+		◊;holy-graph/Born2beRoot.html
+		◊;holy-graph/ft_printf.html
+		◊;holy-graph/gnl.html
+		◊;holy-graph/push_swap.html
+		◊;holy-graph/minitalk.html
+		◊;holy-graph/pipex.html
+		◊;holy-graph/so_long.html
+		◊;holy-graph/FdF.html
+		◊;holy-graph/fract_ol.html
+    }
+    ◊core/index.html{
+        ◊;core/Makefile-guide.html
+        ◊;core/libft-additions.html
+		◊;core/val-arrays.html
+    }
+    ◊cs-theory/index.html{
+        ◊;cs-theory/datatypes.html
+    }
+}
