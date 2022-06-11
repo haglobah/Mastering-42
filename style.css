@@ -35,11 +35,11 @@
 	
 	--clr-link: #97b6f0;
     --clr-link-hover: #6E98E8;
-    --bg-clr-active: #f8cef5;
-    --bg-clr-hover: #f1abdb;
+    --snd-clr-weak: #ecb1a2;
+    --snd-clr: #DC755C;
 
     --font-clr: #4B4E6D;
-	/*--bg-clr: #F9F4F5;*/ --bg-color: white;
+	/*--bg-clr: #F9F4F5;*/ --bg-color: #F3F3F3;
 
     --hover-transition: all ease-in-out 75ms;
 
@@ -113,7 +113,7 @@ details {
 }
 
 summary {
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--snd-clr-weak);
     line-height: 1;
     margin-bottom: 1rem;
     cursor: pointer;
@@ -121,6 +121,10 @@ summary {
 
 summary .heading {
     display: inline-block;
+}
+
+summary::marker {
+	color: var(--snd-clr-weak);
 }
 
 summary .subhead {
@@ -137,7 +141,7 @@ li, label {
 }
 
 li::marker{
-	color: #DC755C;
+	color: var(--snd-clr);
 }
 
 figure {
