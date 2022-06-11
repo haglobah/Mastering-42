@@ -129,7 +129,8 @@
   (case (current-poly-target)
     [(ltx pdf) (txexpr 'root empty elements)]
     [else (let ([output (decode-elements elements #:txexpr-elements-proc decode-paragraphs)])
-               (wrap-forms (process-nodes (txexpr 'root empty output))))]))
+               ;(wrap-forms (process-nodes (txexpr 'root empty output))))]))
+			   (process-nodes (txexpr 'root empty output)))]))
 
 ;TAG FUNCTIONS
 (define (title . elements)

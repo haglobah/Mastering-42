@@ -1,5 +1,4 @@
 /* Table of contents
-    0. Specifications and file imports
     1. General stylings and basic tags
     2. Main navigation bar
     3. Side navigation bar
@@ -10,78 +9,50 @@
     8. Adjacent navigation bar
     9. Footer */
 
-/* 0. Specifications and file imports */
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-@font-face {
-    font-family: "Overpass";
-    font-weight: bold;
-    font-style: italic;
-    src: url("src/Fonts/Overpass/Overpass-BoldItalic.ttf");
-}
-@font-face {
-    font-family: "Overpass";
-    font-weight: bold;
-    src: url("src/Fonts/Overpass/Overpass-Bold.ttf");
-}
-@font-face {
-    font-family: "Overpass";
-    font-style: italic;
-    src: url("src/Fonts/Overpass/Overpass-Italic.ttf");
-}
-@font-face {
-    font-family: "Overpass";
-    src: url("src/Fonts/Overpass/Overpass-Regular.ttf");
-}
-
-@font-face {
-    font-family: "Source Code Pro";
-    font-weight: bold;
-    font-style: italic;
-    src: url("src/Fonts/SourceCodePro/SourceCodePro-BoldItalic.ttf");
-}
-@font-face {
-    font-family: "Source Code Pro";
-    font-weight: bold;
-    src: url("src/Fonts/SourceCodePro/SourceCodePro-Bold.ttf");
-}
-@font-face {
-    font-family: "Source Code Pro";
-    font-style: italic;
-    src: url("src/Fonts/SourceCodePro/SourceCodePro-Italic.ttf");
-}
-@font-face {
-    font-family: "Source Code Pro";
-    src: url("src/Fonts/SourceCodePro/SourceCodePro-Regular.ttf");
-}
-
 /* 1. General stylings and basic tags */
 
 :root {
-    font-family: Overpass, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Fira Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 19px;
     line-height: 1.4;
     color: var(--font-clr);
     hyphens: auto;
 
-    --clr-link: #51c5e7;
-    --clr-link-hover: #34bae7;
-    --bg-clr-hover: #bae8f7;
-    --bg-clr-active: #d2eff9;
+/*    --clr-link: #7fced1;
+    --clr-link-hover: #00babc;
+    --bg-clr-active: #f8cef5;
+    --bg-clr-hover: #f1abdb;
 
-    --font-clr: #4f4f4f;
-    --bg-clr: #f3f3f3;
+    --font-clr: #4B4E6D;
+    --bg-clr: white;
+	   --clr-link: #7fced1;
+    --clr-link-hover: #00babc;
+    --bg-clr-active: #f8cef5;
+    --bg-clr-hover: #f1abdb;
+
+    --font-clr: #4B4E6D;
+    --bg-clr: white;*/   
+	
+	--clr-link: #97b6f0;
+    --clr-link-hover: #6E98E8;
+    --bg-clr-active: #f8cef5;
+    --bg-clr-hover: #f1abdb;
+
+    --font-clr: #4B4E6D;
+	--bg-clr: #F9F4F5;
 
     --hover-transition: all ease-in-out 75ms;
 
     --shadow-normal: rgba(0, 0, 0, 0.2) 2px 5px 10px -4px;
     --border-top-normal: 1px solid rgba(255, 255, 255, 0.1);
     --border-bottom-normal: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+	background-color: var(--bg-clr);
 }
 
 body {
@@ -101,11 +72,12 @@ h1, h2, h3, h4 {
     margin-bottom: 0.4em;
     text-transform: uppercase;
     font-size: 1.7em;
-    font-weight: lighter;
+    font-weight: 400;
     letter-spacing: 0.4px;
 }
 h1 {
     font-size: 2rem;
+	font-weight: 300;
 }
 h2 {
     font-size: 1.4rem;
@@ -152,6 +124,10 @@ li, label {
     line-height: 1.4;
 }
 
+li::marker{
+	color: #DC755C;
+}
+
 blockquote {
     margin: 1.5rem 3rem;
     font-style: italic;
@@ -194,30 +170,26 @@ pre > code {
     background: none;
 }
 
-@media screen and(min-width: 1000px) {
+@media screen and (min-width: 725px) {
     :root {
         hyphens: none;
-    }
-    h1 {
-        font-size: 3em;
     }
 }
 
 footer {
-    background-color: #e9ecef;
+    background-color: var(--bg-clr);
 }
 
 /* 2. Main navigation bar */
 
 nav {
-    height: 100px;
+    height: 50px;
     width: 100%;
     position: relative;
     display: flex;
     justify-content: stretch;
     align-items: center;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: 0.5rem;
     z-index: 10;
 }
 nav > * + * {
@@ -237,9 +209,9 @@ nav label[for=nav-toggle] {
     height: 24px;
     background-image: linear-gradient(
         var(--font-clr) 0% 20%,
-        white 20% 40%,
+        var(--bg-clr) 20% 40%,
         var(--font-clr) 40% 60%,
-        white 60% 80%,
+        var(--bg-clr) 60% 80%,
         var(--font-clr) 80% 100%
     );
     cursor: pointer;
@@ -266,32 +238,40 @@ nav a:hover {
     left: 0;
     right: 0;
     margin-left: 0;
-    background-color: white;
+    background-color: var(--bg-clr);
 }
 .nav-item {
     height: 100%;
-    padding: 1.5em 2em;
-    transition: var(--hover-transition);
+    margin: 1rem;
+
 }
 .nav-item.active {
-    background-color: var(--bg-clr-active);
+	margin-bottom: -2px;
+	border-bottom: 3px solid var(--clr-link);
 }
 .nav-item:hover {
     color: inherit;
-    background-color: var(--bg-clr-hover);
+	margin-bottom: -2px;
+	border-bottom: 3px solid var(--clr-link-hover);
 }
 
 .nav-logo {
     display: flex;
     align-items: center;
     justify-content: center;
+	margin-top: 1rem;
+}
+
+.nav-logo img{
+	padding-left: 3rem;
+	height: 100%;
 }
 
 #nav-toggle:checked ~ .nav-list {
     display: flex;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 725px) {
     nav label[for=nav-toggle] {
         display: none;
     }
@@ -315,8 +295,7 @@ nav a:hover {
 .sidenav {
     position: relative;
     width: 100%;
-    background-color: var(--bg-clr);
-    box-shadow: var(--shadow-normal);
+    box-shadow: none;
     flex-shrink: 0;
 }
 
@@ -329,24 +308,31 @@ nav a:hover {
     color: inherit;
     width: 100%;
     border-left: 0.5em solid transparent;
-    padding: 0.75em 1em;
+    padding: 0.4rem 1rem;
     transition: var(--hover-transition);
 }
 .nav-node.active > a {
-    background-color: var(--bg-clr-active);
+    border-color: var(--clr-link-hover);
+    border-width: 0;
+    padding: 10px 10px 10px;
+    border-left-width: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    border-style: solid;
 }
 .nav-node > a:hover {
     color: inherit;
-    background-color: var(--bg-clr-hover);
-    text-decoration: none;
+	text-decoration: underline;
+	text-decoration-thickness: 3px;
+	text-decoration-color: var(--clr-link-hover);
 }
 .nav-node > .nav-node > a {
     padding-left: 2em;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 725px) {
     .sidenav {
-        width: 300px;
+        width: 200px;
     }
 }
 
@@ -405,15 +391,15 @@ label[for="side-toggle"] {
 main {
     display: flex;
     flex-direction: column;
-    padding-top: 2em;
+    padding-top: 2rem;
 }
 
 .content {
     position: relative;
-    margin-left: 1em;
-    margin-top: 2em;
+    margin-left: 1rem;
+    margin-top: 2rem;
     text-align: right;
-    width: calc(100% - 2em);
+    width: calc(100% - 2rem);
 }
 
 root {
@@ -427,7 +413,7 @@ root {
 }
 
 code pre, .code pre, .linenos pre, .highlight > pre {
-    font-family: "Source Code Pro", monospace;
+    font-family: "Fira Code", monospace;
 }
 
 pre p {
@@ -449,7 +435,7 @@ pre p {
     vertical-align: top;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 725px) {
     main {
         flex-direction: row;
         align-items: flex-start;
@@ -458,7 +444,7 @@ pre p {
     .content {
         margin-top: 0;
         margin-left: 1em; /* info: for comments */
-        margin-right: 10em; /* info: for overlay panels */
+        margin-right: 8em; /* info: for overlay panels */
     }
 }
 
@@ -529,7 +515,7 @@ form {
     display: flex;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 725px) {
     .form-container > label {
         width: 2.6em;
         background-size: 95%;

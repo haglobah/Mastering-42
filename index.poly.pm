@@ -2,12 +2,11 @@
 
 ◊title{Mastering 42}
 
-Herzlich willkommen, und schön, dass ihr hergefunden habt. 
-Dies ist die Website, auf der ihr alle unsere Kurskonzepte finden könnt.
+Welcome, welcome, dear fellow travellers through the universe at 42.
 
 ◊heading[2]{◊link["holy-graph/index.html"]{The Holy Graph}}
 ◊li{
-    ◊;item{◊link["holy-graph/libft.html"]{Libft}}
+    ◊item{◊link["holy-graph/libft.html"]{Libft}}
 }
 
 ◊heading[2]{◊link["core/index.html"]{Additions to the Core}}
