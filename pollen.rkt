@@ -5,7 +5,7 @@
          pollen/unstable/pygments
          sha
          dyoo-while-loop)
-(provide title link b e heading sub quote-block sec requirements hint sec-hint ul ol li img code code-block side) ;"real" tag functions one might use
+(provide title link b e heading sub quote-block sec requirements hint sec-hint ul ol li img code c code-block side) ;"real" tag functions one might use
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path pagetree-code root latex-replace) ;Utilities - for use in the templates
 
 (module setup racket/base
@@ -286,6 +286,7 @@
   (case (current-poly-target)
     [(ltx pdf) (latex-escape (apply string-append elements))]
     [else (txexpr 'code empty elements)]))
+(define c code)
 
 (define (code-block language . lines)
   (define python "C:\\Users\\bente\\AppData\\Local\\Programs\\Python\\Python39\\python.exe")
