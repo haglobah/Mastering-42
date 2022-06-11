@@ -5,7 +5,7 @@
          pollen/unstable/pygments
          sha
          dyoo-while-loop)
-(provide title link b e heading sub quote-block sec requirements hint sec-hint li num-li item img code code-block side) ;"real" tag functions one might use
+(provide title link b e heading sub quote-block sec requirements hint sec-hint ul ol li img code code-block side) ;"real" tag functions one might use
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path pagetree-code root latex-replace) ;Utilities - for use in the templates
 
 (module setup racket/base
@@ -234,17 +234,17 @@
                       ))])
     (error "not a valid type for hint")))
 
-(define (li . elements)
+(define (ul . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))]
 		[else (txexpr 'ul empty elements)]))
 
-(define (num-li . elements)
+(define (ol . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\begin{enumerate}" ,@elements "\\end{enumerate}"))]
 		[else (txexpr 'ol empty elements)]))
 
-(define (item . elements)
+(define (li . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\item " ,@elements "\\par"))]
 		[else (txexpr 'li empty elements)]))
