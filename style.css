@@ -128,11 +128,26 @@ li::marker{
 	color: #DC755C;
 }
 
-blockquote {
+figure {
     margin: 1.5rem 3rem;
-    font-style: italic;
-    font-size: 0.9rem;
-  }
+}
+
+blockquote {
+	font-family: 'Fira Code', monospace;
+	color: var(--clr-link-hover);
+	font-size: 0.9rem;
+}
+
+figcaption {
+	font-style: italic;
+	font-size: 0.9rem;
+	text-align: right;
+}
+
+figcaption p:before {
+	content: '—';
+	left: 2em;
+}
 
 .hint {
     padding: 12px 0px;

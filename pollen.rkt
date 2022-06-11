@@ -5,7 +5,7 @@
          pollen/unstable/pygments
          sha
          dyoo-while-loop)
-(provide title link b emph heading sub quote-block sec requirements hint sec-hint li num-li item img code code-block side) ;"real" tag functions one might use
+(provide title link b e heading sub quote-block sec requirements hint sec-hint li num-li item img code code-block side) ;"real" tag functions one might use
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path pagetree-code root latex-replace) ;Utilities - for use in the templates
 
 (module setup racket/base
@@ -148,15 +148,20 @@
     [(ltx pdf) (apply string-append `("{\\bf " ,@elements "}"))]
 		[else (txexpr 'b empty elements)]))
 
-(define (emph . elements)
+(define (e . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
 		[else (txexpr 'i empty elements)]))
 
-(define (quote-block . elements)
+(define (quote-block #:author [author ""]. elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-    [else (txexpr 'blockquote empty elements)]))
+    [else (if (equal? author "")
+			  (txexpr 'figure empty `(,(txexpr 'blockquote empty elements)))
+			  (txexpr 'figure
+			  		  empty
+			  		  `(,(txexpr 'blockquote empty elements)
+					    ,(txexpr 'figcaption empty `(,(txexpr 'p empty `(,author)))))))]))
 
 (define (sub . elements)
   (case (current-poly-target)
