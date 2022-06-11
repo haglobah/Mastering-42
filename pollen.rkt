@@ -133,25 +133,20 @@
 			   (process-nodes (txexpr 'root empty output)))]))
 
 ;TAG FUNCTIONS
-(define (title . elements)
-  (case (current-poly-target)
-    [(ltx pdf) (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))]
-		[else (txexpr 'h1 empty elements)]))
-
 (define (link url . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\href{" ,url "}{" ,@elements "}"))]
-		[else (txexpr 'a `((href ,url)) elements)]))
+	[else (txexpr 'a `((href ,url)) elements)]))
 
 (define (b . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("{\\bf " ,@elements "}"))]
-		[else (txexpr 'b empty elements)]))
+	[else (txexpr 'b empty elements)]))
 
 (define (e . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-		[else (txexpr 'i empty elements)]))
+	[else (txexpr 'i empty elements)]))
 
 (define (quote-block #:author [author ""]. elements)
   (case (current-poly-target)
@@ -168,6 +163,13 @@
     [(ltx pdf) (apply string-append '(" "))]
     [else (txexpr 'h4 '((class "subhead")) elements)]))
 
+(define (title #:sub [subtitle ""] . elements)
+  (case (current-poly-target)
+    [(ltx pdf) (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))]
+	[else (txexpr 'div '((class "heading title")) 
+		  `(,(txexpr 'h1 empty elements)
+		    ,(sub subtitle)))]))
+
 (define (heading level . elements)
   (if (> level 3)
       (error "Lasst uns keine zu kleinschrittigen Überschriften machen (nicht größer als 3)")
@@ -175,9 +177,10 @@
         [(ltx pdf) (cond [(= level 1) (apply string-append `("\\par{\\LARGE " ,@elements "\\par} \\vspace{1.0em}"))]
                          [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
                          [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])]
-		    [else (txexpr (string->symbol (string-append "h" (number->string (+ level 1))))
+		    [else (txexpr 'div '((class "heading"))
+				  `(,(txexpr (string->symbol (string-append "h" (number->string (+ level 1))))
                       empty
-                      elements)])))
+                      elements)))])))
 
 (define (sec title level #:sub [subtitle ""] . elements)
 	(case (current-poly-target)
@@ -190,9 +193,9 @@
 					                    empty
 				                     `(,(heading level
 					                               title)
-                               ,(if (equal? subtitle "")
-                                    "" 
-                                    (sub subtitle))))
+                            		   ,(if (equal? subtitle "")
+                                    		"" 
+                                    		(sub subtitle))))
 				            ,(txexpr 'p empty `(,(car elements))) "\n" ,@(cdr elements)))]))
 
 (define (requirements . elements)

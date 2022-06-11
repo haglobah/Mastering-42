@@ -68,13 +68,20 @@ a:hover {
     text-decoration: underline;
 }
 
+.heading {
+    margin-bottom: 0.5rem;
+}
+
+.title {
+	margin-bottom: 1rem;
+}
+
 h1, h2, h3, h4 {
-    margin-bottom: 0.4em;
-    text-transform: uppercase;
-    font-size: 1.7em;
+	text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 0.4px;
 }
+
 h1 {
     font-size: 2rem;
 	font-weight: 300;
