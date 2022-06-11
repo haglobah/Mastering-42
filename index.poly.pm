@@ -29,9 +29,9 @@ Welcome, welcome, dear fellow travellers through the universe of 42 :)
 	}
 }
 
-◊heading[2]{◊link["holy-graph/index.html"]{The Holy Graph}}
+◊heading[2]{◊link["holy_graph/index.html"]{The Holy Graph}}
 ◊ul{
-    ◊li{◊link["holy-graph/libft.html"]{Libft}}
+    ◊li{◊link["holy_graph/libft.html"]{Libft}}
 }
 
 ◊heading[2]{◊link["core/index.html"]{Additions to the Core}}
@@ -39,8 +39,8 @@ Welcome, welcome, dear fellow travellers through the universe of 42 :)
     ◊;li{◊link["core/Makefiles.html"]{Writing Makefiles}}
 }
 
-◊heading[2]{◊link["cs-theory/index.html"]{Computer Science Theory}}
+◊heading[2]{◊link["cs_theory/index.html"]{Computer Science Theory}}
 ◊ul{
-    ◊;li{◊link["cs-theory.html"]{Compound Data Types}}
+    ◊;li{◊link["cs_theory.html"]{Compound Data Types}}
 }
 ◊;(pagetree-code)
