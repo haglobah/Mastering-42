@@ -2,9 +2,9 @@
 
 ◊title[#:sub "by bhagenlo"]{libft}
 
-Your library at 42 School. Your first project.
+◊narr{Your library at 42 School. Your first project.
 
-And therefore, first things first. You're new here, things are overwhelming. That's okay.
+And therefore, first things first. You're new here, things are overwhelming. That's okay.}
 
 And even more so a reason listen carefully to this advice we want to give: 
 ◊quote-block{
@@ -36,6 +36,12 @@ While working on your libft, you'll (need) get to know:
 		◊li{Freeing your memory afterwards, using ◊code{free()}}
 	}
 }
+We think you should also get to know:
+◊ul{
+	◊li{How to use the VSCode Debugger – at least as soon as you experience your first segfault ;)}
+}
+
+◊(hline)
 
 Some Tasks where it makes even more sense than normally to think ◊e{before} you start with coding:
 ◊ul{
@@ -53,6 +59,8 @@ Not so much here, as the subject matter is comparatively clear about the task at
 ◊ul{
 	◊li{What value does you ◊code{ft_strlcat()} return? And how many bytes does it append? Is it always ◊code{NULL}-terminating your string?}
 	◊li{What happens when a ◊code{malloc} inside your ◊code{ft_split} fails? Are you freeing all of previously allocated splits?}
+	◊li{What does ◊c{Your Makefile must not relink} mean? Did you make sure it does not?How can you check for that?}
+	◊irr{ ◊li{And don't forget about the other checks: Norm, Repo empty, Crashes, Memory Leaks :)}}
 }
 }
 
@@ -72,7 +80,7 @@ Let's make sure you memorize stuff you'll need for the future. Some tasks for yo
 		◊li{◊c{ft_str_isin_strs(char *needle, char **needle-box)}}
 	}
 }
-And because I don't want to be mean – here is the header code ;)
+And because I don't want to be mean – here is the header code:
 
 ◊code-block['c]{
 int	ft_strcmp(char *s1, char *s2);
@@ -80,13 +88,13 @@ int	ft_c_isin_str(char c, char *str);
 int	ft_str_isin_strs(char *needle, char **box_of_needles);
 }
 
-With that, you should be good to go. See you :)
+◊narr{With that, you should be good to go. See you :)}
+
+}
 
 ◊sec["Pointers" 1]{
 ◊ul{
 	◊li{◊link["https://www.gnu.org/software/libc/manual/html_node/"]{The GNU Libc Documentation}}
 	◊li{◊link["https://lmgtfy.app/?q=libft"]{(As well as all the additional search suggestions :))}}
 }
-}
-
 }

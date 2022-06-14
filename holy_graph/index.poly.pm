@@ -2,8 +2,9 @@
 
 ◊title{The Holy Graph}
 
-Hi! In here, you (hopefully) can find everything you need to properly get started, work through and finish every project. 
-(And don't forget your aftercare – or don't you want to really make sure you understood properly what exactly you did, and are ready to go for the next? ;))
+◊narr{Hi! In here, you (hopefully) can find everything you need to properly get started, work through and finish every project.
+
+(And don't forget your aftercare – or don't you want to really make sure you understood properly what exactly you did, and are ready to go for the next? ;))}
 
 ◊heading[1]{What does that mean?}
 This means we'll try to group stuff we think you should know about a project into specific areas, namely:
@@ -19,6 +20,7 @@ This means we'll try to group stuff we think you should know about a project int
 	◊li{◊e{Aftercare}}
 }
 
+◊h[1]{Our Assumptions}
 For every project, we will assume that:
 ◊ul{
 	◊li{You have read the ◊code{subject.pdf} of the project}
@@ -35,6 +37,6 @@ We will not assume that:
 
 In short, this guide tries to be the nice buddy you always can ask about stuff ◊e{and} is giving you pointers where your code still might have issues.
 
-With that under your belt, you should be able to start your journey!
+◊narr{With that under your belt, you should be able to start your journey!
 
-See you soon ;)
+See you soon ;)}

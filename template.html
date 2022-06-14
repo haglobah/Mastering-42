@@ -77,10 +77,10 @@
                 <div class="adjacent-nav">
                     ◊(define prev-page (previous here))
                     ◊when/splice[prev-page]{
-                    <div id="prev">← <a href="/◊|prev-page|">◊(or (select 'h1 prev-page) "Without Title")</a></div>}
+                    <div id="prev">← <a href=◊(string-append "Mastering-42/" (symbol->string prev-page))>◊(or (select 'h1 prev-page) "Without Title")</a></div>}
                     ◊(define next-page (next here))
                     ◊when/splice[next-page]{
-                    <div id="next"><a href="/◊|next-page|">◊(or (select 'h1 next-page) "Without Title")</a> →</div>}
+                    <div id="next"><a href=◊(string-append "Mastering-42/" (symbol->string next-page))>◊(or (select 'h1 next-page) "Without Title")</a> →</div>}
                 </div>
             </div>
         </main>
