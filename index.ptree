@@ -14,6 +14,7 @@
 		◊;holy_graph/fract_ol.html
     }
     ◊core/index.html{
+		core/vscode_debugger.html
         ◊;core/Makefile-guide.html
         ◊;core/libft-additions.html
 		◊;core/val-arrays.html
