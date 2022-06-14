@@ -33,8 +33,9 @@
     --font-clr: #4B4E6D;
     --bg-clr: white;*/   
 	
-	--clr-link: #97b6f0;
-    --clr-link-hover: #6E98E8;
+	--fst-clr-bg: #f1f5ff;
+	--fst-clr-weak: #97b6f0;
+    --fst-clr: #6E98E8;
     --snd-clr-weak: #ecb1a2;
     --snd-clr: #DC755C;
 
@@ -60,20 +61,22 @@ body {
 }
 
 a {
-    color: var(--clr-link);
+    color: var(--fst-clr-weak);
     text-decoration: none;
 }
 a:hover {
-    color: var(--clr-link-hover);
+    color: var(--fst-clr);
     text-decoration: underline;
 }
 
 .heading {
-    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--snd-clr-weak);
+    margin-bottom: 1rem;
 }
 
 .title {
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
 }
 
 .title .subhead{
@@ -100,13 +103,32 @@ h4 {
     font-size: 0.95rem;
 }
 
-.subhead{
+.subhead {
     opacity: 0.5;
 }
 
 p {
 	margin-bottom: 0.7rem;
     line-height: 1.4;
+}
+
+.narrator {
+	opacity: 0.7;
+	font-family: 'Fira Code', monospace;
+	font-size: 0.87rem;
+	margin-bottom: 0.7rem;
+}
+
+.irrelevant {
+	opacity: 0.3;
+}
+
+.divisor {
+	margin: 1rem 1rem 1rem 2rem;
+	width: 70%;
+	justify-content: center;
+	background-color: var(--snd-clr-weak);
+	border-top: 1px solid var(--snd-clr-weak);
 }
 
 details {
@@ -122,6 +144,8 @@ summary {
 
 summary .heading {
     display: inline-block;
+	border-bottom: none;
+	margin-bottom: 0.5rem;
 }
 
 summary::marker {
@@ -133,12 +157,13 @@ summary .subhead {
 }
 
 ol, ul {
-    padding-left: 1.5em;
-    margin-bottom: 1em;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 li, label {
     line-height: 1.4;
+	margin-bottom: 0.2rem;
 }
 
 li::marker{
@@ -151,7 +176,7 @@ figure {
 
 blockquote {
 	font-family: 'Fira Code', monospace;
-	color: var(--clr-link-hover);
+	color: var(--fst-clr);
 	font-size: 0.9rem;
 }
 
@@ -206,10 +231,6 @@ pre > code {
     :root {
         hyphens: none;
     }
-}
-
-footer {
-    background-color: var(--bg-clr);
 }
 
 /* 2. Main navigation bar */
@@ -279,12 +300,12 @@ nav a:hover {
 }
 .nav-item.active {
 	margin-bottom: -2px;
-	border-bottom: 3px solid var(--clr-link);
+	border-bottom: 3px solid var(--fst-clr-weak);
 }
 .nav-item:hover {
     color: inherit;
 	margin-bottom: -2px;
-	border-bottom: 3px solid var(--clr-link-hover);
+	border-bottom: 3px solid var(--fst-clr);
 }
 
 .nav-logo {
@@ -344,7 +365,7 @@ nav a:hover {
     transition: var(--hover-transition);
 }
 .nav-node.active > a {
-    border-color: var(--clr-link-hover);
+    border-color: var(--fst-clr);
     border-width: 0;
     padding: 10px 10px 10px;
     border-left-width: 4px;
@@ -356,7 +377,7 @@ nav a:hover {
     color: inherit;
 	text-decoration: underline;
 	text-decoration-thickness: 3px;
-	text-decoration-color: var(--clr-link-hover);
+	text-decoration-color: var(--fst-clr);
 }
 .nav-node > .nav-node > a {
     padding-left: 2em;
@@ -643,8 +664,10 @@ form {
 
 footer {
     text-align: center;
-    background-color: var(--bg-clr);
     padding: 2em;
+	border-top: 1px solid var(--fst-clr-bg);
+    background-color: var(--fst-clr-bg);
+
 }
 .links {
     display: flex;

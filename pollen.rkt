@@ -5,8 +5,10 @@
          pollen/unstable/pygments
          sha
          dyoo-while-loop)
-(provide title link b e heading sub quote-block sec requirements hint sec-hint ul ol li img code c code-block side) ;"real" tag functions one might use
-(provide find-link get-date get-year get-folder-name compare-path get-pdf-path pagetree-code root latex-replace) ;Utilities - for use in the templates
+(provide title link b e irr heading h sub quote-block sec requirements hint sec-hint ul ol li img 
+	code c code-block narr hline side) ;"real" tag functions one might use
+(provide find-link get-date get-year get-folder-name compare-path get-pdf-path 
+	pagetree-code root latex-replace) ;Utilities - for use in the templates
 
 (module setup racket/base
 	(provide (all-defined-out))
@@ -158,6 +160,21 @@
 			  		  `(,(txexpr 'blockquote empty elements)
 					    ,(txexpr 'figcaption empty `(,(txexpr 'p empty `(,author)))))))]))
 
+(define (narr . elements)
+	(case (current-poly-target)
+	[(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
+	[else (txexpr 'div '((class "narrator")) elements)]))
+
+(define (irr . elements)
+	(case (current-poly-target)
+	[(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
+	[else (txexpr 'div '((class "irrelevant")) elements)]))
+
+(define (hline)
+	(case (current-poly-target)
+	[(ltx pdf) (apply string-append `("\\hrule"))]
+	[else (txexpr 'hr '((class "divisor")) empty)]))
+
 (define (sub . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append '(" "))]
@@ -166,13 +183,13 @@
 (define (title #:sub [subtitle ""] . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))]
-	[else (txexpr 'div '((class "heading title")) 
+	[else (txexpr 'div '((class "title")) 
 		  `(,(txexpr 'h1 empty elements)
 		    ,(sub subtitle)))]))
 
 (define (heading level . elements)
   (if (> level 3)
-      (error "Lasst uns keine zu kleinschrittigen Überschriften machen (nicht größer als 3)")
+      (error "Not so many headings, please :) (not more than 3)")
 	    (case (current-poly-target)
         [(ltx pdf) (cond [(= level 1) (apply string-append `("\\par{\\LARGE " ,@elements "\\par} \\vspace{1.0em}"))]
                          [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
@@ -181,14 +198,15 @@
 				  `(,(txexpr (string->symbol (string-append "h" (number->string (+ level 1))))
                       empty
                       elements)))])))
+(define h heading)
 
-(define (sec title level #:sub [subtitle ""] . elements)
+(define (sec title level #:sub [subtitle ""] #:open? [open #t] . elements)
 	(case (current-poly-target)
     [(ltx pdf) (cond [(= level 1) (apply string-append `("\\section{" ,title"}" ,@elements))]
                      [(= level 2) (apply string-append `("\\subsection{" ,title"}" ,@elements))]
                      [(= level 3) (apply string-append `("\\subsubsection{" ,title"}" ,@elements))])] ;include #:subs
 		[else (txexpr 'details
-			            '((open ""))
+			            (if open '((open "")) empty)
 			            `(,(txexpr 'summary
 					                    empty
 				                     `(,(heading level
@@ -289,7 +307,6 @@
 (define c code)
 
 (define (code-block language . lines)
-  (define python "C:\\Users\\bente\\AppData\\Local\\Programs\\Python\\Python39\\python.exe")
   (define txcode (if (symbol? language)
                      (highlight language (apply string-append lines))
                      (highlight (string->symbol language) (apply string-append lines))))
