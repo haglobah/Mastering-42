@@ -316,9 +316,9 @@
     [else (txexpr 'code empty elements)]))
 (define c code)
 
-(define (code-block language . lines)
+(define (code-block language #:nums? [nums #t] . lines)
   (define txcode (if (symbol? language)
-                     (highlight language (apply string-append lines))
+                     (highlight language #:line-numbers? nums (apply string-append lines))
                      (highlight (string->symbol language) (apply string-append lines))))
   (case (current-poly-target)
     [(ltx pdf) (code->latex txcode)]
