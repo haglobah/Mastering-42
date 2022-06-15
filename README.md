@@ -2,7 +2,7 @@
 less pain, more gain. An opinionated strategy guide on how to get the most out of 42 School, and/or learning to program in general.
 
 This guide is written from 42 Students for 42 Students. 
-Its [website](haglobah.github.io/Mastering-42) is built on top of [Pollen](pollenpub.com). 
+Its [website](https://haglobah.github.io/Mastering-42) is built on top of [Pollen](https://pollenpub.com). 
 
 # Why?
 You probably only got to this guide in the first place because there was something missing you needed to properly go on with your work at 42. 
@@ -12,8 +12,8 @@ With this guide, we try to get everyone of us the teammate we would've liked to 
 
 # Getting up and Running
 
-1. Download & Install [Racket](racket-lang.org): download.racket-lang.org
-2. Install [Pollen](pollenpub.com):
+1. Download & Install [Racket](https://racket-lang.org): [download.racket-lang.org](https://download.racket-lang.org)
+2. Install [Pollen](https://pollenpub.com):
 ```
 λ raco pkg install pollen
 ```
