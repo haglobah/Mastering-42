@@ -166,6 +166,10 @@ li, label {
 	margin-bottom: 0.2rem;
 }
 
+.ol-mark, .ul-mark {
+	color: var(--snd-clr);
+}
+
 li::marker{
 	color: var(--snd-clr);
 }
@@ -195,9 +199,8 @@ figcaption p:before {
     padding: 12px 0px;
 }
 
-.info {
-    background-color: #f5f7f9;
-    border-color: #8cb3ff;
+.info, .warning, .error, .resolved {
+	background-color: #f5f7f9;
     border-width: 0;
     padding: 14px 10px 1px 10px;
     border-top-left-radius: 4px;
@@ -206,6 +209,22 @@ figcaption p:before {
     box-sizing: border-box;
     width: 100%;
     border-style: solid;
+}
+
+.info {
+	border-color: #8cb3ff;
+}
+
+.warning {
+	border-color: #fdf180da;
+}
+
+.error {
+	border-color: #ff8c8c;
+}
+
+.resolved {
+	border-color: #82f382;
 }
 
 .info summary {
@@ -457,7 +476,7 @@ main {
 
 root {
     display: block;
-    max-width: 38rem;
+    max-width: 32rem;
     width: 80%;
     position: relative;
     margin-left: auto;
