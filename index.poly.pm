@@ -6,7 +6,7 @@ An opinionated strategy guide on how to get the most out of 42.
 HERE
 ]{Mastering 42}
 
-Welcome, welcome, dear fellow travellers through the universe of 42 :)
+◊narr{Welcome, welcome, dear fellow travellers through the universe of 42 :)}
 
 ◊sec["Whom is this guide for?" 1]{
 	For anyone who wants to learn more while doing the 42 Curriculum. 
@@ -20,7 +20,7 @@ Welcome, welcome, dear fellow travellers through the universe of 42 :)
 
 ◊sec["Purpose & Goals" 1]{
 	This book is written for the ones who want to learn more than needed to complete the projects.
-	I'd like to provide:
+	We'd like to provide:
 	◊ul{
 		◊li{A Map of the terrain next to each project, and from one to another.}
 		◊li{A good mindset to learn stuff.}
