@@ -31,7 +31,7 @@ Welcome, welcome, dear fellow travellers through the universe of 42 :)
 
 ◊heading[2]{◊link["holy_graph/index.html"]{The Holy Graph}}
 ◊ul{
-    ◊li{◊link["holy_graph/libft.html"]{Libft}}
+    ◊;li{◊link["holy_graph/libft.html"]{Libft}}
 }
 
 ◊heading[2]{◊link["core/index.html"]{Additions to the Core}}
