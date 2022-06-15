@@ -59,7 +59,7 @@ Not so much here, as the subject matter is comparatively clear about the task at
 ◊ul{
 	◊li{What value does you ◊code{ft_strlcat()} return? And how many bytes does it append? Is it always ◊code{NULL}-terminating your string?}
 	◊li{What happens when a ◊code{malloc} inside your ◊code{ft_split} fails? Are you freeing all of previously allocated splits?}
-	◊li{What does ◊c{Your Makefile must not relink} mean? Did you make sure it does not?How can you check for that?}
+	◊li{What does ◊e{Your Makefile must not relink} mean? Did you make sure it does not? How can you check for that?}
 	◊irr{ ◊li{And don't forget about the other checks: Norm, Repo empty, Crashes, Memory Leaks :)}}
 }
 }
@@ -69,10 +69,10 @@ Are your evals over and Moulinette let you through? Congrats! :)
 
 Let's make sure you memorize stuff you'll need for the future. Some tasks for you:
 
-(The modus here is called ◊e{practice testing} – meaning: take some time, don't use help, but just try very hard to retrieve the information. Please check your mistaked immediately afterwards.)
+◊narr{The modus here is called ◊e{practice testing} – meaning: take some time, don't use help, but just try very hard to retrieve the information. Please check your mistakes immediately afterwards.}
 ◊ul{
-	◊li{Write the Makefile for your libft from Scratch. The filenames are completely unimportant, rather try to get the overall structure right.}
-	◊li{Write the Header for the libft from Scratch. Same again: The function names are not that important (ever though it is nice if you remember them ;)). Try to get the overall structure right.}
+	◊li{Write the Makefile for your libft from scratch. The filenames are completely unimportant, rather try to get the overall structure right.}
+	◊li{Write the header file for the libft from scratch. Same again: The function names are not that important (ever though it is nice if you remember them ;)). Try to get the overall structure right.}
 	◊li{Include some other (arguably even more useful) functions into your libft. An (incomplete) list of ideas:}
 	◊ul{
 		◊li{◊code{ft_strcmp(char *s1, char *s2)}}

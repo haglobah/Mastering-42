@@ -15,7 +15,7 @@
     }
     ◊core/index.html{
 		core/vscode_debugger.html
-        ◊;core/Makefile-guide.html
+        core/makefiles.html
         ◊;core/libft-additions.html
 		◊;core/val-arrays.html
     }
