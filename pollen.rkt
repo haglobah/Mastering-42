@@ -5,8 +5,8 @@
          pollen/unstable/pygments
          sha
          dyoo-while-loop)
-(provide title link b e irr heading h sub quote-block sec requirements hint sec-hint ul ol li img 
-	code c code-block narr hline side) ;"real" tag functions one might use
+(provide title link b e irr heading h sub quote-block sec requirements hint sec-hint 
+	ul ol li ul-mark ol-mark img code c code-block narr hline side) ;tag functions: use in *.poly.pm
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path 
 	pagetree-code root latex-replace) ;Utilities - for use in the templates
 
@@ -227,18 +227,18 @@
 				            ,(txexpr 'p empty `(,(car elements))) "\n" ,@(cdr elements)))]))
 
 (define (hint #:type [type "info"] . elements)
-  (if (member type '("info"))
+  (if (member type '("info" "warning" "error" "resolved"))
     (case (current-poly-target)
       [(ltx pdf) (apply string-append `(,@elements))]
       [else (txexpr 'div 
-                    '((class "hint")) 
+                    '((class "hint"))
                     `(,(txexpr 'div
-                               `((class ,type)) 
+                               `((class ,type))
                                elements)))])
     (error "not a valid type for hint")))
 
 (define (sec-hint title #:type [type "info"] . elements)
-  (if (member type '("info"))
+  (if (member type '("info" "warning" "error" "resolved"))
     (case (current-poly-target)
       [(ltx pdf) (apply string-append `(,@elements))]
       [else (txexpr 'div 
@@ -266,6 +266,16 @@
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\item " ,@elements "\\par"))]
 		[else (txexpr 'li empty elements)]))
+
+(define (ol-mark . elements)
+	(case (current-poly-target)
+    [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
+		[else (txexpr 'span '((class "ol-mark")) elements)]))
+
+(define (ul-mark . elements)
+	(case (current-poly-target)
+    [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
+		[else (txexpr 'span '((class "ul-mark")) elements)]))
 
 (define (img url #:height [height 0] #:width [width 0] . caption)
   (case (current-poly-target)
