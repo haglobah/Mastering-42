@@ -25,6 +25,16 @@ With this guide, we try to get everyone of us the teammate we would've liked to 
 ```
 5. edit some file; reload your browser window; see the change.
 
+# How do I get that damn "♢"?
+If you're using VS Code, open your ```keybindings.json``` and paste the following:
+```
+{"key": "ctrl+alt+l",
+ "command": "type",
+ "args": {
+ "text": "◊"},
+ "when": "editorTextFocus"}
+ ```
+
 # Contributing
 
 If you miss anything, feel free to create a Pull request, file an issue, or just write me on Slack (Intra: bhagenlo). 
