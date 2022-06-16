@@ -22,7 +22,7 @@
 Paste following code into the launch.json:
 
 ◊code-block['json]{
-	{
+    {
         // Use IntelliSense to learn about possible attributes.
         // Hover to view descriptions of existing attributes.
         // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
@@ -32,7 +32,7 @@ Paste following code into the launch.json:
                 "name": "Launch",
                 "type": "cppdbg",
                 "program": "${workspaceFolder}/<executable Name>",
-				"args": [],
+                "args": [],
                 "cwd": "${workspaceFolder}",
                 "request": "launch",
                 "MIMode": "lldb"
@@ -47,10 +47,10 @@ You need to change the value for "program" to the path to the executable and if 
     For example if you want to call your main.exe with the arguments 1 2 3: ("main.exe 
     1 2 3")
     ◊code-block['json]{
-		// ...
+        // ...
         "program": "${workspaceFolder}/main.exe",
         "args": ["1", "2", "3"],
-		// ...
+        // ...
     }
 }
 
