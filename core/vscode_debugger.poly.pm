@@ -2,7 +2,7 @@
 
 ◊title[#:sub "by tpeters"]{VSCode Debugger}
 
-◊sec["Compile with -g flag" 1]{
+◊sec["Compile with -g flag" 1 #:open? #f]{
     To debug your code you need to compile it with the –g flag. You don't need to compile every file with that flag, just the files you want to debug. (e.g. If you're on a project which allows the use of the Libft, then you probably don't need to compile the Libft with the extra flag but only the "new" code) One easy way to do this is by adding a target-specific variable value to your CFLAGS-Variable and adding a debug Target:
     ◊code-block['Makefile]{
         CFLAGS = -Wall -Wextra –Werror
@@ -12,10 +12,10 @@
     }
 }
 
-◊sec["Create a launch.json File" 1]{
+◊sec["Create a launch.json File" 1 #:open? #f]{
     To create the launch.json select a .c file in the editor and klick on the button on the Left and Press on the "create a launch.json file".
     ◊img["../src/Images/vscode_debugger/run_and_debug_button.png"]{}
-    Then press on the “C++ (GDB/LLDB)”, since we want to use the gdb debugger and the new launch.json should open in the editor.
+    Then press on the “C++ (GDB/LLDB)”, since we want to use the gdb/lldb debugger and the new launch.json should open in the editor.
     ◊img["../src/Images/vscode_debugger/select_gdb.png"]{}
 }
 
@@ -29,49 +29,39 @@ Paste following code into the launch.json:
         "version": "0.2.0",
         "configurations": [
             {
-                "name": "(gdb) Launch",
+                "name": "Launch",
                 "type": "cppdbg",
-                "request": "launch",
                 "program": "${workspaceFolder}/<executable Name>",
                 "args": [],
-                "stopAtEntry": false,
                 "cwd": "${workspaceFolder}",
-                "environment": [],
-                "externalConsole": false,
-                "MIMode": "gdb",
-                "setupCommands": [
-                    {
-                    	"description": "Enable pretty-printing for gdb",
-                    	"text": "-enable-pretty-printing",
-                    	"ignoreFailures": true
-                    }
-                ]
+                "request": "launch",
+                "MIMode": "lldb"
             }
         ]
     }
 }
 
-You need to change the value for "program" to the path to the executable and if your program needs any arguments you can specify them in "args".
+You need to change the value for "program" to the path to the executable and if your program needs any arguments you can specify them in "args". If you're running your project at home on a linux/windows you can try changing the "MIMode" to "gdb".
 
-◊sec["Example" 1]{
+◊sec["Example" 1 #:open? #f]{
     For example if you want to call your main.exe with the arguments 1 2 3: ("main.exe 
     1 2 3")
     ◊code-block['json]{
-		// ...
+        // ...
         "program": "${workspaceFolder}/main.exe",
         "args": ["1", "2", "3"],
-		// ...
+        // ...
     }
 }
 
-◊sec["Running the Debugger" 1]{
+◊sec["Running the Debugger" 1 #:open? #f]{
     On the left the big blue "Run and Debug" button should disappear now and you can now see a small green triangle at the top next to the name specified in the "name" of the json.
     ◊img["../src/Images/vscode_debugger/green_triangle.png"]{}
     If you now press F5 (or press that smol green triangle) your program should be executed and if it has any output you should also be able to see that in the debug-terminal:
     ◊img["../src/Images/vscode_debugger/debugoutput.png"]{}
 }
 
-◊sec["The useful stuff a Debugger can do for you" 1]{
+◊sec["The useful stuff a Debugger can do for you" 1 #:open? #f]{
     ◊img["../src/Images/vscode_debugger/breakpoint.png"]{}
     If you go to one of your c files and set a Breakpoint by clicking to the left of that code line and then start the Debugger (F5/green triangle) the code gets executed until that Breakpoint but not further:(e.g. look at the terminal output for this example)
     ◊img["../src/Images/vscode_debugger/running_debugger.png"]{}
