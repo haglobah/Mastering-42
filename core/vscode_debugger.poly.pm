@@ -4,7 +4,7 @@
 
 ◊sec["Compile with -g flag" 1 #:open? #f]{
     To debug your code you need to compile it with the –g flag. You don't need to compile every file with that flag, just the files you want to debug. (e.g. If you're on a project which allows the use of the Libft, then you probably don't need to compile the Libft with the extra flag but only the "new" code) One easy way to do this is by adding a target-specific variable value to your CFLAGS-Variable and adding a debug Target:
-    ◊code-block['Makefile]{
+    ◊code-block['make]{
         CFLAGS = -Wall -Wextra –Werror
         # ...
         debug : CFLAGS += -g

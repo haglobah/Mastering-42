@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" value="Writing Makefiles (at 42)">
+        <meta property="og:image" value="../src/Images/42_logo.png">
+        <title>Writing Makefiles (at 42)</title> <!-- or core\makefiles.html -->
+                <link rel="stylesheet" href="../fonts.css">
+                <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../pygments.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a class="nav-logo" href="../index.html">
+                                        <!--<h3>Mastering</h3> -->
+                    <img src="../src/Images/42_logo_big.jpg" alt="Mastering 42">
+                </a>
+                <input type="checkbox" name="hamburger-button" id="nav-toggle">
+                <div class="nav-list">
+                    <a href="../holy_graph/index.html" class="nav-item">holy_graph</a><a href="index.html" class="nav-item active">core</a><a href="../cs_theory/index.html" class="nav-item">cs_theory</a>
+                </div>
+                <label for="nav-toggle"></label>
+            </nav>
+        </header>
+        <main>
+            <div class="sidenav">
+           <div class="nav-node"><a href="../holy_graph/index.html">holy_graph</a></div><div class="nav-node"><a href="index.html">core</a><div class="nav-node"><a href="vscode_debugger.html">VSCode Debugger</a></div><div class="nav-node active"><a href="makefiles.html">Writing Makefiles (at 42)</a></div></div><div class="nav-node"><a href="../cs_theory/index.html">cs_theory</a></div>
+            </div>
+            <div class="content">
+
+                <root><div class="title"><h1>Writing Makefiles (at 42)</h1><h4 class="subhead">by bhagenlo</h4></div><div class="heading"><h2>Why Makefiles?</h2></div><p>Makefiles are there to automate the build process for us. They get used by <code>make</code> for compiling programs according to the rules in them.</p><p>The idea is that, in the end, we only have to write</p><div class="highlight"><div class="source"><pre><span></span>λ make
+...
+</pre></div></div><p>instead of</p><div class="highlight"><div class="source"><pre><span></span>λ gcc a.c b.c c.c ... libft.a -o my_program
+...
+</pre></div></div><p>And trust me, it is worth it – especially when there are recursive calls to other Makefiles involved.</p><details open=""><summary><div class="heading"><h2>The Base</h2></div></summary><p>Okay. What do we need for the absolute minimum?</p><figure><blockquote>We need the rules <code>$NAME</code>, <code>all</code>, <code>clean</code>, <code>fclean</code>, and <code>re</code>, and that it does not relink.</blockquote></figure><div class="heading"><h3>Rules</h3></div><p>A <i>rule</i> consists of a <i>target</i>, <i>prerequisites</i> for that target, and commands to execute. The commands are regular commands you could execute on a shell.</p><div class="highlight"><div class="source"><table class="sourcetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span><br/><span class="normal">2</span><br/><span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><span class="nf">&lt;target&gt;</span><span class="o">:</span> &lt;<span class="n">prerequisite</span> 1&gt; &lt;<span class="n">prerequisite</span> 2&gt;
+        &lt;<span class="nb">command</span> <span class="m">1</span>&gt;
+        &lt;<span class="nb">command</span> <span class="m">2</span>&gt;</pre></div></td></tr></tbody></table></div></div><div class="heading"><h3>Variables</h3></div><p>A <i>variable</i> consists of a <i>name</i> and a (or multiple) <i>value(s)</i>, chained together by either <code>=</code> or <code>:=</code>.</p><ul><li>The name is written in UPPERCASE by convention.</li><li>The values are comma-separated, and consist of strings.</li></ul><div class="highlight"><div class="source"><table class="sourcetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span><br/><span class="normal">2</span><br/><span class="normal">3</span><br/><span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><span class="nv">VARNAME</span> <span class="o">=</span> string1
+<span class="c"># ...</span><br/><span class="nv">VARNAME2</span> <span class="o">=</span> file1.c file2.c somefolder/subfile0.c bla.c <span class="se">\</span>
+        foo.c bar.c
+</pre></div></td></tr></tbody></table></div></div><p>The <code>\</code> at the end is a line-separator for <code>make</code> :)</p><div class="heading"><h3><code>all</code></h3></div><ul><li>Higly likely to be the first rule in your Makefile, as your first rule gets called implicitly when just calling <code>make</code> without parameters.</li><li>Consists usually only of <code>$(NAME)</code> (as a prerequisite), but also all the other startup chores you want/need to do.</li></ul><div class="highlight"><div class="source"><table class="sourcetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span><br/><span class="normal">2</span><br/><span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><span class="nv">NAME</span> <span class="o">:=</span> libft.a
+<span class="c"># ...</span><br/><span class="nf">all </span><span class="o">:</span> <span class="k">$(</span><span class="nv">NAME</span><span class="k">)</span></pre></div></td></tr></tbody></table></div></div><div class="heading"><h3><code>$(NAME)</code></h3></div><ul><li>The rule where the compilation happens.</li><li>Since it needs the object (<code>.o</code>) files, state them as prerequisites.</li><li>And then follows your compilation, library creation, whatever you are doing :)</li></ul><div class="highlight"><div class="source"><table class="sourcetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span><br/><span class="normal">2</span><br/><span class="normal">3</span><br/><span class="normal">4</span><br/><span class="normal">5</span><br/><span class="normal">6</span><br/><span class="normal">7</span><br/><span class="normal">8</span></pre></div></td><td class="code"><div><pre><p><span></span><span class="nv">SRCS</span> <span class="o">:=</span> a.c
+<span class="nv">OBJS</span> <span class="o">:=</span> a.o
+<span class="c"># ...</span><br/><span class="nf">$(NAME) </span><span class="o">:</span> <span class="k">$(</span><span class="nv">OBJS</span><span class="k">)</span>
+        ar rcs <span class="k">$(</span>NAME<span class="k">)</span> <span class="k">$(</span>OBJS<span class="k">)</span></p><p><span class="nf">$(OBJS) </span><span class="o">:</span>
+        cc -Wall -Werror -Wextra -c <span class="k">$(</span>SRCS<span class="k">)</span></p></pre></div></td></tr></tbody></table></div></div><div class="heading"><h3><code>clean</code></h3></div><p>Should clean all the object files, but not your output file(s). Therefore, pretty staightforward:</p><div class="highlight"><div class="source"><table class="sourcetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span><br/><span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><span class="nf">clean </span><span class="o">:</span>
+        rm -f <span class="k">$(</span>OBJS<span class="k">)</span></pre></div></td></tr></tbody></table></div></div><div class="heading"><h3><code>fclean</code></h3></div><p>Should clean all the object files + your output file(s).</p><div class="highlight"><div class="source"><table class="sourcetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span><br/><span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><span class="nf">fclean </span><span class="o">:</span> <span class="n">clean</span>
+        rm -f <span class="k">$(</span>NAME<span class="k">)</span></pre></div></td></tr></tbody></table></div></div><div class="heading"><h3><code>re</code></h3></div><p>And, last but not least, <code>re</code>. It should run <code>fclean</code>, then recompile.</p><div class="highlight"><div class="source"><table class="sourcetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span><br/><span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><span class="nf">re </span><span class="o">:</span> <span class="n">fclean</span>
+        make all
+</pre></div></td></tr></tbody></table></div></div></details><details open=""><summary><div class="heading"><h2>Pointers</h2></div></summary><ul><li><a href="https://www.gnu.org/software/make/manual/html_node/index.html#Top">The GNU make Documentation</a></li><li><a href="https://makefiletutorial.com/">A very extensive tutorial</a></li></ul></details></root>
+                <div class="adjacent-nav">
+
+
+                </div>
+            </div>
+        </main>
+    <footer>
+        <p class="copyright">
+            2022
+        </p>
+        <div class="links">
+            <a href="legal.html">Legal</a>
+            <!-- <a href="impressum.html">Impressum</a> -->
+        </div>
+    </footer>
+    <script src="../get-path.js"></script>
+</body>
+</html>
