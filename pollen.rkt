@@ -6,7 +6,7 @@
          sha
          dyoo-while-loop)
 (provide title link b e irr heading h sub quote-block sec requirements hint sec-hint 
-	ul ol li ul-mark ol-mark img code c code-block narr hline side) ;tag functions: use in *.poly.pm
+	ul ol li ul-mark ol-mark img code c code-block narr hline spoiler table side) ;tag functions: use in *.poly.pm
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path 
 	pagetree-code root latex-replace) ;Utilities - for use in the templates
 
@@ -175,6 +175,26 @@
 	[(ltx pdf) (apply string-append `("\\hrule"))]
 	[else (txexpr 'hr '((class "divisor")) empty)]))
 
+(define (spoiler . elements)
+  (case (current-poly-target)
+    [(ltx pdf) (apply string-append '(" "))] ;TODO: Latex
+    [else (inc! panel-counter)
+          (txexpr 'spoiler
+                  '((class "spoiler"))
+                     `(,(txexpr 'input
+                              `((type "checkbox") (id ,(string-append "spoiler-"
+                                                                      (number->string spoiler-counter)))) empty)
+                          ,(txexpr 'label `((for ,(string-append "spoiler-"
+                                                                 (number->string spoiler-counter)))) elements)))]))
+(define spoiler-counter 0)
+
+(define (table . rows)
+    `(table ,@(map (lambda (row) 
+        `(tr ,@(map
+            (lambda (data) `(td ,data))
+            (string-split row ","))))
+    rows)))
+
 (define (sub . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append '(" "))]
@@ -286,13 +306,16 @@
                                       [(= width 0) (string-append "height=" (number->string (* height 0.01)) "\\textheight")]
                                       [else (string-append "width=" (number->string width) "\\textwidth, " "height=" (number->string height) "\\textheight")])
                                     "]{" ,url "}\\end{figure}"))]
-    [else (txexpr 'img
-                  `((src ,url) (style ,(string-append (if (= height 0)
-                                                          "height: auto;"
-                                                          (string-append "height: " (number->string height) "em;"))
-                                                      (if (= width 0)
-                                                          "width: auto;"
-                                                          (string-append "width: " (number->string (* width 100)) "%"))))) empty)]))
+    [else (txexpr 'div '((class "img"))
+			`(,(txexpr 'img
+                  `((src ,url) (style 
+				  					,(string-append 
+										(if (= height 0)
+                                    	    "height: auto;"
+                                            (string-append "height: " (number->string height) "em;"))
+                                        (if (= width 0)
+                                            "width: auto;"
+                                            (string-append "width: " (number->string (* width 100)) "%"))))) empty)))]))
 
 
 (define (side label . elements)
@@ -316,9 +339,9 @@
     [else (txexpr 'code empty elements)]))
 (define c code)
 
-(define (code-block language . lines)
+(define (code-block language #:nums? [nums #t] . lines)
   (define txcode (if (symbol? language)
-                     (highlight language (apply string-append lines))
+                     (highlight language #:line-numbers? nums (apply string-append lines))
                      (highlight (string->symbol language) (apply string-append lines))))
   (case (current-poly-target)
     [(ltx pdf) (code->latex txcode)]
