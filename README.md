@@ -43,8 +43,8 @@ If you miss anything, feel free to create a Pull request, file an issue, or just
 
 In particular, so that you can start writing more easily if you want to write articles on your own, here are all the commands you can use:
 
------------------
 | Tag | Effect |
+|------------------------------|-----------------------------------------------------------------|
 | ```◊title[#:sub "by bhagenlo"]{libft}``` | Title of the Subpage, along with its subtitle. |
 | ```◊heading[1]{libft}``` | A Heading with its _level_(1 in this case). |
 | ```◊sec[#:sub "Don't try this at Home!" 2]{Burning your PC.}``` | A Section which can be opened (or closed), with subtitle and level. |
