@@ -38,3 +38,30 @@ If you're using VS Code, open your ```keybindings.json``` and paste the followin
 # Contributing
 
 If you miss anything, feel free to create a Pull request, file an issue, or just write me on Slack (Intra: bhagenlo). 
+
+# Writing
+
+In particular, so that you can start writing more easily if you want to write articles on your own, here are all the commands you can use:
+
+-----------------
+| Tag | Effect |
+| ```◊title[#:sub "by bhagenlo"]{libft}``` | Title of the Subpage, along with its subtitle. |
+| ```◊heading[1]{libft}``` | A Heading with its _level_(1 in this case). |
+| ```◊sec[#:sub "Don't try this at Home!" 2]{Burning your PC.}``` | A Section which can be opened (or closed), with subtitle and level. |
+| ```◊link["https://intra.42.fr"]{The Intra}``` | A Link |
+| ```◊b{bold}``` | *bold* text. |
+| ```◊e{italic}``` | _emphasized_ text. |
+| ```◊quote-block{This is a quote.}``` | An indented blockquote (those blue ones) |
+| ```◊narr{Here speaks the narrators voice..}``` | Non-indented monospaced grey text. |
+| ```◊irr{You've heard that already, time and again}``` | Text that is more and more irrelevant, though it might be helpful as a reminder a few times before it vanishes completely (during the course of the holy graph, for example). |
+| ```◊hline{}``` | A red, horizontal line. |
+| ```◊spoiler{This could spoil you. Do you want that?}``` | A Spoiler that only makes itself visible on click. |
+| ```◊hint[#:type "info"]{This is a information for the reader}``` | A hint for the reader. It might be a ```info```(blue), ```warning```(yellow), ```error```(red) or a ```resolved```(green) |
+| ```◊sec-hint[#:type "error"]{libft}``` | An expandable hint. (that expands and shrinks on-click.|
+| ```◊img["./path/to/img.jpg" #:height 10 #:width 100]{This is a caption.}``` | An image  —  beware that if you explicitly set height and width, you most likely destroy the dimensions.|
+| ```◊ol{◊li{}}``` | An ordered list. |
+| ```◊ul{◊li{}}``` | An unordered list. |
+| ```◊ol-mark{a.}/◊ul-mark{o}``` | Something that formats anything as a list point, so that one can mention it in the accompanying text.|
+| ```◊code{#this is code.}``` | Inline code. |
+| ```◊code-block['python]{#this is python code.}``` | A code block, with syntax highlighting.|
+
