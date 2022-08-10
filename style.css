@@ -13,8 +13,8 @@
 
 :root {
     font-family: "Fira Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 19px;
-    line-height: 1.4;
+    font-size: 18.5px;
+    line-height: 1.5;
     color: var(--font-clr);
     hyphens: auto;
 
@@ -109,7 +109,6 @@ h4 {
 
 p {
 	margin-bottom: 0.7rem;
-    line-height: 1.4;
 }
 
 .narrator {
@@ -201,7 +200,6 @@ ol, ul {
 }
 
 li, label {
-    line-height: 1.4;
 	margin-bottom: 0.2rem;
 }
 
@@ -269,11 +267,19 @@ figcaption p:before {
 .info summary {
     border-bottom: none;
     list-style: none;
-    line-height: 1.4;
     margin-top: 0em;
     margin-bottom: 0rem;
     padding-bottom: 0.5rem;
     cursor: pointer;
+}
+
+#contrib {
+	font-size: 0.6rem;
+	font-style: italic;
+	opacity: 0.7;
+	margin-left: auto;
+	margin-right: 0;
+	width: 80%;
 }
 
 code {
@@ -713,6 +719,10 @@ form {
     display: flex;
     padding: 1em 0;
     justify-content: space-between;
+	max-width: 32rem;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
 }
 #next {
     margin-left: auto;

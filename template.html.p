@@ -1,5 +1,12 @@
 ◊(require racket/list racket/string pollen/pagetree racket/path)
 <!DOCTYPE html>
+◊(define (mk-edit-link place)
+	(string-append 
+		"https://github.com/haglobah/Mastering-42/edit/main/" 
+		(string-trim (symbol->string place) 
+					 ".html" 
+					 #:left? #f) 
+		".poly.pm"))
 <html>
     <head>
         <meta charset="UTF-8">
@@ -80,6 +87,7 @@
                     <div id="prev">← <a href=◊(string-append "Mastering-42/" (symbol->string prev-page))>◊(or (select 'h1 prev-page) "Without Title")</a></div>}
                     ◊(define next-page (next here))
 					◊;(print here)
+					<div id="contrib">Found something to improve? Edit this page on <a href=◊(mk-edit-link here) target="_blank"> Github</a>!</div>
                     ◊when/splice[#f ◊;{next-page}]{
                     <div id="next"><a href=◊(string-append "" (symbol->string next-page))>◊(or (select 'h1 next-page) "Without Title")</a> →</div>}
                 </div>
