@@ -10,7 +10,7 @@ HERE
 
 ◊sec["Whom is this guide for?" 1]{
 	For anyone who wants to learn more while doing the 42 Curriculum. 
-	This book aims to take some stones out of your way while traversing the Curriculum, while also providing some kind of general map for the Terrain. 
+	This guide aims to take some stones out of your way while traversing the Curriculum, while also providing some kind of general map for the Terrain. 
 	Note, however, that it aims to be a benevolent Guide for your own long-term learning. It might discuss stuff you do not need right know to solve the task at hand. Instead, it tries to show you what other ways you might walk in order to achieve that. 
 }
 
@@ -19,7 +19,7 @@ HERE
 }
 
 ◊sec["Purpose & Goals" 1]{
-	This book is written for the ones who want to learn more than needed to complete the projects.
+	This guide is written for the ones who want to learn more than needed to complete the projects.
 	We'd like to provide:
 	◊ul{
 		◊li{A map of the terrain around to each project, and of the paths from one to another.}
