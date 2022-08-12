@@ -72,7 +72,7 @@ Let's make sure you memorize stuff you'll need for the future. Some tasks for yo
 ◊narr{The modus here is called ◊e{practice testing} – meaning: take some time, don't use help, but just try very hard to retrieve the information. Please check your mistakes immediately afterwards.}
 ◊ul{
 	◊li{Write the Makefile for your libft from scratch. The filenames are completely unimportant, rather try to get the overall structure right.}
-	◊li{Write the header file for the libft from scratch. Same again: The function names are not that important (ever though it is nice if you remember them ;)). Try to get the overall structure right.}
+	◊li{Write the header file for the libft from scratch. Same again: The function names are not that important (even though it is nice if you remember them ;)). Try to get the overall structure right.}
 	◊li{Include some other (arguably even more useful) functions into your libft. An (incomplete) list of ideas:}
 	◊ul{
 		◊li{◊code{ft_strcmp(char *s1, char *s2)}}
