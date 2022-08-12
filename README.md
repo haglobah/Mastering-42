@@ -49,7 +49,7 @@ In particular, so that you can start writing more easily if you want to write ar
 | ```◊heading[1]{libft}``` | A Heading with its _level_(1 in this case). |
 | ```◊sec[#:sub "Don't try this at Home!" 2]{Burning your PC.}``` | A Section which can be opened (or closed), with subtitle and level. |
 | ```◊link["https://intra.42.fr"]{The Intra}``` | A Link |
-| ```◊b{bold}``` | *bold* text. |
+| ```◊b{bold}``` | **bold** text. |
 | ```◊e{italic}``` | _emphasized_ text. |
 | ```◊quote-block{This is a quote.}``` | An indented blockquote (those blue ones) |
 | ```◊narr{Here speaks the narrators voice..}``` | Non-indented monospaced grey text. |
