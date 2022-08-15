@@ -19,6 +19,11 @@ With this guide, we try to get everyone of us the teammate we would've liked to 
 ```
 3. Fork this repo
 4. (when creating new files, add them to ```index.ptree```)
+4. Install the dependecies for the repo:
+```
+λ raco pkg install sha
+λ raco pkg install while-loop
+```
 4. Start Pollens' project server:
 ```
 λ raco pollen start
