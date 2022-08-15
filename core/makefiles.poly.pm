@@ -90,7 +90,7 @@ And trust me, it is worth it – especially when there are recursive calls to ot
 	And, last but not least, ◊c{re}. It should run ◊c{fclean}, then recompile.
 	◊code-block['make]{
 		re : fclean
-			make all
+			$(MAKE) all
 	}
 	◊;{You might wonder why I didn't write ◊c{re : fclean all}? Well, for that reason: ◊link[""]{}}
 }	
