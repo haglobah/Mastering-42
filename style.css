@@ -71,7 +71,7 @@ a:hover {
 
 .heading {
     border-bottom: 1px solid var(--snd-clr-weak);
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
 }
 
 .title {
@@ -108,7 +108,7 @@ h4 {
 }
 
 p {
-	margin-bottom: 0.7rem;
+	margin-bottom: 1rem;
 }
 
 .narrator {
@@ -169,10 +169,6 @@ img {
 	object-fit: cover;
 }
 
-details {
-	margin: 1rem 0;
-}
-
 summary {
     border-bottom: 1px solid var(--snd-clr-weak);
     line-height: 1;
@@ -196,11 +192,10 @@ summary .subhead {
 
 ol, ul {
     padding-left: 1.5rem;
-    margin-bottom: 1rem;
 }
 
-li, label {
-	margin-bottom: 0.2rem;
+li {
+	margin-bottom: 0.5rem;
 }
 
 .ol-mark, .ul-mark {
