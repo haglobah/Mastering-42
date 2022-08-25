@@ -9,7 +9,7 @@
 ◊heading[1]{What does that mean?}
 This means we'll try to group stuff we think you should know about a project into specific areas, namely:
 ◊ul{
-	◊li{◊e{Prerequesites} (or: Things you should know before you even start to code.)}
+	◊li{◊e{Prerequisites} (or: Things you should know before you even start to code.)}
 	◊li{Things to get familiar with during a project. This might include:}
 	◊ul{
 		◊li{Programming concepts}
@@ -30,7 +30,7 @@ For every project, we will assume that:
 
 We will not assume that:
 ◊ul{
-	◊li{You have any previous knowledge except for the Prerequesites we state.
+	◊li{You have any previous knowledge except for the prerequisites we state.
 	If we somehow seem to have forgotten to mention some knowledge that is needed to understand something, please file an issue :)}
 	◊li{You have any other previous programming skills. Whenever we mention them, we will try to explain what we mean – if not, we will try to provide pointers on where to look.}
 }
