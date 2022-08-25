@@ -449,7 +449,17 @@ nav a:hover {
 	text-decoration-color: var(--fst-clr);
 }
 .nav-node > .nav-node > a {
-    padding-left: 2em;
+    padding-left: 2rem;
+}
+
+.nav-node > .nav-node > .nav-node > a {
+	padding-left: 3rem;
+	font-size: 0.9em;
+	text-decoration: none;
+}
+
+.nav-node > .nav-node > .nav-node > a:hover {
+	color: var(--fst-clr-weak);
 }
 
 @media screen and (min-width: 725px) {
