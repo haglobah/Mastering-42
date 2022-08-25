@@ -69,9 +69,35 @@ a:hover {
     text-decoration: underline;
 }
 
+linked {
+	display: block;
+}
+
 .heading {
     border-bottom: 1px solid var(--snd-clr-weak);
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
+}
+
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor {
+	opacity: 1;
+
+}
+
+.heading-anchor {
+	font-size: .85em;
+	float: left;
+/*	margin-left: -.87em;*/
+	padding-right: .23em;
+	margin-top: .125em;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.heading-anchor:hover {
+	text-decoration:none
 }
 
 .title {
@@ -108,7 +134,7 @@ h4 {
 }
 
 p {
-	margin-bottom: 0.7rem;
+	margin-bottom: 1rem;
 }
 
 .narrator {
@@ -169,10 +195,6 @@ img {
 	object-fit: cover;
 }
 
-details {
-	margin: 1rem 0;
-}
-
 summary {
     border-bottom: 1px solid var(--snd-clr-weak);
     line-height: 1;
@@ -196,11 +218,10 @@ summary .subhead {
 
 ol, ul {
     padding-left: 1.5rem;
-    margin-bottom: 1rem;
 }
 
-li, label {
-	margin-bottom: 0.2rem;
+li {
+	margin-bottom: 0.5rem;
 }
 
 .ol-mark, .ul-mark {
@@ -304,7 +325,7 @@ nav {
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: stretch;
+    justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
     z-index: 10;
@@ -348,15 +369,14 @@ nav a:hover {
 }
 
 .nav-list {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    position: initial;
+    height: 100%;
+    margin-left: 10%;
     background-color: var(--bg-clr);
 }
+
 .nav-item {
     height: 100%;
     margin: 1rem;
@@ -388,26 +408,12 @@ nav a:hover {
     display: flex;
 }
 
-@media screen and (min-width: 725px) {
-    nav label[for=nav-toggle] {
-        display: none;
-    }
-
-    .nav-list {
-        display: flex;
-        flex-direction: row;
-        position: initial;
-        margin-left: 2em;
-        height: 100%;
-    }
-
-    .nav-item {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-}
-
 /* 3. Side navigation bar */
+
+.category {
+	font-weight: 500;
+	font-size: 1.1rem;
+}
 
 .sidenav {
     position: relative;
@@ -424,14 +430,13 @@ nav a:hover {
     display: block;
     color: inherit;
     width: 100%;
-    border-left: 0.5em solid transparent;
+    border-left: 4px solid transparent;
     padding: 0.4rem 1rem;
     transition: var(--hover-transition);
 }
 .nav-node.active > a {
     border-color: var(--fst-clr);
     border-width: 0;
-    padding: 10px 10px 10px;
     border-left-width: 4px;
     box-sizing: border-box;
     width: 100%;
@@ -444,7 +449,17 @@ nav a:hover {
 	text-decoration-color: var(--fst-clr);
 }
 .nav-node > .nav-node > a {
-    padding-left: 2em;
+    padding-left: 2rem;
+}
+
+.nav-node > .nav-node > .nav-node > a {
+	padding-left: 3rem;
+	font-size: 0.9em;
+	text-decoration: none;
+}
+
+.nav-node > .nav-node > .nav-node > a:hover {
+	color: var(--fst-clr-weak);
 }
 
 @media screen and (min-width: 725px) {
@@ -521,7 +536,7 @@ main {
 
 root {
     display: block;
-    max-width: 32rem;
+    max-width: 35rem;
     width: 80%;
     position: relative;
     margin-left: auto;
