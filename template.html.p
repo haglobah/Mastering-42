@@ -50,11 +50,7 @@
             <div class="sidenav">
            ◊(if (equal? currentCategory #f)
                 (->html `(div ((class "nav-node active"))
-                               (a ((href "#")) "Home")
-                         ,◊for/splice[[(category (in-list categories))]]{
-                              ◊`(div ((class "nav-node"))
-                                     (a ((href ,(find-link here category)))
-                                        ,(get-folder-name category)))}))
+                               (a ((href "#")) "Home")))
 
                 (->html ◊for/splice[[(category (in-list categories))]]{
                     ◊(if (compare-path category currentCategoryIndex)
@@ -62,16 +58,14 @@
                                             "nav-node active"
                                             "nav-node")))
                                (a ((href ,(find-link here category)))
-                                  ,(get-folder-name category))
+                                  (span ((class "category")) ,(get-folder-name category)))
                                ,◊for/splice[[(concept (in-list currentArticles))]]{
                                            ◊`(div ((class ,(if (compare-path concept here)
                                                           "nav-node active"
                                                           "nav-node")))
                                                   (a ((href ,(find-link here concept))) 
                                                      ,(or (select 'h1 concept) "Without Title")))})
-                         `(div ((class "nav-node"))
-                               (a ((href ,(find-link here category)))
-                                  ,(get-folder-name category))))}))
+                         `(div ((class "nav-node"))))}))
             </div>
             <div class="content">
                 ◊when/splice[(member here articles)]{

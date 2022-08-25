@@ -304,7 +304,7 @@ nav {
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: stretch;
+    justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
     z-index: 10;
@@ -348,15 +348,14 @@ nav a:hover {
 }
 
 .nav-list {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    position: initial;
+    height: 100%;
+    margin-left: 10%;
     background-color: var(--bg-clr);
 }
+
 .nav-item {
     height: 100%;
     margin: 1rem;
@@ -388,26 +387,12 @@ nav a:hover {
     display: flex;
 }
 
-@media screen and (min-width: 725px) {
-    nav label[for=nav-toggle] {
-        display: none;
-    }
-
-    .nav-list {
-        display: flex;
-        flex-direction: row;
-        position: initial;
-        margin-left: 2em;
-        height: 100%;
-    }
-
-    .nav-item {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-}
-
 /* 3. Side navigation bar */
+
+.category {
+	font-weight: 500;
+	font-size: 1.1rem;
+}
 
 .sidenav {
     position: relative;
@@ -431,7 +416,6 @@ nav a:hover {
 .nav-node.active > a {
     border-color: var(--fst-clr);
     border-width: 0;
-    padding: 10px 10px 10px;
     border-left-width: 4px;
     box-sizing: border-box;
     width: 100%;
