@@ -207,17 +207,30 @@
 		  `(,(txexpr 'h1 empty elements)
 		    ,(sub subtitle)))]))
 
+(define (parse-to-string element)
+	(if (string? element)
+		element
+		(parse-to-string (append* element))))
+
+(define (words->id . elements)
+	(println elements)
+	(if (string? (caar elements))
+		(caar elements)
+		(parse-to-string (get-elements (caar elements)))))
+
 (define (heading level . elements)
   (if (> level 3)
-      (error "Not so many headings, please :) (not more than 3)")
+      (error "Not so many levels of headings, please :) (not more than 3)")
 	    (case (current-poly-target)
         [(ltx pdf) (cond [(= level 1) (apply string-append `("\\par{\\LARGE " ,@elements "\\par} \\vspace{1.0em}"))]
                          [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
                          [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])]
-		    [else (txexpr 'div '((class "heading"))
+		    [else (let ([current-id (words->id elements)])
+				  (txexpr 'linked '((class "heading"))
 				  `(,(txexpr (string->symbol (string-append "h" (number->string (+ level 1))))
-                      empty
-                      elements)))])))
+                      `((id ,current-id))
+                      `(,(txexpr 'a `((class "heading-anchor") (href ,(string-append "#" current-id))) '("#"))
+						,@elements)))))])))
 (define h heading)
 
 (define (sec title level #:sub [subtitle ""] #:open? [open #t] . elements)

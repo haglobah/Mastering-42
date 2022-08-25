@@ -69,9 +69,35 @@ a:hover {
     text-decoration: underline;
 }
 
+linked {
+	display: block;
+}
+
 .heading {
     border-bottom: 1px solid var(--snd-clr-weak);
     margin: 1rem 0rem;
+}
+
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor {
+	opacity: 1;
+
+}
+
+.heading-anchor {
+	font-size: .85em;
+	float: left;
+/*	margin-left: -.87em;*/
+	padding-right: .23em;
+	margin-top: .125em;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.heading-anchor:hover {
+	text-decoration:none
 }
 
 .title {
