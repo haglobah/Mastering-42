@@ -8,7 +8,7 @@ And therefore, first things first. You're new here, things are overwhelming. Tha
 
 And even more so a reason listen carefully to this advice we want to give: 
 ◊quote-block{
-	Do not fall into the Macho trap. Not in this project, not in any other. You do not have to have come up with every idea in your code yourself. So do yourself a favor and read some other code. Learning from others is how human society works. Please do not deprive yourself of that possibility. Deal?
+	Do not fall into the Macho trap. Not in this project, not in any other. You do not have to have come up with every idea in your code yourself. So do yourself a favor and read some other code. Learning from others is how human society works. Please do not deprive yourself of that opportunity. Deal?
 }
 
 ◊sec["Prerequisites" 1]{
