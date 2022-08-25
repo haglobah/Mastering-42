@@ -404,7 +404,7 @@ nav a:hover {
     display: block;
     color: inherit;
     width: 100%;
-    border-left: 0.5em solid transparent;
+    border-left: 4px solid transparent;
     padding: 0.4rem 1rem;
     transition: var(--hover-transition);
 }
