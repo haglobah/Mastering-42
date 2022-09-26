@@ -23,6 +23,11 @@
         ◊(define currentArticles (if (equal? currentCategory #f)
                                      #f
                                      (children (string->symbol currentCategoryIndex))))
+		◊(define linkedHeadings 
+			(let ([link-selection ('h2 . select-from-doc . doc)])
+				(if (equal? link-selection #f)
+					'()
+					(filter string? link-selection))))
 		<link rel="stylesheet" href="◊(find-link here 'fonts.css)">
 		<link rel="stylesheet" href="◊(find-link here 'style.css)">
         <link rel="stylesheet" href="◊(find-link here 'pygments.css)">
@@ -49,29 +54,27 @@
         <main>
             <div class="sidenav">
            ◊(if (equal? currentCategory #f)
-                (->html `(div ((class "nav-node active"))
-                               (a ((href "#")) "Home")
-                         ,◊for/splice[[(category (in-list categories))]]{
-                              ◊`(div ((class "nav-node"))
-                                     (a ((href ,(find-link here category)))
-                                        ,(get-folder-name category)))}))
-
+                ""
                 (->html ◊for/splice[[(category (in-list categories))]]{
                     ◊(if (compare-path category currentCategoryIndex)
                          `(div ((class ,(if (compare-path category here)
                                             "nav-node active"
                                             "nav-node")))
                                (a ((href ,(find-link here category)))
-                                  ,(get-folder-name category))
-                               ,◊for/splice[[(concept (in-list currentArticles))]]{
-                                           ◊`(div ((class ,(if (compare-path concept here)
+                                  (span ((class "category")) ,(get-folder-name category)))
+                               ,◊for/splice[[(article (in-list currentArticles))]]{
+                                           ◊`(div ((class ,(if (compare-path article here)
                                                           "nav-node active"
                                                           "nav-node")))
-                                                  (a ((href ,(find-link here concept))) 
-                                                     ,(or (select 'h1 concept) "Without Title")))})
-                         `(div ((class "nav-node"))
-                               (a ((href ,(find-link here category)))
-                                  ,(get-folder-name category))))}))
+                                                  (a ((href ,(find-link here article))) 
+                                                     ,(or (select 'h1 article) "Without Title"))
+												  ,◊for/splice[[(link (in-list linkedHeadings))]]{
+																◊(if (compare-path article here)
+																	 ◊`(div ((class "nav-node"))
+																		(a ((href ,(string-append "#" link))) ,link))
+																	 "")}
+											)})
+                         `(div ((class "nav-node"))))}))
             </div>
             <div class="content">
                 ◊when/splice[(member here articles)]{
