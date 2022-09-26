@@ -416,14 +416,10 @@ nav a:hover {
 }
 
 .sidenav {
-    position: fixed;
+    position: relative;
     width: 100%;
     box-shadow: none;
     flex-shrink: 0;
-	overflow-y: scroll;
-	top: 86px;
-	bottom: 0;
-	background-color: white;
 }
 
 .nav-node {
@@ -468,7 +464,12 @@ nav a:hover {
 
 @media screen and (min-width: 725px) {
     .sidenav {
+		position: fixed;
         width: 200px;
+		overflow-y: scroll;
+		top: 86px;
+		bottom: 0;
+		background-color: white;
     }
 }
 
