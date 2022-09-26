@@ -56,6 +56,10 @@
 	background-color: var(--bg-clr);
 }
 
+header {
+
+}
+
 body {
     width: 100%;
 }
@@ -410,10 +414,14 @@ nav a:hover {
 /* 3. Side navigation bar */
 
 .sidenav {
-    position: relative;
+    position: fixed;
     width: 100%;
     box-shadow: none;
     flex-shrink: 0;
+	overflow-y: scroll;
+	top: 86px;
+	bottom: 0;
+	background-color: white;
 }
 
 .nav-node {
@@ -560,7 +568,7 @@ pre p {
 
     .content {
         margin-top: 0;
-        margin-left: 1em; /* info: for comments */
+        margin-left: 200px; /* info: for comments */
         margin-right: 8em; /* info: for overlay panels */
     }
 }
