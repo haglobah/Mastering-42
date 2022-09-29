@@ -77,7 +77,7 @@
                          `(div ((class "nav-node"))))}))
             </div>
             <div class="content">
-                ◊when/splice[(member here articles)]{
+                ◊when/splice[(and #false (member here articles))]{
                 <input type="checkbox" id="side-toggle">
                 <label for="side-toggle">Toggle sidepanels</label>
                 <!--<div class="meta">
