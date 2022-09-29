@@ -319,7 +319,7 @@
                                       [(= width 0) (string-append "height=" (number->string (* height 0.01)) "\\textheight")]
                                       [else (string-append "width=" (number->string width) "\\textwidth, " "height=" (number->string height) "\\textheight")])
                                     "]{" ,url "}\\end{figure}"))]
-    [else (txexpr 'div '((class "img"))
+    [else (txexpr 'figure '((class "img"))
 			`(,(txexpr 'img
                   `((src ,url) (style 
 				  					,(string-append 
@@ -328,7 +328,10 @@
                                             (string-append "height: " (number->string height) "em;"))
                                         (if (= width 0)
                                             "width: auto;"
-                                            (string-append "width: " (number->string (* width 100)) "%"))))) empty)))]))
+                                            (string-append "width: " (number->string (* width 100)) "%"))))) empty)
+               ,(txexpr 'figcaption
+                        '((class "imgcaption"))
+                        caption)))]))
 
 
 (define (side label . elements)

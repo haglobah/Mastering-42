@@ -195,6 +195,10 @@ img {
 	object-fit: cover;
 }
 
+.imgcaption {
+	font-size: 0.8rem;
+}
+
 summary {
     border-bottom: 1px solid var(--snd-clr-weak);
     line-height: 1;
