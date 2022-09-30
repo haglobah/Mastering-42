@@ -19,7 +19,7 @@ HERE
 }
 
 ◊sec["Purpose & Goals" 1]{
-	This guide is written for the ones who want to learn more than needed to complete the projects.
+	This guide is written for the ones who want to learn more than the bare minimum needed to complete the projects.
 	We'd like to provide:
 	◊ul{
 		◊li{A map of the terrain around to each project, and of the paths from one to another.}
@@ -31,12 +31,15 @@ HERE
 
 ◊heading[2]{◊link["holy_graph/index.html"]{The Holy Graph}}
 ◊ul{
-    ◊;li{◊link["holy_graph/libft.html"]{Libft}}
+    ◊li{◊link["holy_graph/libft.html"]{Libft}}
+    ◊li{◊link["holy_graph/born2beroot.html"]{born2beroot}}
+    ◊li{◊link["holy_graph/get_next_line.html"]{get_next_line}}
 }
 
 ◊heading[2]{◊link["core/index.html"]{Additions to the Core}}
 ◊ul{
-    ◊;li{◊link["core/Makefiles.html"]{Writing Makefiles}}
+    ◊li{◊link["core/makefiles.html"]{Writing Makefiles}}
+    ◊li{◊link["core/vscode_debugger.html"]{Using the VS Code Debugger}}
 }
 
 ◊heading[2]{◊link["cs_theory/index.html"]{Computer Science Theory}}
