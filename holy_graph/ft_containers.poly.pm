@@ -2,11 +2,13 @@
 
 ◊title[#:sub "by skienzle"]{ft_containers}
 
+
 ◊narr{Welcome reader!
-You've finally arrived at the project everyone keeps complaining about :D
+I'm sure yo've already heard your fair share of rant about this project, so it's finally time for you to start ranting aswell
 
 On a more serious note: As of now this is the biggest solo project in the core, so things might take a little longer than usual and that's okay :)
 }
+
 
 ◊sec["Prerequesites" 1]{
 Before starting your work you should know:
@@ -19,10 +21,12 @@ Before starting your work you should know:
 	◊li{How to ◊e{properly} use the ◊code{std::allocator}}
 }
 
+
 ◊quote-block{
 If debugging is the process of removing bugs, then programming must be the process of putting them in.
 	(Edsger Dijkstra)
 }
+
 
 ◊narr{
 I'm not putting this in here for no reason. Because the subject requres us to write our own tests I recommend you to do so after every method you complete. I didn't. And I regretted it.
@@ -34,21 +38,29 @@ I'm not putting this in here for no reason. Because the subject requres us to wr
 ◊sec["During" 1]{
 
 
-If your are not sure how to implement something don't be afraid to open the ◊code{std} implementation of the containers and look at the relevant snippets. Depending on your platform and toolchain they might be quite hard to read (I'm looking at you XCode macOS), but it's a good exercise to improve in reading large-scale projects
+If your are not sure how to implement something don't be afraid to open the ◊code{std} implementation of the containers and look at the relevant snippets. Depending on your platform and toolchain they might be quite hard to read (I'm looking at you LLVM), but it's a good exercise to improve in reading large-scale projects
 
-This is what you will learn while writing your containers:
+
+Before starting to implement any method make sure to take a look at:
 ◊ul{
-	◊li{}
+	◊li{The standart this method appeared in. You will only have to rewrite it if it's C++98}
+	◊li{Its time complexity, iterator validity and exception safety}
+}
+
+
+◊(hline)
+
+
+Here are some important topics you will learn about during the project:
+◊ul{
+	◊li{The pros and cons of different containers (data structures)}
 	◊li{How BSTs and especially self-balancing BSTs work}
+	◊li{How iterators work and why they are ubiquitous in most languages}
 	◊li{debugging templates}
+	◊li{Why ◊link["cs_theory/languages/C++/iterator_traits"]{iterator_traits} exist and how to use them}
+	◊li{◊irr{What ◊link["/cs_theory/languages/C++/SFINAE"]{SFINAE} is and how to use ◊code{enable_if}}}
 }
-
-Here are some hints:
-◊ul{
-	◊li{Always make sure to take a look at the time complexity, iterator validity and exception safety before implementing a method}
-	◊li{}
-}
-
+◊; @TODO Write guides for iterator_traits and SFINAE
 
 }
 
@@ -71,19 +83,8 @@ Before sumitting the project make sure:
 
 You passed and haven't lost your sanity in the process? Well done!
 
-
-◊ul{
-	◊li{The detailed internal structure of some STL containers}
-	◊li{How iterators work and why they are ubiquitous in most languages}
-	◊li{Why iterator_traits exist and how to use them}
-	◊li{Learn what SFINAE is and how to use enable_if correctly
-	◊link["/cs_theory/languages/C++/SFINAE"]{This} might help
-	}
-}
-
 Here are some questions 
 ◊ul{
-	◊li{What's the difference between ◊code{map.at(key)} and ◊code{map[key]}?}
 	◊li{Why do some containers store items in random and others in ascending order?}
 	◊li{Why are there different iterator categories?}
 	◊li{Do you know the difference between the iterator categories? (especially ◊code{input_iterator} and ◊code{forward_iterator})}
@@ -92,7 +93,7 @@ Here are some questions
 
 By now you are probably quite fed up with templates and containers, so the exercise is going to be rather simple. I promise.
 ◊ul{
-	◊li{Try rewriting the ◊code{std::array}}
+	◊li{Rewrite the ◊code{std::array} (It's far less work as it sounds at first)}
 }
 }
 
