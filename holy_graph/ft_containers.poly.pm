@@ -3,10 +3,11 @@
 ◊title[#:sub "by skienzle"]{ft_containers}
 
 
-◊narr{Welcome reader!
-I'm sure yo've already heard your fair share of rant about this project, so it's finally time for you to start ranting aswell
+◊narr{
+	Welcome reader!
+	I'm sure yo've already heard your fair share of rant about this project, so it's finally time for you to start ranting aswell
 
-On a more serious note: As of now this is the biggest solo project in the core, so things might take a little longer than usual and that's okay :)
+	On a more serious note: As of now this is the biggest solo project in the core, so things might take a little longer than usual and that's okay :)
 }
 
 
@@ -32,7 +33,7 @@ If debugging is the process of removing bugs, then programming must be the proce
 I'm not putting this in here for no reason. Because the subject requres us to write our own tests I recommend you to do so after every method you complete. I didn't. And I regretted it.
 }
 
-}
+} ◊; sec["Prerequesites" 1]
 
 
 ◊sec["During" 1]{
@@ -62,7 +63,7 @@ Here are some important topics you will learn about during the project:
 }
 ◊; @TODO Write guides for iterator_traits and SFINAE
 
-}
+} ◊; sec["During" 1]
 
 ◊sec["Cleaning up" 1]{
 Before sumitting the project make sure:
@@ -76,8 +77,18 @@ Before sumitting the project make sure:
 	}
 	◊li{You ◊b{never} compare the elements in your BST with anything but the comparison object (yes, this includes ◊b{not} comparing for equality through the ◊code{==} operator)}
 	◊li{To take a look at the external ◊code{swap()} function. In some cases it's C++11 and in others not}
+	◊li{
+		If a method takes templated parameters, like e.g.
+		◊code-block['c++]{
+			template<class InputIterator>
+			vector.assign(InputIterator first, InputIterator last)
+		}
+		to test this method with the supported ◊link["https://cplusplus.com/reference/iterator/"]{iterator categories}
+	}
 }
-}
+
+} ◊; sec["Cleaning up" 1]
+
 
 ◊sec["Aftercare" 1]{
 
@@ -95,7 +106,8 @@ By now you are probably quite fed up with templates and containers, so the exerc
 ◊ul{
 	◊li{Rewrite the ◊code{std::array} (It's far less work as it sounds at first)}
 }
-}
+
+} ◊; sec["Aftercare" 1]
 
 ◊sec["Pointers" 1]{
 ◊ul{
@@ -109,4 +121,5 @@ By now you are probably quite fed up with templates and containers, so the exerc
 		◊li{◊link["https://www.youtube.com/watch?v=w5cvkTXY0vQ"]{deletion}}
 	}
 }
-}
+
+} ◊; sec["Pointers" 1]
