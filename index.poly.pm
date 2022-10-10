@@ -34,6 +34,7 @@ HERE
     ◊li{◊link["holy_graph/libft.html"]{Libft}}
     ◊li{◊link["holy_graph/born2beroot.html"]{born2beroot}}
     ◊li{◊link["holy_graph/get_next_line.html"]{get_next_line}}
+    ◊li{◊link["holy_graph/ft_containers.html"]{ft_containers}}
 }
 
 ◊heading[2]{◊link["core/index.html"]{Additions to the Core}}
