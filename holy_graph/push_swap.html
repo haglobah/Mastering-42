@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" value="push_swap">
+        <meta property="og:image" value="../src/Images/42_logo.png">
+        <title>push_swap</title> <!-- or holy_graph/push_swap.html -->
+                <link rel="stylesheet" href="../fonts.css">
+                <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../pygments.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a class="nav-logo" href="../index.html">
+                                        <!--<h3>Mastering</h3> -->
+                    <img src="../src/Images/42_logo_big.jpg" alt="Mastering 42">
+                </a>
+                <input type="checkbox" name="hamburger-button" id="nav-toggle">
+                <div class="nav-list">
+                    <a href="index.html" class="nav-item active">holy_graph</a><a href="../core/index.html" class="nav-item">core</a><a href="../cs_theory/index.html" class="nav-item">cs_theory</a>
+                </div>
+                <label for="nav-toggle"></label>
+            </nav>
+        </header>
+        <main>
+            <div class="sidenav">
+           <div class="nav-node"><a href="index.html"><span class="category">holy_graph</span></a><div class="nav-node"><a href="libft.html">libft</a></div><div class="nav-node"><a href="born2beroot.html">Born2beroot</a></div><div class="nav-node"><a href="get_next_line.html">get_next_line</a></div><div class="nav-node active"><a href="push_swap.html">push_swap</a><div class="nav-node"><a href="#Prerequisites">Prerequisites</a></div><div class="nav-node"><a href="#During">During</a></div><div class="nav-node"><a href="#Cleaning Up">Cleaning Up</a></div><div class="nav-node"><a href="#Aftercare">Aftercare</a></div><div class="nav-node"><a href="#Pointers">Pointers</a></div></div><div class="nav-node"><a href="ft_containers.html">ft_containers</a></div></div><div class="nav-node"></div><div class="nav-node"></div>
+            </div>
+            <div class="content">
+
+                <root><div class="title"><h1>push_swap</h1><h4 class="subhead">by bhagenlo</h4></div><div class="narrator"><p>Hey hey hey, you did it! You arrived at your first 'real' algorithms project.<br/>You'll get to know layering software and unit testing, as well as the one big chunk: To learn to think in algorithms, not (only) in code.</p><p>With that, let's already get started. It's gonna be fun ;)</p></div><details open=""><summary><linked class="heading"><h2 id="Prerequisites"><a class="heading-anchor" href="#Prerequisites">#</a>Prerequisites</h2></linked></summary><p></p><ol><li><div class="hint"><details class="info"><summary>Make sure you understand the difference between algorithm and code.</summary><div></div><p>As Wikipedia says, an <a href="https://en.wikipedia.org/wiki/Algorithm">algorithm</a> is a specification of a sequence of instructions used to solve a problem or perform a computation.<br/>It <i>guarantees</i> correct results and it has to be clear what it does on every possible input.</p><p>The code you'll be writing is 'just' the <i>implementation</i> of such an algorithm. This implementation can have errors, even if the algorithm is correct. However, if the algorithm has errors, then there's no way your implementation following your algorithm could ever possibly be correct.</p></details></div></li><li>Make sure you know what <i>unit testing</i> is, and why it's highly superior to <i>integration/integrated testing</i>. (That's what you probably will do naturally ;))<br/>For that, you could watch the first 22 minutes of <a href="https://www.youtube.com/watch?v=VDfX44fZoMc">this</a> talk, or read its accompagnying <a href="https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam">article</a>.</li><li>Get to know what a <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">stack</a> is.</li><li>Get to know some <a href="https://en.wikipedia.org/wiki/Sorting_algorithm">sorting algorithms</a>.<br/>(As well as the difference between comparison and non-comparison algorithms, if you like :))</li></ol></details><details open=""><summary><linked class="heading"><h2 id="During"><a class="heading-anchor" href="#During">#</a>During</h2></linked></summary><p></p><p>So. You did your research? If so, let's finally start. For that, let's make a plan.</p><p>After reading the subject, you probably were a little bit confused about what exactly you would have to do to solve this task. For me, it was quite confusing at the time. That's what we'd like to provide a map for.</p><div class="narrator">(Short disclaimer: There are obviously several other approaches to this project. However, all of us who tried them did not succeed so far. See this only as a default path which work, but please feel encouraged to go on tangents whenever you like ;))</div><p>In order to do this project, we think it's best to do the following:</p><ol><li><p>Create yourself some bigger struct you can put all else in, and which most of your functions take as a parameter. This might look like that:</p><div class="highlight"><pre><code>typedef struct s_state
+{
+        t_stack	*a;
+        t_stack	*b;
+        ...
+}	t_s;
+
+typedef struct s_push_swap
+{
+        t_state	*s;
+        ...
+}	t_ps;</code></pre></div><p>Ah, and for the t_stack you can choose what to use. A linked list probably works a bit better than an array – but choose whatever you'd like to practice more ^^</p></li><li><p>Implement the basic data type. More concretely:<br/>    </p><ol><li>Implement a stack based on either a linked list or an array.</li><li><p>Implement the <code>push</code>, <code>pop</code>, <code>swap</code> and <code>rotate</code> functions on this 'stack'. (A 'real' stack has only push and pop.)<br/>For that, think for a moment what you'd like them to do.<br/>        </p><ul><li>What should swap and rotate on a 1-element stack do?</li><li>What should push with <code>NULL</code> be?</li><li>What should be the result of popping an empty stack?</li></ul><p>And only if you've come up with rules for these cases, <i>then</i> start to finally write the code.</p></li><li>And then, when you – after some superficial or more profound testing – have decided that your functions work, write some <i>unit tests</i>, meaning:<br/>Write a test that inputs some 'normal' and all the special cases and compares the behaviour of your functions with the expected one. For that, it is helpful to write this additional testing functionality inside of another file (a <code>test.c</code>, maybe?), and to add a <code>make test</code>-rule to your <code>Makefile</code> that compiles and runs the tests. That way, you can ensure that you do run the tests regularly.</li><li><p>Run <code>make test</code>:<br/>    </p><div class="highlight"><pre><code>$ make test
+...
+Testing simple stack functions...
+
+Test 4 (push): {4, 2, 3} ≠ {4, 2, 3, NULL}
+Test 11 (rotate): {2, 2, 3, NULL} ≠ {2, 3, NULL}
+Passed 10 / Failed 2 (of 12)</code></pre></div><p>    Or however you want to make it look ;)</p></li></ol></li><li><p>Implement your 'special' functionality on top of your general, well-tested one.<br/>    </p><ol><li>Implement <code>pa</code>, <code>pb</code>, <code>sa</code>, <code>sb</code>, <code>ss</code>, <code>ra</code>, <code>rb</code>, <code>rr</code>, <code>rra</code>, <code>rrb</code> and <code>rrr</code>.</li><li>The nice thing now is: You <i>know for sure</i> that the underlying functions work. Everything that goes wrong now only can be in your small additional layer that only composes all of the underlying functions together. Plus, whenever you need to change something, you can be sure that it isn't the bottom layer (provided you tested it and didn't introduce mistakes.)</li></ol></li><li><p>And now, finally: You've arrived at the algorithmic part. There's a few branches opening up from here, but there are two big approaches most of the people at our school took. The general idea is that you take some established algorithm (or some essential concepts out of it) and adjust it to our scenario.<br/>I won't guide you through an existing solution in here. But here's some general advice:<br/>        </p><figure><blockquote>Think about what your algorithm should do with a set of inputs. On paper/a whiteboard/whatever. <i>Not</i> in code. Make sure you've got it in your mind, or at least written down what your sequence of steps your program should take is. And <i>then</i> try to implement it.</blockquote></figure></li></ol><div class="hint"><div class="info"><p>Some promising algorithms to look at:</p><ul><li><a href="https://en.wikipedia.org/wiki/Heapsort">Heapsort</a></li><li><a href="https://en.wikipedia.org/wiki/Quicksort">Quicksort</a></li><li><a href="https://en.wikipedia.org/wiki/Radix_sort">Radix Sort</a></li></ul></div></div><p>And there's also a <a href="https://github.com/o-reo/push_swap_visualizer/tags">push_swap visualizer</a> for testing your algorithmic attempts ;) (if you can't get the C++ version to run, try the python one. That should work.)</p></details><details open=""><summary><linked class="heading"><h2 id="Cleaning Up"><a class="heading-anchor" href="#Cleaning Up">#</a>Cleaning Up</h2></linked></summary><p></p><p>Well, not much to be done here. Make sure you tested your push_swap properly, ran it against the <code>checker</code>, and got enough points on that to pass.</p><p>That should be it. Good luck!</p></details><details open=""><summary><linked class="heading"><h2 id="Aftercare"><a class="heading-anchor" href="#Aftercare">#</a>Aftercare</h2></linked></summary><p></p>To be honest, I fear that you're already quite fed up with doing anything like push_swap again. So, no algorithms or anything in here. Instead, again some of the basics:<br/><linked class="heading"><h3 id="Task"><a class="heading-anchor" href="#Task">#</a>Task</h3></linked><p>Implement your stack from scratch, following the same process as last time. Only this time, you choose the underlying data structure you didn't choose for push_swap. Think before you write, and also write unit tests.</p><ul><li>What is easier, what harder?</li><li>Would you still go with the one you've tried in the first place?</li></ul><p>And if you're like: 'Bah, I don't need that.'?</p><p>Trust us, it'll come in handy to know what an array and a linked list are good for, the latest in <code>minishell</code>.</p></details><div class="narrator"><p>With that, you should be good to go. See you next time :)</p><p>And may your algorithms ever be sound.</p></div><details open=""><summary><linked class="heading"><h2 id="Pointers"><a class="heading-anchor" href="#Pointers">#</a>Pointers</h2></linked></summary><p></p><ul><li><a href="https://www.geeksforgeeks.org/sort-stack-using-temporary-stack/">'Sorting a stack' tutorial</a></li><li><a href="https://www.enjoyalgorithms.com/blog/sort-stack-using-temporary-stack">Another 'sorting a stack' tutorial</a></li><li><a href="https://github.com/anolivei/Push_swap42">An example project</a></li><li><a href="https://github.com/42YerevanProjects/42_Push_Swap">Another example project</a></li></ul></details></root>
+                <div class="adjacent-nav">
+
+                                        <div id="contrib">Found something to improve? Edit this page on <a href=https://github.com/haglobah/Mastering-42/edit/main/holy_graph/push_swap.poly.pm target="_blank"> Github</a>!</div>
+
+                </div>
+            </div>
+        </main>
+    <footer>
+        <p class="copyright">
+            2022
+        </p>
+        <div class="links">
+            <a href="legal.html">Legal</a>
+            <!-- <a href="impressum.html">Impressum</a> -->
+        </div>
+    </footer>
+    <script src="../get-path.js"></script>
+</body>
+</html>
