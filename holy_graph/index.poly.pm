@@ -7,6 +7,7 @@
 (And don't forget your aftercare – or don't you want to really make sure you understood properly what exactly you did, and are ready to go for the next? ;))}
 
 ◊heading[1]{What does that mean?}
+
 This means we'll try to group stuff we think you should know about a project into specific areas, namely:
 ◊ul{
 	◊li{◊e{Prerequisites} (or: Things you should know before you even start to code.)}
@@ -21,6 +22,7 @@ This means we'll try to group stuff we think you should know about a project int
 }
 
 ◊h[1]{Our Assumptions}
+
 For every project, we will assume that:
 ◊ul{
 	◊li{You have read the ◊code{subject.pdf} of the project}
