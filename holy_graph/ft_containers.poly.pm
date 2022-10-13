@@ -89,8 +89,7 @@ Before sumitting the project make sure:
 	}
 }
 
-} ◊; sec["Cleaning up" 1]
-
+}
 
 ◊sec["Aftercare" 1]{
 
@@ -109,7 +108,7 @@ By now you are probably quite fed up with templates and containers, so the exerc
 	◊li{Rewrite the ◊code{std::array} (It's far less work as it sounds at first)}
 }
 
-} ◊; sec["Aftercare" 1]
+}
 
 ◊sec["Pointers" 1]{
 
