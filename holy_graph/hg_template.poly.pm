@@ -1,6 +1,6 @@
 #lang pollen
 
-◊title[#:sub "by marvin"]{Template}
+◊title[#:sub "by marvin" #:version "4.2"]{Template}
 
 //Some Intro
 

@@ -1,6 +1,6 @@
 #lang pollen
 
-◊title[#:sub "by bhagenlo"]{Born2beroot}
+◊title[#:sub "by bhagenlo" #:version "1"]{Born2beroot}
 
 ◊narr{My God. Am I sorry for you that you have to do this. But anyway, let's start.}
 
