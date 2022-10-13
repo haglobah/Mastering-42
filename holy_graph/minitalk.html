@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" value="minitalk">
+        <meta property="og:image" value="../src/Images/42_logo.png">
+        <title>minitalk</title> <!-- or holy_graph/minitalk.html -->
+                <link rel="stylesheet" href="../fonts.css">
+                <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../pygments.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a class="nav-logo" href="../index.html">
+                                        <!--<h3>Mastering</h3> -->
+                    <img src="../src/Images/42_logo_big.jpg" alt="Mastering 42">
+                </a>
+                <input type="checkbox" name="hamburger-button" id="nav-toggle">
+                <div class="nav-list">
+                    <a href="index.html" class="nav-item active">holy_graph</a><a href="../core/index.html" class="nav-item">core</a><a href="../cs_theory/index.html" class="nav-item">cs_theory</a>
+                </div>
+                <label for="nav-toggle"></label>
+            </nav>
+        </header>
+        <main>
+            <div class="sidenav">
+           <div class="nav-node"><a href="index.html"><span class="category">holy_graph</span></a><div class="nav-node"><a href="libft.html">libft</a></div><div class="nav-node"><a href="born2beroot.html">Born2beroot</a></div><div class="nav-node"><a href="get_next_line.html">get_next_line</a></div><div class="nav-node active"><a href="minitalk.html">minitalk</a><div class="nav-node"><a href="#Pre &amp; During">Pre &amp; During</a></div><div class="nav-node"><a href="#Cleaning Up">Cleaning Up</a></div><div class="nav-node"><a href="#Aftercare">Aftercare</a></div><div class="nav-node"><a href="#Pointers">Pointers</a></div></div><div class="nav-node"><a href="ft_containers.html">ft_containers</a></div></div><div class="nav-node"></div><div class="nav-node"></div>
+            </div>
+            <div class="content">
+
+                <root><div class="title"><h1>minitalk</h1><h4 class="subhead">by bhagenlo</h4><span class="version">written for version 2</span></div><div class="narrator"><p>Hey there!</p><p>Welcome to my favourite project so far. It is nice, clean, and short, and you spend most of your time learning about, <i>not</i> debugging some nasty piece of code with dubious pointer and memory errors in it.<br/>I'm sure you'll like it, too :)</p></div><details open=""><summary><linked class="heading"><h2 id="Pre &amp; During"><a class="heading-anchor" href="#Pre &amp; During">#</a>Pre &amp; During</h2></linked></summary><p></p><p>Okay: What do you need to start?<br/>The hard part about this project is, in my opinion, to know how to do what you have to do.</p><p>But first things first.<br/>You have to build two seperate executables, a <code>server</code> and a <code>client</code>, which should communicate with each other. For that, the client should be able to send a message (a string) to its server.<br/>Which brings us to the next question: How can two seperate processes interact in UNIX at all?</p><p>And the answer is: Via <a href="http://www.cs.kent.edu/~ruttan/sysprog/lectures/signals.html">signals</a>.</p><p>You have two of them at your disposal: <code>SIGUSER1</code> and <code>SIGUSER2</code>.<br/>With those, you have to somehow encode the information you want to send.</p><div class="hint"><details class="info"><summary>So, how could you encode information with only two different states?</summary><div></div>Hmm, let me think. With two states? You mean, like, <code>0</code> and <code>1</code>?<br/>That sounds a lot like <spoiler class="spoiler"><input type="checkbox" id="spoiler-0"/><label for="spoiler-0"><i>binary</i></label></spoiler> to me.</details></div><p>And once you've understood that, the only thing left is:</p><div class="hint"><details class="info"><summary>How do you destruct and reconstruct your message on both sides?</summary><div></div>Want a hint? Via <spoiler class="spoiler"><input type="checkbox" id="spoiler-0"/><label for="spoiler-0"><i>bitshifting</i> and <i>binary and</i> (<code>&amp;</code>) / <i>binary or</i> (<code>|</code>)</label></spoiler></details></div><p>And that you've got a good idea about <i>how</i> you can do things, you should be good to go :)</p></details><details open=""><summary><linked class="heading"><h2 id="Cleaning Up"><a class="heading-anchor" href="#Cleaning Up">#</a>Cleaning Up</h2></linked></summary><p></p><p>Well, not so much in here. If you've tested it, and it works, you should be fine.<br/>(+No leaks, segfaults, only one global variable – the standard stuff.)</p></details><details open=""><summary><linked class="heading"><h2 id="Aftercare"><a class="heading-anchor" href="#Aftercare">#</a>Aftercare</h2></linked></summary><p></p><p>Weell – you now can send general signals to any process you know the ID of. So why only send <code>SIGUSR1</code> &amp; <code>SIGUSR2</code>?<br/>Send the following to your server:<br/>(well, <i>shoot at</i> might fit better, in those cases.)</p><ul><li>A segfault: <code>SIGSEGV</code></li><li>A bus error: <code>SIGBUS</code></li><li>Terminate the process: <code>SIGTERM</code></li><li>And, finally – kill the process <code>SIGKILL</code></li><li><p>And if you haven't got enough fun so far: You can get a pretty comprehensive list with</p><div class="highlight"><pre><code>$ kill -l</code></pre></div><p> or on your favourite <a href="https://man7.org/linux/man-pages/man7/signal.7.html">manpage</a>.</p></li></ul></details><div class="narrator"><p>That was nice, wasn't it?<br/>See you again soon.</p><p>And may your signals ever reach their destination.</p></div><details open=""><summary><linked class="heading"><h2 id="Pointers"><a class="heading-anchor" href="#Pointers">#</a>Pointers</h2></linked></summary><p></p><ul><li><a href="http://www.cs.kent.edu/~ruttan/sysprog/lectures/signals.html">A nice overview</a></li><li>The two <a href="https://man7.org/linux/man-pages/man7/signal.7.html">signal</a> <a href="https://man7.org/linux/man-pages/man2/signal.2.html">manpages</a></li></ul></details></root>
+                <div class="adjacent-nav">
+                    <div id="prev">← <a href=/Mastering-42/holy_graph/get_next_line.html>get_next_line</a></div>
+                                        <div id="contrib">Found something to improve? Edit this page on <a href=https://github.com/haglobah/Mastering-42/edit/main/holy_graph/minitalk.poly.pm target="_blank"> Github</a>!</div>
+                    <div id="next"><a href=/Mastering-42/holy_graph/ft_containers.html>ft_containers</a> →</div>
+                </div>
+            </div>
+        </main>
+    <footer>
+        <p class="copyright">
+            2022
+        </p>
+        <div class="links">
+            <a href="legal.html">Legal</a>
+            <!-- <a href="impressum.html">Impressum</a> -->
+        </div>
+    </footer>
+    <script src="../get-path.js"></script>
+</body>
+</html>
