@@ -584,8 +584,7 @@ pre p {
 
     .content {
         margin-top: 0;
-        margin-left: 200px; /* info: for comments */
-        margin-right: 8em; /* info: for overlay panels */
+        margin-left: 200px; /* for the sidebar. */
     }
 }
 
