@@ -105,8 +105,14 @@ h4:hover .heading-anchor {
 	text-align: center;
 }
 
-.title .subhead{
+.title .subhead {
 	text-transform: none;
+	margin-bottom: 0.4rem;
+}
+
+.title .version {
+	font-style: italic;
+	font-size: 0.7rem;
 }
 
 h1, h2, h3, h4 {
