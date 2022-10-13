@@ -86,13 +86,13 @@
                 ◊(->html doc)
                 <div class="adjacent-nav">
                     ◊(define prev-page (previous here))
-                    ◊when/splice[#f ◊;{prev-page}]{
-                    <div id="prev">← <a href=◊(string-append "Mastering-42/" (symbol->string prev-page))>◊(or (select 'h1 prev-page) "Without Title")</a></div>}
+                    ◊when/splice[prev-page]{
+                    <div id="prev">← <a href="/◊|prev-page|">◊(or (select 'h1 prev-page) "Without title")</a></div>}
                     ◊(define next-page (next here))
 					◊;(print here)
 					<div id="contrib">Found something to improve? Edit this page on <a href=◊(mk-edit-link here) target="_blank"> Github</a>!</div>
-                    ◊when/splice[#f ◊;{next-page}]{
-                    <div id="next"><a href=◊(string-append "" (symbol->string next-page))>◊(or (select 'h1 next-page) "Without Title")</a> →</div>}
+                    ◊when/splice[next-page]{
+                    <div id="next"><a href="/◊|next-page|">◊(or (select 'h1 next-page) "Without title")</a> →</div>}
                 </div>
             </div>
         </main>

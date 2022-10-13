@@ -743,15 +743,18 @@ form {
     display: flex;
     padding: 1em 0;
     justify-content: space-between;
-	max-width: 32rem;
+	max-width: 64rem;
 	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 5rem auto 0 auto;
 }
 #next {
     margin-left: auto;
 }
-
+#contrib {
+	width: 48%;
+	max-width: 32rem;
+	padding: 0 0.5rem;
+}
 /* 9. Footer */
 
 footer {
