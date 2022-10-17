@@ -341,7 +341,7 @@ nav {
     z-index: 10;
 }
 nav > * + * {
-    margin-left: 2em;
+    margin-left: 1rem;
 }
 
 nav #nav-toggle {
@@ -350,7 +350,7 @@ nav #nav-toggle {
     height: 0;
     visibility: hidden;
 }
-nav label[for=nav-toggle] {
+/* nav label[for=nav-toggle] {
     margin-left: auto;
     display: block;
     width: 40px;
@@ -363,7 +363,7 @@ nav label[for=nav-toggle] {
         var(--font-clr) 80% 100%
     );
     cursor: pointer;
-}
+} */
 
 nav a {
     display: block;
@@ -381,15 +381,15 @@ nav a:hover {
 .nav-list {
     display: flex;
     flex-direction: row;
+	flex-wrap: wrap;
     position: initial;
     height: 100%;
-    margin-left: 10%;
     background-color: var(--bg-clr);
 }
 
 .nav-item {
     height: 100%;
-    margin: 1rem;
+    margin: 1rem 0 1rem 0.7rem;
 
 }
 .nav-item.active {
@@ -417,6 +417,16 @@ nav a:hover {
 #nav-toggle:checked ~ .nav-list {
     display: flex;
 }
+
+@media screen and (min-width: 725px) {
+	.nav-list {
+		margin-left: 10%;
+	}
+
+	.nav-item {
+		margin: 1rem;
+	}
+} 
 
 /* 3. Side navigation bar */
 
