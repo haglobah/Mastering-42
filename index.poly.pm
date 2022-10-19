@@ -9,16 +9,19 @@ HERE
 ◊narr{Welcome, welcome, dear fellow travellers through the universe of 42 :)}
 
 ◊sec["Whom is this guide for?" 1]{
+
 	For anyone who wants to learn more while doing the 42 Curriculum. 
 	This guide aims to take some stones out of your way while traversing the Curriculum, while also providing some kind of general map for the Terrain. 
 	Note, however, that it aims to be a benevolent Guide for your own long-term learning. It might discuss stuff you do not need right know to solve the task at hand. Instead, it tries to show you what other ways you might walk in order to achieve that. 
 }
 
 ◊sec["Why?" 1]{
+
 	Because the Curriculum right now is putting stones right in front of you. I am not sure whether this happened by accident or on purpose (and it should 'encourage' you to ask your peers). What I am sure about, however, is that it hinders learning and slows you down. This time with your peers surely is better spent on discussing different approaches on how to solve a project, rather than on figuring out what the hell the projects want you to do. 
 }
 
 ◊sec["Purpose & Goals" 1]{
+
 	This guide is written for the ones who want to learn more than the bare minimum needed to complete the projects.
 	We'd like to provide:
 	◊ul{
@@ -30,6 +33,7 @@ HERE
 }
 
 ◊heading[2]{◊link["holy_graph/index.html"]{The Holy Graph}}
+
 ◊ul{
     ◊li{◊link["holy_graph/libft.html"]{Libft}}
     ◊li{◊link["holy_graph/born2beroot.html"]{born2beroot}}
@@ -39,12 +43,14 @@ HERE
 }
 
 ◊heading[2]{◊link["core/index.html"]{Additions to the Core}}
+
 ◊ul{
     ◊li{◊link["core/makefiles.html"]{Writing Makefiles}}
     ◊li{◊link["core/vscode_debugger.html"]{Using the VS Code Debugger}}
 }
 
-◊heading[2]{◊link["cs_theory/index.html"]{Computer Science Theory}}
+◊heading[2]{◊link["explainers/index.html"]{Computer Science Theory}}
+
 ◊ul{
-    ◊;li{◊link["cs_theory.html"]{Compound Data Types}}
+    ◊;li{◊link["explainers.html"]{Compound Data Types}}
 }

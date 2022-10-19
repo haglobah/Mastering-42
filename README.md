@@ -62,7 +62,7 @@ In particular, so that you can start writing more easily if you want to write ar
 | ```◊hline{}``` | A red, horizontal line. |
 | ```◊spoiler{This could spoil you. Do you want that?}``` | A Spoiler that only makes itself visible on click. |
 | ```◊hint[#:type "info"]{This is a piece of information for the reader}``` | A hint for the reader. It can be a ```info```(blue), ```warning```(yellow), ```error```(red) or a ```resolved```(green) |
-| ```◊sec-hint[#:type "error"]{libft}``` | An expandable hint. (that expands and shrinks on click)|
+| ```◊sec-hint[#:type "error" "Click here to expand."]{This is what gets shown on expansion.}``` | An expandable hint. (that expands and shrinks on click)|
 | ```◊img["./path/to/img.jpg" #:height 10 #:width 100]{This is a caption.}``` | An image  —  beware that if you explicitly set height _and_ width, you most likely distort the picture.|
 | ```◊ol{◊li{}}``` | An ordered list. |
 | ```◊ul{◊li{}}``` | An unordered list. |

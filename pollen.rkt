@@ -5,7 +5,7 @@
          pollen/unstable/pygments
          sha
          dyoo-while-loop)
-(provide title link b e irr heading h sub quote-block sec requirements hint sec-hint 
+(provide title link l b e irr heading h sub quote-block sec requirements hint sec-hint 
 	ul ol li ul-mark ol-mark img code c code-block narr hline spoiler table side) ;tag functions: use in *.poly.pm
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path 
 	pagetree-code root latex-replace) ;Utilities - for use in the templates
@@ -139,6 +139,7 @@
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\href{" ,url "}{" ,@elements "}"))]
 	[else (txexpr 'a `((href ,url)) elements)]))
+(define l link)
 
 (define (b . elements)
 	(case (current-poly-target)
@@ -189,7 +190,7 @@
 (define spoiler-counter 0)
 
 (define (table . rows)
-    `(table ,@(map (lambda (row) 
+    `(table ,@(map (lambda (row)
         `(tr ,@(map
             (lambda (data) `(td ,data))
             (string-split row ","))))
@@ -200,12 +201,20 @@
     [(ltx pdf) (apply string-append '(" "))]
     [else (txexpr 'h4 '((class "subhead")) elements)]))
 
-(define (title #:sub [subtitle ""] . elements)
+(define (version . elements)
+  (case (current-poly-target)
+    [(ltx pdf) (apply string-append '(" "))]
+    [else (txexpr 'span '((class "version")) elements)]))
+
+(define (title #:sub [subtitle ""] #:version [version ""] . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))]
-	[else (txexpr 'div '((class "title")) 
+	[else (txexpr 'div '((class "title"))
 		  `(,(txexpr 'h1 empty elements)
-		    ,(sub subtitle)))]))
+		    ,(sub subtitle)
+            ,(if (equal? version "")
+                 ""
+                 (txexpr 'span '((class "version")) `(,(string-append "written for version " version))))))]))
 
 (define (parse-to-string element)
 	(if (string? element)
