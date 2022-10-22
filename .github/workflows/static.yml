@@ -22,6 +22,23 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
+  build:
+    name: Building
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: Bogdanp/setup-racket@v1.9
+        with:
+          architecture: 'x64'
+          distribution: 'full'
+          variant: 'CS'
+          version: 'stable'
+      - run: raco pkg install --auto pollen
+      - run: raco pkg install --auto sha
+      - run: raco pkg install --auto while-loop
+      - run: raco pollen render
+      - run: raco pollen reset
+  
   deploy:
     environment:
       name: github-pages
