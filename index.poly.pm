@@ -39,6 +39,7 @@ HERE
     ◊li{◊link["holy_graph/born2beroot.html"]{born2beroot}}
     ◊li{◊link["holy_graph/get_next_line.html"]{get_next_line}}
     ◊li{◊link["holy_graph/minitalk.html"]{minitalk}}
+    ◊li{◊link["holy_graph/push_swap.html"]{push_swap}}
     ◊li{◊link["holy_graph/ft_containers.html"]{ft_containers}}
 }
 
@@ -49,8 +50,8 @@ HERE
     ◊li{◊link["core/vscode_debugger.html"]{Using the VS Code Debugger}}
 }
 
-◊heading[2]{◊link["cs_theory/index.html"]{Computer Science Theory}}
+◊heading[2]{◊link["explainers/index.html"]{Computer Science Theory}}
 
 ◊ul{
-    ◊;li{◊link["cs_theory.html"]{Compound Data Types}}
+    ◊;li{◊link["explainers.html"]{Compound Data Types}}
 }
