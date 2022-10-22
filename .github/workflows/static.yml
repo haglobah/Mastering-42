@@ -39,9 +39,7 @@ jobs:
             ~/.cache/racket
             ~/.local/share/racket
           key: ${{ runner.os }}-racket-current-${{ hashFiles('.racket-version') }}
-      - run: raco pkg install --auto pollen
-      - run: raco pkg install --auto sha
-      - run: raco pkg install --auto while-loop
+      - run: raco pkg install --auto --skip-installed pollen sha while-loop
       - run: raco pollen render
       - run: raco pollen reset
   
