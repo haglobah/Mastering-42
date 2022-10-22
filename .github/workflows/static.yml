@@ -33,6 +33,12 @@ jobs:
           distribution: 'full'
           variant: 'CS'
           version: 'stable'
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/racket
+            ~/.local/share/racket
+          key: ${{ runner.os }}-racket-current-${{ hashFiles('.racket-version') }}
       - run: raco pkg install --auto pollen
       - run: raco pkg install --auto sha
       - run: raco pkg install --auto while-loop
