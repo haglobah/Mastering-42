@@ -18,7 +18,7 @@ With that, let's already get started. It's gonna be fun ;)}
 
 	The code you'll be writing is 'just' the ◊e{implementation} of such an algorithm. This implementation can have errors, even if the algorithm is correct. However, if the algorithm has errors, then there's no way your implementation following your algorithm could ever possibly be correct.}}
 	◊li{Make sure you know what ◊e{unit testing} is, and why it's highly superior to ◊e{integration/integrated testing}. (That's what you probably will do naturally ;))
-	For that, you could watch the first 22 minutes of ◊link["https://www.youtube.com/watch?v=VDfX44fZoMc"]{this} talk, or read its accompagnying ◊link["https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam"]{article}.}
+	For that, you could watch the first 22 minutes of ◊link["https://www.youtube.com/watch?v=VDfX44fZoMc"]{this} talk, or read its accompanying ◊link["https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam"]{article}.}
 	◊li{Get to know what a ◊link["https://en.wikipedia.org/wiki/Stack_(abstract_data_type)"]{stack} is.}
 	◊li{Get to know some ◊link["https://en.wikipedia.org/wiki/Sorting_algorithm"]{sorting algorithms}.
 	(As well as the difference between comparison and non-comparison algorithms, if you like :))}
