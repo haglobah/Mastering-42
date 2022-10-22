@@ -23,7 +23,7 @@ Which brings us to the next question: How can two seperate processes interact in
 
 And the answer is: Via ◊l["http://www.cs.kent.edu/~ruttan/sysprog/lectures/signals.html"]{signals}.
 
-You have two of them at your disposal: ◊c{SIGUSER1} and ◊c{SIGUSER2}.
+You have two of them at your disposal: ◊c{SIGUSR1} and ◊c{SIGUSR2}.
 With those, you have to somehow encode the information you want to send.
 
 ◊sec-hint["So, how could you encode information with only two different states?"]{
