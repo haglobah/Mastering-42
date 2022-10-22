@@ -1,6 +1,6 @@
 #lang pollen
 
-◊title[#:sub "by bhagenlo"]{push_swap}
+◊title[#:sub "by bhagenlo" #:version "6"]{push_swap}
 
 ◊narr{Hey hey hey, you did it! You arrived at your first 'real' algorithms project.
 You'll get to know layering software and unit testing, as well as the one big chunk: To learn to think in algorithms, not (only) in code.
@@ -21,17 +21,17 @@ With that, let's already get started. It's gonna be fun ;)}
 	For that, you could watch the first 22 minutes of ◊link["https://www.youtube.com/watch?v=VDfX44fZoMc"]{this} talk, or read its accompanying ◊link["https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam"]{article}.}
 	◊li{Get to know what a ◊link["https://en.wikipedia.org/wiki/Stack_(abstract_data_type)"]{stack} is.}
 	◊li{Get to know some ◊link["https://en.wikipedia.org/wiki/Sorting_algorithm"]{sorting algorithms}.
-	(As well as the difference between comparison and non-comparison algorithms, if you like :))}
+	(As well as the difference between comparison and non-comparison algorithms - if you like :))}
 }
 }
 
 ◊sec["During" 1]{
 
-So. You did your research? If so, let's finally start. For that, let's make a plan.
+So, you did your research? Great! Let's finally start. For that, let's make a plan.
 
 After reading the subject, you probably were a little bit confused about what exactly you would have to do to solve this task. For me, it was quite confusing at the time. That's what we'd like to provide a map for.
 
-◊narr{(Short disclaimer: There are obviously several other approaches to this project. However, all of us who tried them did not succeed so far. See this only as a default path which work, but please feel encouraged to go on tangents whenever you like ;))}
+◊narr{Short disclaimer: There are obviously several other approaches to this project. However, all of us who tried them did not succeed so far. This is only a default path to work with, so feel free to deviate from it whenever you like ;)}
 
 In order to do this project, we think it's best to do the following:
 ◊ol{
@@ -88,7 +88,7 @@ In order to do this project, we think it's best to do the following:
 	◊li{And now, finally: You've arrived at the algorithmic part. There's a few branches opening up from here, but there are two big approaches most of the people at our school took. The general idea is that you take some established algorithm (or some essential concepts out of it) and adjust it to our scenario.
 	I won't guide you through an existing solution in here. But here's some general advice:
 		◊quote-block{
-			Think about what your algorithm should do with a set of inputs. On paper/a whiteboard/whatever. ◊e{Not} in code. Make sure you've got it in your mind, or at least written down what your sequence of steps your program should take is. And ◊e{then} try to implement it.
+			Think about what your algorithm should do with a set of inputs. On paper/a whiteboard/whatever and ◊e{not} in code. Make sure you've got it in your mind, or at least written down what the sequence of steps your program should take is. And ◊e{then} try to implement them.
 		}
 	}
 }
@@ -102,7 +102,7 @@ In order to do this project, we think it's best to do the following:
 	}
 }
 
-And there's also a ◊link["https://github.com/o-reo/push_swap_visualizer/tags"]{push_swap visualizer} for testing your algorithmic attempts ;) (if you can't get the C++ version to run, try the python one. That should work.)
+And there's also a ◊link["https://github.com/o-reo/push_swap_visualizer/tags"]{push_swap visualizer} for testing your algorithmic attempts (if you can't get the C++ version to run, try the python one. That should work)
 }
 
 ◊sec["Cleaning Up" 1]{
@@ -117,7 +117,7 @@ That should be it. Good luck!
 To be honest, I fear that you're already quite fed up with doing anything like push_swap again. So, no algorithms or anything in here. Instead, again some of the basics:
 ◊heading[2]{Task}
 
-Implement your stack from scratch, following the same process as last time. Only this time, you choose the underlying data structure you didn't choose for push_swap. Think before you write, and also write unit tests.
+Re-implement your stack from scratch, following the same process as last time. Only this time, you choose the underlying data structure you didn't choose for push_swap. Think before you write, and also write unit tests.
 
 ◊ul{
 	◊li{What is easier, what harder?}
@@ -126,7 +126,7 @@ Implement your stack from scratch, following the same process as last time. Only
 
 And if you're like: 'Bah, I don't need that.'?
 
-Trust us, it'll come in handy to know what an array and a linked list are good for, the latest in ◊c{minishell}.
+Trust us, it'll come in handy to know when to use an array over a linked list and vice versa. The latest in ◊e{*shudder*} ◊c{minishell}.
 }
 
 ◊narr{
