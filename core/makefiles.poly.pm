@@ -186,14 +186,14 @@ And trust me, it is worth it – especially when there are recursive calls to ot
 	lsan : $(LSAN)
 	lsan : CFLAGS += -Wno-gnu-include-next -ILeakSanitizer -LLeakSanitizer -llsan -lc++
 	$(LSAN) :
-		if [ ! -d "LeakSanitizer"]; then git clone then git clone git@github.com:mhahnFr/LeakSanitizer.git; fi
+		if [ ! -d "LeakSanitizer"]; then git clone https://github.com/mhahnFr/LeakSanitizer.git; fi
 		$(MAKE) -C LeakSanitizer
 	}
 }
 
 ◊sec["3. Automation" 1]{
 
-	Well, there are a few steps common to most of the projects we use. One could argue whether they're really part of the build process, but they're definitely part of our build ◊e{pipeline} for finally delivering our software. (For more on that: Take a look at ◊l["https://en.wikipedia.org/wiki/DevOps"]{DevOps} and ◊l["https://en.wikipedia.org/wiki/CI/CD"]{CI/CD}.
+	Well, there are a few steps common to most of the projects we use. One could argue whether they're really part of the build process, but they're definitely part of our build ◊e{pipeline} for finally delivering our software. (For more on that: Take a look at ◊l["https://en.wikipedia.org/wiki/DevOps"]{DevOps} and ◊l["https://en.wikipedia.org/wiki/CI/CD"]{CI/CD}.)
 	You definitely don't ◊e{need} what's in here. However, if you dislike tedious repetition as much as I do, it might be worth a look ;)
 
 	With that, let's go:
@@ -233,7 +233,7 @@ And trust me, it is worth it – especially when there are recursive calls to ot
 		$(MAKE) test
 		echo "Checking for memory leaks..."
 		$(MAKE) lsan
-		echo "Did your read the subject again, and checked/asked for common mistakes?"
+		echo "Did you read the subject again, and have checked/asked for common mistakes?"
 		norminette *.c $(NAME).h
 	}
 
@@ -246,7 +246,7 @@ And trust me, it is worth it – especially when there are recursive calls to ot
 		git remote add submit $(REPO)
 		git remote -v
 	else
-		@echo -e "You have to provide a repo. Like so:\n\n     make REPO=<the vogsphere repo> submit\n"
+		@echo -e "You have to provide a repo:\n\n     make REPO=<the vogsphere repo> submit\n"
 	endif
 	}
 
