@@ -50,7 +50,7 @@ HERE
     ◊li{◊link["core/vscode_debugger.html"]{Using the VS Code Debugger}}
 }
 
-◊heading[2]{◊link["explainers/index.html"]{Computer Science Theory}}
+◊heading[2]{◊link["explainers/index.html"]{Explainers}}
 
 ◊ul{
     ◊;li{◊link["explainers.html"]{Compound Data Types}}
