@@ -259,5 +259,7 @@ And trust me, it is worth it – especially when there are recursive calls to ot
 	◊ul{
 		◊li{◊link["https://www.gnu.org/software/make/manual/html_node/index.html#Top"]{The GNU make Documentation}}
 		◊li{◊link["https://makefiletutorial.com/"]{A very extensive tutorial}}
+		◊li{◊link["https://noahloomans.com/tutorials/makefile/"]{A 42-specific tutorial}}
+		◊li{◊link["https://github.com/clemedon/Makefile_tutor"]{A very extensive 42-specific tutorial}}
 	}
 }
