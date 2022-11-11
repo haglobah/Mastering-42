@@ -138,83 +138,81 @@
 (define (link url . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\href{" ,url "}{" ,@elements "}"))]
-	[else (txexpr 'a `((href ,url)) elements)]))
+	[else `(a [[href ,url]] ,@elements)]))
 (define l link)
 
 (define (b . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("{\\bf " ,@elements "}"))]
-	[else (txexpr 'b empty elements)]))
+	[else `(b ,@elements)]))
 
 (define (e . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-	[else (txexpr 'i empty elements)]))
+	[else `(i ,@elements)]))
 
 (define (quote-block #:author [author ""]. elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
     [else (if (equal? author "")
-			  (txexpr 'figure empty `(,(txexpr 'blockquote empty elements)))
-			  (txexpr 'figure
-			  		  empty
-			  		  `(,(txexpr 'blockquote empty elements)
-					    ,(txexpr 'figcaption empty `(,(txexpr 'p empty `(,author)))))))]))
+			  `(figure (blockquote ,@elements))
+			  `(figure (blockquote ,@elements)
+					   (figcaption (p ,author))))]))
 
 (define (narr . elements)
 	(case (current-poly-target)
 	[(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-	[else (txexpr 'div '((class "narrator")) elements)]))
+	[else `(div [[class "narrator"]] ,@elements)]))
 
 (define (irr . elements)
 	(case (current-poly-target)
 	[(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-	[else (txexpr 'div '((class "irrelevant")) elements)]))
+	[else `(div [[class "irrelevant"]] ,@elements)]))
 
 (define (hline)
 	(case (current-poly-target)
 	[(ltx pdf) (apply string-append `("\\hrule"))]
-	[else (txexpr 'hr '((class "divisor")) empty)]))
+	[else '(hr [[class "divisor"]])]))
 
 (define (spoiler . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append '(" "))] ;TODO: Latex
-    [else (inc! panel-counter)
-          (txexpr 'spoiler
-                  '((class "spoiler"))
-                     `(,(txexpr 'input
-                              `((type "checkbox") (id ,(string-append "spoiler-"
-                                                                      (number->string spoiler-counter)))) empty)
-                          ,(txexpr 'label `((for ,(string-append "spoiler-"
-                                                                 (number->string spoiler-counter)))) elements)))]))
+    [else (inc! spoiler-counter)
+          `(spoiler [[class "spoiler"]]
+                    (input [[type "checkbox"] 
+						    [id ,(string-append "spoiler-" (number->string spoiler-counter))]])
+                    (label [[for ,(string-append "spoiler-" (number->string spoiler-counter))]] ,@elements))]))
 (define spoiler-counter 0)
 
 (define (table . rows)
-    `(table ,@(map (lambda (row)
-        `(tr ,@(map
-            (lambda (data) `(td ,data))
-            (string-split row ","))))
+  `(table
+	,@(map (λ (row)
+        	  `(tr ,@(map
+			          (λ (data) 
+					  	 `(td ,data))
+					  (filter (λ (data) (not (equal? data "\n")))
+							  (string-split row ",")))))
     rows)))
 
 (define (sub . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append '(" "))]
-    [else (txexpr 'h4 '((class "subhead")) elements)]))
+    [else `(h4 [[class "subhead"]] ,@elements)]))
 
 (define (version . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append '(" "))]
-    [else (txexpr 'span '((class "version")) elements)]))
+    [else `(span [[class "version"]] ,@elements)]))
 
 (define (title #:sub [subtitle ""] #:version [version ""] . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))]
-	[else (txexpr 'div '((class "title"))
-		  `(,(txexpr 'h1 empty elements)
-		    ,(sub subtitle)
-            ,(if (equal? version "")
-                 ""
-                 (txexpr 'span '((class "version")) `(,(string-append "written for version " version))))))]))
+	[else `(div [[class "title"]]
+				(h1 ,@elements)
+		    	,(sub subtitle)
+            	,(if (equal? version "")
+                 	""
+                 	`(span [[class "version"]] ,(string-append "written for version " version))))]))
 
 (define (parse-to-string element)
 	(if (string? element)
@@ -234,12 +232,12 @@
         [(ltx pdf) (cond [(= level 1) (apply string-append `("\\par{\\LARGE " ,@elements "\\par} \\vspace{1.0em}"))]
                          [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
                          [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])]
-		    [else (let ([current-id (words->id elements)])
-				  (txexpr 'linked '((class "heading"))
-				  `(,(txexpr (string->symbol (string-append "h" (number->string (+ level 1))))
-                      `((id ,current-id))
-                      `(,(txexpr 'a `((class "heading-anchor") (href ,(string-append "#" current-id))) '("#"))
-						,@elements)))))])))
+		[else (let ([current-id (words->id elements)])
+			  `(linked [[class "heading"]]
+			  	(,(string->symbol (string-append "h" (number->string (+ level 1))))
+                  [[id ,current-id]]
+                  (a [[class "heading-anchor"] [href ,(string-append "#" current-id)]] "#")
+				  ,@elements)))])))
 (define h heading)
 
 (define (sec title level #:sub [subtitle ""] #:open? [open #t] . elements)
@@ -247,77 +245,63 @@
     [(ltx pdf) (cond [(= level 1) (apply string-append `("\\section{" ,title"}" ,@elements))]
                      [(= level 2) (apply string-append `("\\subsection{" ,title"}" ,@elements))]
                      [(= level 3) (apply string-append `("\\subsubsection{" ,title"}" ,@elements))])] ;include #:subs
-		[else (txexpr 'details
-			            (if open '((open "")) empty)
-			            `(,(txexpr 'summary
-					                    empty
-				                     `(,(heading level
-					                               title)
-                            		   ,(if (equal? subtitle "")
-                                    		"" 
-                                    		(sub subtitle))))
-				            ,(txexpr 'p empty `(,(car elements))) "\n" ,@(cdr elements)))]))
+		[else `(details ,(if open '[[open ""]] empty)
+			            (summary ,(heading level title)
+                            	 ,(if (equal? subtitle "")
+                                      "" 
+                                      (sub subtitle)))
+				        (p ,@elements))]))
 
 (define (requirements . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))] ;include #:subs
-		[else (txexpr 'details
-			            '((class "requirements"))
-			            `(,(txexpr 'summary
-					                    empty
-				                     `(,(heading 1 "Anforderungen")))
-				            ,(txexpr 'p empty `(,(car elements))) "\n" ,@(cdr elements)))]))
+		[else `(details [[class "requirements"]]
+			            (summary 
+							,(heading 1 "Anforderungen")
+				            (p ,@elements)))]))
 
 (define (hint #:type [type "info"] . elements)
   (if (member type '("info" "warning" "error" "resolved"))
     (case (current-poly-target)
       [(ltx pdf) (apply string-append `(,@elements))]
-      [else (txexpr 'div 
-                    '((class "hint"))
-                    `(,(txexpr 'div
-                               `((class ,type))
-                               elements)))])
+      [else `(div [[class "hint"]]
+                  (div [[class ,type]] ,@elements))])
     (error "not a valid type for hint")))
 
 (define (sec-hint title #:type [type "info"] . elements)
   (if (member type '("info" "warning" "error" "resolved"))
     (case (current-poly-target)
       [(ltx pdf) (apply string-append `(,@elements))]
-      [else (txexpr 'div 
-                    '((class "hint")) 
-                    `(,(txexpr 'details
-                               `((class ,type))
-                               `(,(txexpr 'summary
-                                          empty
-                                          `(,title))
-                                 ,(txexpr 'div empty `(,(car elements))) "\n" ,@(cdr elements)))
-                      ))])
+      [else `(div [[class "hint"]]
+                  (details [[class ,type]]
+                           (summary ,title)
+                           (div ,@elements)))])
     (error "not a valid type for hint")))
 
 (define (ul . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))]
-		[else (txexpr 'ul empty elements)]))
+		[else `(ul ,@elements)]))
 
 (define (ol . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\begin{enumerate}" ,@elements "\\end{enumerate}"))]
-		[else (txexpr 'ol empty elements)]))
+		[else `(ol ,@elements)]))
 
 (define (li . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\item " ,@elements "\\par"))]
-		[else (txexpr 'li empty elements)]))
+		[else `(li ,@elements)]))
 
 (define (ol-mark . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-		[else (txexpr 'span '((class "ol-mark")) elements)]))
+		[else `(span [[class "ol-mark"]] ,@elements)]))
 
 (define (ul-mark . elements)
 	(case (current-poly-target)
     [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-		[else (txexpr 'span '((class "ul-mark")) elements)]))
+		[else `(span [[class "ul-mark"]] ,@elements)]))
 
 (define (img url #:height [height 0] #:width [width 0] . caption)
   (case (current-poly-target)
@@ -328,40 +312,33 @@
                                       [(= width 0) (string-append "height=" (number->string (* height 0.01)) "\\textheight")]
                                       [else (string-append "width=" (number->string width) "\\textwidth, " "height=" (number->string height) "\\textheight")])
                                     "]{" ,url "}\\end{figure}"))]
-    [else (txexpr 'figure '((class "img"))
-			`(,(txexpr 'img
-                  `((src ,url) (style 
-				  					,(string-append 
+    [else `(figure [[class "img"]]
+				   (img [[src ,url] 
+						 [style ,(string-append 
 										(if (= height 0)
                                     	    "height: auto;"
                                             (string-append "height: " (number->string height) "em;"))
                                         (if (= width 0)
                                             "width: auto;"
-                                            (string-append "width: " (number->string (* width 100)) "%"))))) empty)
-               ,(txexpr 'figcaption
-                        '((class "imgcaption"))
-                        caption)))]))
+                                            (string-append "width: " (number->string (* width 100)) "%")))]])
+            	   (figcaption [[class "imgcaption"]] ,@caption))]))
 
 
 (define (side label . elements)
   (case (current-poly-target)
     [(ltx pdf) (apply string-append '(" "))] ;TODO: Latex
     [else (inc! panel-counter)
-          (txexpr 'div
-                  '((class "sidepanel"))
-                  `(,(txexpr 'div '((class "sidepanel-controls"))
-                             `(,(txexpr 'input
-                                      `((type "checkbox") (id ,(string-append "panel-"
-                                                                              (number->string panel-counter)))) empty)
-                              ,(txexpr 'label `((for ,(string-append "panel-"
-                                                                    (number->string panel-counter)))) `(,label))))
-                    ,(txexpr 'div '((class "sidepanel-content")) elements)))]))
+          `(div [[class "sidepanel"]]
+                (div [[class "sidepanel-controls"]]
+                     (input [[type "checkbox"] [id ,(string-append "panel-" (number->string panel-counter))]])
+                     (label [[for ,(string-append "panel-" (number->string panel-counter))]] ,label))
+                (div [[class "sidepanel-content"]] ,@elements))]))
 (define panel-counter 0)
 
 (define (code . elements)
   (case (current-poly-target)
     [(ltx pdf) (latex-escape (apply string-append elements))]
-    [else (txexpr 'code empty elements)]))
+    [else `(code ,@elements)]))
 (define c code)
 
 (define (code-block language #:nums? [nums #t] . lines)
