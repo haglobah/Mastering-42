@@ -4,7 +4,7 @@
 
 ◊narr{Hey there!
 
-Welcome to my favourite project so far. It is nice, clean, and short, and you spend most of your time learning about, ◊e{not} debugging some nasty piece of code with dubious pointer and memory errors in it.
+Welcome to my favourite project so far. It is nice, clean, and short, and you spend most of your time learning about stuff, ◊e{not} debugging some nasty piece of code with dubious pointer and memory errors in it.
 I'm sure you'll like it, too :)}
 
 ◊;{sec["Prerequisites" 1]{
@@ -38,13 +38,13 @@ And once you've understood that, the only thing left is:
 Want a hint? Via ◊spoiler{◊e{bitshifting} and ◊e{binary and} (◊c{&}) / ◊e{binary or} (◊c{|})}
 }
 
-And that you've got a good idea about ◊e{how} you can do things, you should be good to go :)
+And now that you've got a good idea about ◊e{how} you can do things, you should be good to go :)
 }
 
 ◊sec["Cleaning Up" 1]{
 
 Well, not so much in here. If you've tested it, and it works, you should be fine.
-(+No leaks, segfaults, only one global variable – the standard stuff.)
+(+ No leaks, segfaults, only one global variable – the standard stuff.)
 }
 
 ◊sec["Aftercare" 1]{
