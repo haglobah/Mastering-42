@@ -3,7 +3,8 @@
 ◊title[#:sub "by bhagenlo" #:version "6"]{push_swap}
 
 ◊narr{Hey hey hey, you did it! You arrived at your first 'real' algorithms project.
-You'll get to know layering software and unit testing, as well as the one big chunk: To learn to think in algorithms, not (only) in code.
+You'll get to know layering software and unit testing, as well as the one big chunk:
+Learning how to think in algorithms ◊e{in addition to} thinking in code.
 
 With that, let's already get started. It's gonna be fun ;)}
 
@@ -17,7 +18,7 @@ With that, let's already get started. It's gonna be fun ;)}
 	It ◊e{guarantees} correct results and it has to be clear what it does on every possible input.
 
 	The code you'll be writing is 'just' the ◊e{implementation} of such an algorithm. This implementation can have errors, even if the algorithm is correct. However, if the algorithm has errors, then there's no way your implementation following your algorithm could ever possibly be correct.}}
-	◊li{Make sure you know what ◊e{unit testing} is, and why it's highly superior to ◊e{integration/integrated testing}. (That's what you probably will do naturally ;))
+	◊li{Make sure you know what ◊e{unit testing} is, and why it's highly superior to ◊e{integration/integrated testing} – that's what you probably will do naturally ;)
 	For that, you could watch the first 22 minutes of ◊link["https://www.youtube.com/watch?v=VDfX44fZoMc"]{this} talk, or read its accompanying ◊link["https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam"]{article}.}
 	◊li{Get to know what a ◊link["https://en.wikipedia.org/wiki/Stack_(abstract_data_type)"]{stack} is.}
 	◊li{Get to know some ◊link["https://en.wikipedia.org/wiki/Sorting_algorithm"]{sorting algorithms}.
@@ -51,11 +52,12 @@ In order to do this project, we think it's best to do the following:
 	}	t_ps;
 	}
 	
-	Ah, and for the t_stack you can choose what to use. A linked list probably works a bit better than an array – but choose whatever you'd like to practice more ^^}
+	Concerning the data structure inside of ◊c{t_stack}? Choose for yourself :)
+	A linked list probably works a bit better than an array – but choose whatever you'd like to practice more ^^}
 	◊li{Implement the basic data type. More concretely:
 		◊ol{
 			◊li{Implement a stack based on either a linked list or an array.}
-			◊li{Implement the ◊c{push}, ◊c{pop}, ◊c{swap} and ◊c{rotate} functions on this 'stack'. (A 'real' stack has only push and pop.)
+			◊li{Implement the ◊c{push}, ◊c{pop}, ◊c{swap} and ◊c{rotate} functions on this 'stack'. (A real ◊e{◊l["https://en.wikipedia.org/wiki/Stack_(abstract_data_type)"]{stack}} has only ◊c{push} and ◊c{pop}.)
 			For that, think for a moment what you'd like them to do.
 				◊ul{
 					◊li{What should swap and rotate on a 1-element stack do?}
@@ -65,7 +67,9 @@ In order to do this project, we think it's best to do the following:
 			And only if you've come up with rules for these cases, ◊e{then} start to finally write the code.
 			}
 			◊li{And then, when you – after some superficial or more profound testing – have decided that your functions work, write some ◊e{unit tests}, meaning:
-			Write a test that inputs some 'normal' and all the special cases and compares the behaviour of your functions with the expected one. For that, it is helpful to write this additional testing functionality inside of another file (a ◊c{test.c}, maybe?), and to add a ◊c{make test}-rule to your ◊c{Makefile} that compiles and runs the tests. That way, you can ensure that you do run the tests regularly.}
+
+			Write a test that inputs some 'normal' and all the special cases and compares the behaviour of your functions with the expected one.
+			For that, it is helpful to write this additional testing functionality inside of another file (a ◊c{test.c}, maybe?), and to add a ◊c{make test}-rule to your ◊c{Makefile} that compiles and runs the tests. That way, you can ensure that you do run the tests regularly.}
 			◊li{Run ◊c{make test}:
 				◊code-block['bash]{
 					 $ make test
@@ -82,7 +86,7 @@ In order to do this project, we think it's best to do the following:
 	◊li{Implement your 'special' functionality on top of your general, well-tested one.
 		◊ol{
 			◊li{Implement ◊c{pa}, ◊c{pb}, ◊c{sa}, ◊c{sb}, ◊c{ss}, ◊c{ra}, ◊c{rb}, ◊c{rr}, ◊c{rra}, ◊c{rrb} and ◊c{rrr}.}
-			◊li{The nice thing now is: You ◊e{know for sure} that the underlying functions work. Everything that goes wrong now only can be in your small additional layer that only composes all of the underlying functions together. Plus, whenever you need to change something, you can be sure that it isn't the bottom layer (provided you tested it and didn't introduce mistakes.)}
+			◊li{The nice thing now is: You ◊e{know for sure} that the underlying functions work. Everything that goes wrong now only can be in your small additional layer that only composes all of the underlying functions together. Plus, whenever you need to change something, you can be sure that it isn't the bottom layer (provided you tested it and didn't introduce mistakes).}
 		}
 	}
 	◊li{And now, finally: You've arrived at the algorithmic part. There's a few branches opening up from here, but there are two big approaches most of the people at our school took. The general idea is that you take some established algorithm (or some essential concepts out of it) and adjust it to our scenario.
@@ -102,7 +106,7 @@ In order to do this project, we think it's best to do the following:
 	}
 }
 
-And there's also a ◊link["https://github.com/o-reo/push_swap_visualizer/tags"]{push_swap visualizer} for testing your algorithmic attempts (if you can't get the C++ version to run, try the python one. That should work)
+And there's also a ◊link["https://github.com/o-reo/push_swap_visualizer/tags"]{push_swap visualizer} for testing your algorithmic attempts. (If you can't get the C++ version to run, try the python one. That should work.)
 }
 
 ◊sec["Cleaning Up" 1]{
