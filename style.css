@@ -295,12 +295,13 @@ figcaption p:before {
 	border-color: #82f382;
 }
 
-.info summary {
+.hint summary {
     border-bottom: none;
     list-style: none;
     margin-top: 0em;
     margin-bottom: 0rem;
     padding-bottom: 0.5rem;
+	line-height: 1.5;
     cursor: pointer;
 }
 
