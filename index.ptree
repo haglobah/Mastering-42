@@ -6,17 +6,18 @@
 		holy_graph/born2beroot.html
 		◊;holy_graph/ft_printf.html
 		holy_graph/get_next_line.html
-    holy_graph/push_swap.html
+    	holy_graph/push_swap.html
 		holy_graph/minitalk.html
 		◊;holy_graph/pipex.html
 		◊;holy_graph/so_long.html
-		◊;holy_graph/FdF.html
+		holy_graph/FdF.html
 		◊;holy_graph/fract_ol.html
 		holy_graph/ft_containers.html
     }
     ◊core/index.html{
+		core/makefiles.html
 		core/vscode_debugger.html
-        core/makefiles.html
+		core/memleaks.html
         ◊;core/libft-additions.html
 		◊;core/val-arrays.html
     }

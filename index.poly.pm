@@ -39,6 +39,7 @@ HERE
     ◊li{◊link["holy_graph/libft.html"]{Libft}}
     ◊li{◊link["holy_graph/born2beroot.html"]{born2beroot}}
     ◊li{◊link["holy_graph/get_next_line.html"]{get_next_line}}
+	◊li{◊link["holy_graph/FdF.html"]{FdF}}
     ◊li{◊link["holy_graph/minitalk.html"]{minitalk}}
     ◊li{◊link["holy_graph/push_swap.html"]{push_swap}}
     ◊li{◊link["holy_graph/ft_containers.html"]{ft_containers}}
@@ -49,6 +50,7 @@ HERE
 ◊ul{
     ◊li{◊link["core/makefiles.html"]{Writing Makefiles}}
     ◊li{◊link["core/vscode_debugger.html"]{Using the VS Code Debugger}}
+    ◊li{◊link["core/memleaks.html"]{Finding Memory Leaks}}
 }
 
 ◊heading[2]{◊link["explainers/index.html"]{Explainers}}
