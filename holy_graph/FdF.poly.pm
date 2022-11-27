@@ -20,6 +20,11 @@ Although the project on its own could be relatively straightforward, it is quite
 	◊li{Read the documentation.}
 	◊li{Really. At least until ◊l["https://github.com/codam-coding-college/MLX42/wiki/Hooks"]{◊e{here}}.}
 }
+
+◊hint[#:type "warning"]{
+
+	When choosing the library, make sure to check how this will be handled on your campus. On the MLX42 wiki is a nice ◊l["https://github.com/codam-coding-college/MLX42/wiki#faq"]{FAQ} about exactly that :)
+}
 }
 
 ◊sec["During" 1]{
@@ -49,6 +54,8 @@ Some minor remarks:
 
 	◊li{Does the program ◊e{always} close in a clean way? (clicking 'x', typing ESC, closing the window otherwise?)}
 	◊li{Make sure you don't have memory leaks – not from your own code, and not from wrong library handling :)}
+	◊li{Think about the evaluation.
+	Does it happen on your PC? If not, depending on which library you used, you might need to install some things to get your project up and running, right? Make sure to take preparations for that.}
 }
 }
 
