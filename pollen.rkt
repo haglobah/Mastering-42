@@ -229,16 +229,16 @@
 		(caar elements)
 		(parse-to-string (get-elements (caar elements)))))
 
-(define (heading level . elements)
+(define-tag (heading level . elements)
   (cond [(= level 1) (apply string-append `("\\par{\\LARGE " ,@elements "\\par} \\vspace{1.0em}"))]
         [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
         [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])
   (let ([current-id (words->id elements)])
 	   `(linked [[class "heading"]]
-		(,(string->symbol (string-append "h" (number->string (+ level 1))))
-          [[id ,current-id]]
-          (a [[class "heading-anchor"] [href ,(string-append "#" current-id)]] "#")
-		  ,@elements))))
+				(,(string->symbol (string-append "h" (number->string (+ level 1))))
+          		  [[id ,current-id]]
+                  (a [[class "heading-anchor"] [href ,(string-append "#" current-id)]] "#")
+		  		,@elements))))
 (define h heading)
 
 (define-tag (sec title level #:sub [subtitle ""] #:open? [open #t] . elements)
