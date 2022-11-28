@@ -229,7 +229,7 @@
 		(caar elements)
 		(parse-to-string (get-elements (caar elements)))))
 
-(define (heading level . elements)
+(define-tag (heading level . elements)
   (cond [(= level 1) (apply string-append `("\\par{\\LARGE " ,@elements "\\par} \\vspace{1.0em}"))]
         [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
         [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])
@@ -331,13 +331,15 @@
   `(code ,@elements))
 (define c code)
 
-(define (code-block language #:nums? [nums #t] . lines)
+(define (code-block language #:filename [filename ""] #:nums? [nums #t] . lines)
   (define txcode (if (symbol? language)
                      (highlight language #:line-numbers? nums (apply string-append lines))
-                     (highlight (string->symbol language) (apply string-append lines))))
+                     (highlight (string->symbol language) #:line-numbers? nums (apply string-append lines))))
   (case (current-poly-target)
     [(ltx pdf) (code->latex txcode)]
-    [else txcode]))
+				[else `(div [[class "code-block"]]
+							(span [[class "filename"]] ,filename)
+					  		,txcode)]))
 
 ;Helper functions - only for those who write code in here (-> pollen.rkt)
 (define (latex-escape string)
