@@ -8,9 +8,34 @@ You know abstractly what to do, somehow manage to do it in C, but then, ◊c{nor
 
 This is for those who are fighting those fights, too.
 
+The first step, of course, is to write good, modular code with well-named functions and data structures.
+
+But often, it isn't enough.
+
 ◊h[1]{Oh no: my function's too long}
 
-For shorter loops & ifs, consult: ◊l["https://github.com/agavrel/42_CheatSheet#0x05--swindle-the-norminette---truander-la-norme"]{this guide}. 
+◊h[2]{Shorter loops}
+
+◊code-block['c]{
+	int	i;
+
+	i = 0;
+	while (i < 10)
+	{
+		dostuff(i);
+		i++;
+	}
+}
+
+◊code-block['c]{
+	int	i;
+
+	i = -1;
+	while (++i < 10)
+		dostuff(i);
+}
+
+I think this is even cleaner than the 'normal' style, as you can see at one glance whether you forgot the incrementation — and not have to look about 10 lines below.
 
 ◊h[2]{Hacking together the ternary operator}
 
