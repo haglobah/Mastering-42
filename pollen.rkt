@@ -3,10 +3,9 @@
          racket/date racket/path racket/list racket/string racket/file racket/runtime-path
          pollen/core pollen/setup pollen/tag pollen/decode pollen/misc/tutorial
          pollen/unstable/pygments
-         sha
-         dyoo-while-loop)
+         sha)
 (provide title link l b e irr heading h sub quote-block sec requirements hint sec-hint 
-	ul ol li ul-mark ol-mark img code c code-block narr hline spoiler table side) ;tag functions: use in *.poly.pm
+	ul ol li ul-mark ol-mark img code c code-block narr hline spoiler table) ;tag functions: use in *.poly.pm
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path 
 	pagetree-code root latex-replace) ;Utilities - for use in the templates
 
@@ -61,6 +60,12 @@
 
 (define-syntax-rule (inc! n)
   (set! n (add1 n)))
+
+(define-syntax-rule (while cond expr ...)
+  (let loop ()
+    (when cond
+      expr ...
+      (loop))))
 
 (define generate-hash
   (let ([form-counter 0])
@@ -134,57 +139,59 @@
                ;(wrap-forms (process-nodes (txexpr 'root empty output))))]))
 			   (process-nodes (txexpr 'root empty output)))]))
 
+
+(define-syntax-rule (define-tag (TAG ... . REST) LTX HTML)
+  (define (TAG ... . REST)
+    (case (current-poly-target)
+      [(ltx pdf) LTX]
+      [else HTML])))
+
 ;TAG FUNCTIONS
-(define (link url . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\href{" ,url "}{" ,@elements "}"))]
-	[else `(a [[href ,url]] ,@elements)]))
+(define-tag (link url . elements)
+	(apply string-append `("\\href{" ,url "}{" ,@elements "}"))
+	`(a [[href ,url]] ,@elements))
 (define l link)
 
-(define (b . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("{\\bf " ,@elements "}"))]
-	[else `(b ,@elements)]))
+(define-tag (b . elements)
+	(apply string-append `("\\bf{" ,@elements "}"))
+	`(b ,@elements))
 
-(define (e . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-	[else `(i ,@elements)]))
+(define-tag (e . elements)
+	(apply string-append `("\\emph{" ,@elements "}"))
+	`(i ,@elements))
 
-(define (quote-block #:author [author ""]. elements)
-  (case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-    [else (if (equal? author "")
+(define-tag (quote-block #:author [author ""] . elements)
+	(apply string-append `("\\emph{" ,@elements "}"))
+	(if (equal? author "")
 			  `(figure (blockquote ,@elements))
 			  `(figure (blockquote ,@elements)
-					   (figcaption (p ,author))))]))
+					   (figcaption (p ,author)))))
 
-(define (narr . elements)
-	(case (current-poly-target)
-	[(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-	[else `(div [[class "narrator"]] ,@elements)]))
+(define-tag (narr . elements)
+	(apply string-append `("\\emph{" ,@elements "}"))
+	`(div [[class "narrator"]] ,@elements))
 
-(define (irr . elements)
-	(case (current-poly-target)
-	[(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-	[else `(div [[class "irrelevant"]] ,@elements)]))
+(define-tag (irr . elements)
+	(apply string-append `("\\emph{" ,@elements "}"))
+	`(div [[class "irrelevant"]] ,@elements))
 
-(define (hline)
-	(case (current-poly-target)
-	[(ltx pdf) (apply string-append `("\\hrule"))]
-	[else '(hr [[class "divisor"]])]))
+(define-tag (hline)
+	(apply string-append `("\\hrule"))
+	`(hr [[class "divisor"]]))
 
-(define (spoiler . elements)
-  (case (current-poly-target)
-    [(ltx pdf) (apply string-append '(" "))] ;TODO: Latex
-    [else (inc! spoiler-counter)
+(define spoiler
+  (let ([spoiler-counter 0])
+    (λ elements
+      (case (current-poly-target)
+        [(ltx pdf) (apply string-append '(" "))] ;TODO: Latex
+        [else (inc! spoiler-counter)
           `(spoiler [[class "spoiler"]]
                     (input [[type "checkbox"] 
 						    [id ,(string-append "spoiler-" (number->string spoiler-counter))]])
-                    (label [[for ,(string-append "spoiler-" (number->string spoiler-counter))]] ,@elements))]))
-(define spoiler-counter 0)
+                    (label [[for ,(string-append "spoiler-" (number->string spoiler-counter))]] ,@elements))]))))
 
-(define (table . rows)
+(define-tag (table . rows)
+  (apply string-append `("here should come a table: " ,@rows ))
   `(table
 	,@(map (λ (row)
         	  `(tr ,@(map
@@ -194,25 +201,22 @@
 							  (string-split row ",")))))
     rows)))
 
-(define (sub . elements)
-  (case (current-poly-target)
-    [(ltx pdf) (apply string-append '(" "))]
-    [else `(h4 [[class "subhead"]] ,@elements)]))
+(define-tag (sub . elements)
+	(apply string-append '(" "))
+	`(h4 [[class "subhead"]] ,@elements))
 
-(define (version . elements)
-  (case (current-poly-target)
-    [(ltx pdf) (apply string-append '(" "))]
-    [else `(span [[class "version"]] ,@elements)]))
+(define-tag (version . elements)
+	(apply string-append '(" "))
+	`(span [[class "version"]] ,@elements))
 
-(define (title #:sub [subtitle ""] #:version [version ""] . elements)
-  (case (current-poly-target)
-    [(ltx pdf) (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))]
-	[else `(div [[class "title"]]
-				(h1 ,@elements)
-		    	,(sub subtitle)
-            	,(if (equal? version "")
-                 	""
-                 	`(span [[class "version"]] ,(string-append "written for version " version))))]))
+(define-tag (title #:sub [subtitle ""] #:version [version ""] . elements)
+  (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))
+  `(div [[class "title"]] 
+        (h1 ,@elements)
+		,(sub subtitle)
+        ,(if (equal? version "")
+           	 ""
+             `(span [[class "version"]] ,(string-append "written for version " version)))))
 
 (define (parse-to-string element)
 	(if (string? element)
@@ -226,119 +230,105 @@
 		(parse-to-string (get-elements (caar elements)))))
 
 (define (heading level . elements)
-  (if (> level 3)
-      (error "Not so many levels of headings, please :) (not more than 3)")
-	    (case (current-poly-target)
-        [(ltx pdf) (cond [(= level 1) (apply string-append `("\\par{\\LARGE " ,@elements "\\par} \\vspace{1.0em}"))]
-                         [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
-                         [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])]
-		[else (let ([current-id (words->id elements)])
-			  `(linked [[class "heading"]]
-			  	(,(string->symbol (string-append "h" (number->string (+ level 1))))
-                  [[id ,current-id]]
-                  (a [[class "heading-anchor"] [href ,(string-append "#" current-id)]] "#")
-				  ,@elements)))])))
+  (cond [(= level 1) (apply string-append `("\\par{\\LARGE " ,@elements "\\par} \\vspace{1.0em}"))]
+        [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
+        [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])
+  (let ([current-id (words->id elements)])
+	   `(linked [[class "heading"]]
+		(,(string->symbol (string-append "h" (number->string (+ level 1))))
+          [[id ,current-id]]
+          (a [[class "heading-anchor"] [href ,(string-append "#" current-id)]] "#")
+		  ,@elements))))
 (define h heading)
 
-(define (sec title level #:sub [subtitle ""] #:open? [open #t] . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (cond [(= level 1) (apply string-append `("\\section{" ,title"}" ,@elements))]
-                     [(= level 2) (apply string-append `("\\subsection{" ,title"}" ,@elements))]
-                     [(= level 3) (apply string-append `("\\subsubsection{" ,title"}" ,@elements))])] ;include #:subs
-		[else `(details ,(if open '[[open ""]] empty)
-			            (summary ,(heading level title)
-                            	 ,(if (equal? subtitle "")
-                                      "" 
-                                      (sub subtitle)))
-				        (p ,@elements))]))
+(define-tag (sec title level #:sub [subtitle ""] #:open? [open #t] . elements)
+  (cond [(= level 1) (apply string-append `("\\section{" ,title"}" ,@elements))]
+        [(= level 2) (apply string-append `("\\subsection{" ,title"}" ,@elements))]
+        [(= level 3) (apply string-append `("\\subsubsection{" ,title"}" ,@elements))]) ;include #:subs
+  `(details ,(if open '[[open ""]] empty)
+            (summary ,(heading level title)
+                   	 ,(if (equal? subtitle "")
+                          "" 
+                          (sub subtitle)))
+	        (p ,@elements)))
 
-(define (requirements . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))] ;include #:subs
-		[else `(details [[class "requirements"]]
-			            (summary 
-							,(heading 1 "Anforderungen")
-				            (p ,@elements)))]))
+(define-tag (requirements . elements)
+  (apply string-append `("\\emph{" ,@elements "}")) ;include #:subs
+  `(details [[class "requirements"]]
+			(summary ,(heading 1 "Anforderungen")
+				     (p ,@elements))))
 
-(define (hint #:type [type "info"] . elements)
+(define-tag (hint #:type [type "info"] . elements)
+  (apply string-append elements)
   (if (member type '("info" "warning" "error" "resolved"))
-    (case (current-poly-target)
-      [(ltx pdf) (apply string-append `(,@elements))]
-      [else `(div [[class "hint"]]
-                  (div [[class ,type]] ,@elements))])
-    (error "not a valid type for hint")))
+	  `(div [[class "hint"]]
+            (div [[class ,type]] ,@elements))
+      (error "not a valid type for hint")))
 
-(define (sec-hint title #:type [type "info"] . elements)
+(define-tag (sec-hint title #:type [type "info"] . elements)
+  (apply string-append elements)
   (if (member type '("info" "warning" "error" "resolved"))
-    (case (current-poly-target)
-      [(ltx pdf) (apply string-append `(,@elements))]
-      [else `(div [[class "hint"]]
-                  (details [[class ,type]]
-                           (summary ,title)
-                           (div ,@elements)))])
-    (error "not a valid type for hint")))
+	  `(div [[class "hint"]]
+	  		(details [[class ,type]]
+					 (summary ,title)
+					 (div ,@elements)))
+      (error "not a valid type for hint")))
 
-(define (ul . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))]
-		[else `(ul ,@elements)]))
+(define-tag (ul . elements)
+  (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
+  `(ul ,@elements))
 
-(define (ol . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\begin{enumerate}" ,@elements "\\end{enumerate}"))]
-		[else `(ol ,@elements)]))
+(define-tag (ol . elements)
+  (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
+  `(ol ,@elements))
 
-(define (li . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\item " ,@elements "\\par"))]
-		[else `(li ,@elements)]))
+(define-tag (li . elements)
+  (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
+  `(li ,@elements))
 
-(define (ol-mark . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-		[else `(span [[class "ol-mark"]] ,@elements)]))
+(define-tag (ol-mark . elements)
+  (apply string-append `("\\emph{" ,@elements "}"))
+  `(span [[class "ol-mark"]] ,@elements))
 
-(define (ul-mark . elements)
-	(case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\emph{" ,@elements "}"))]
-		[else `(span [[class "ul-mark"]] ,@elements)]))
+(define-tag (ul-mark . elements)
+  (apply string-append `("\\emph{" ,@elements "}"))
+  `(span [[class "ul-mark"]] ,@elements))
 
-(define (img url #:height [height 0] #:width [width 0] . caption)
-  (case (current-poly-target)
-    [(ltx pdf) (apply string-append `("\\par\\begin{figure}[h!]\\includegraphics[" 
-                                    ,(cond 
-                                      [(and (= height 0) (= width 0)) "width=1"] 
-                                      [(= height 0) (string-append "width=" (number->string (* width 0.01)) "\\textwidth")]
-                                      [(= width 0) (string-append "height=" (number->string (* height 0.01)) "\\textheight")]
-                                      [else (string-append "width=" (number->string width) "\\textwidth, " "height=" (number->string height) "\\textheight")])
-                                    "]{" ,url "}\\end{figure}"))]
-    [else `(figure [[class "img"]]
-				   (img [[src ,url] 
-						 [style ,(string-append 
-										(if (= height 0)
-                                    	    "height: auto;"
-                                            (string-append "height: " (number->string height) "em;"))
-                                        (if (= width 0)
-                                            "width: auto;"
-                                            (string-append "width: " (number->string (* width 100)) "%")))]])
-            	   (figcaption [[class "imgcaption"]] ,@caption))]))
+(define-tag (img url #:height [height 0] #:width [width 0] . caption)
+  (apply string-append `("\\par\\begin{figure}[h!]\\includegraphics[" 
+                            ,(cond 
+                               [(and (= height 0) (= width 0)) "width=1"] 
+                               [(= height 0) (string-append "width=" (number->string (* width 0.01)) "\\textwidth")]
+                               [(= width 0) (string-append "height=" (number->string (* height 0.01)) "\\textheight")]
+                               [else (string-append "width=" (number->string width) "\\textwidth, " "height=" (number->string height) "\\textheight")])
+                         "]{" ,url "}\\end{figure}"))
+  `(figure [[class "img"]]
+		   (img [[src ,url] 
+			     [style ,(string-append 
+							(if (= height 0)
+                           	    "height: auto;"
+                                (string-append "height: " (number->string height) "em;"))
+                            (if (= width 0)
+                                "width: auto;"
+                                (string-append "width: " (number->string (* width 100)) "%")))]])
+           (figcaption [[class "imgcaption"]] ,@caption)))
 
+(define note
+  (let ([note-counter 0])
+    (λ (label . elements)
+      (case (current-poly-target)
+        [(ltx pdf) (apply string-append '(" "))] ;TODO: Latex
+        [else (inc! note-counter)
+          `(div [[class "footnote"]]
+		        (div [[class "footnote-controls"]]
+                    (input [[type "checkbox"] 
+						    [id ,(string-append "note-" (number->string note-counter))]])
+                    (label [[for ,(string-append "note-" (number->string note-counter))]] ,@elements))
+				(div [[class "footnote-content"]] ,@elements))]))))
 
-(define (side label . elements)
-  (case (current-poly-target)
-    [(ltx pdf) (apply string-append '(" "))] ;TODO: Latex
-    [else (inc! panel-counter)
-          `(div [[class "sidepanel"]]
-                (div [[class "sidepanel-controls"]]
-                     (input [[type "checkbox"] [id ,(string-append "panel-" (number->string panel-counter))]])
-                     (label [[for ,(string-append "panel-" (number->string panel-counter))]] ,label))
-                (div [[class "sidepanel-content"]] ,@elements))]))
-(define panel-counter 0)
-
-(define (code . elements)
-  (case (current-poly-target)
-    [(ltx pdf) (latex-escape (apply string-append elements))]
-    [else `(code ,@elements)]))
+(define-tag (code . elements)
+  (latex-escape (apply string-append elements))
+  `(code ,@elements))
 (define c code)
 
 (define (code-block language #:nums? [nums #t] . lines)
