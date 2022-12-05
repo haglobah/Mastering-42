@@ -69,6 +69,10 @@ a:hover {
     text-decoration: underline;
 }
 
+b {
+	font-weight: 500;
+}
+
 linked {
 	display: block;
 }
@@ -203,6 +207,14 @@ img {
 
 .imgcaption {
 	font-size: 0.8rem;
+}
+
+details > * {
+	margin: 1rem 0 0 1rem;
+}
+
+details > summary {
+	margin: 0 1rem 0 0;
 }
 
 summary {
