@@ -1,6 +1,6 @@
 #lang pollen
 
-◊title[#:sub "by htsang" #:version "1"]{ft_printf}
+◊title[#:sub "by htsang" #:version "9.2"]{ft_printf}
 
 ◊narr{Your first lego house!
 Why? Because the lego house looks complicated with a lot details, yet it does not feel intimidating. You don't feel the same way?
