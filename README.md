@@ -42,7 +42,26 @@ If you're using VS Code, open your ```keybindings.json``` and paste the followin
 
 # Contributing
 
-If you miss anything, feel free to create a Pull request, file an issue, or just write me on Slack (Intra: bhagenlo). 
+First of all, thanks for considering to contribute! :blush:
+
+There are two main ways to contribute:
+
+1. Fixing/adding something to an existing guide.
+2. Adding a whole new guide.
+
+For both of these options, you have to:
+
+1. Fork the repo
+2. Create a new branch _that is named after the issue you want to fix_.
+3. Add what you want to add
+   1. For typos/small fixes, just edit the file, and commit.
+   2. For new guides, you have to add the file to `index.ptree` as well as to `index.poly.pm`, as well as to git.
+4. Open the pull request
+5. Assign a person to review your fix/guide
+
+Also, there is the option to create issues — the better they are described, the more we can do about it.
+
+If you want to join us (to maintain the repo) or have any other questions, just write @bhagenlo or @skienzle on Slack. 
 
 # Writing
 
