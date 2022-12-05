@@ -5,7 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   #push:
   #  branches: ["main"]
-
+  
+  # runs every day at 00:42 UTC
+  schedule:
+  - cron: "42 0 * * *"
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -42,7 +45,7 @@ jobs:
             ~/.cache/racket
             ~/.local/share/racket
           key: ${{ runner.os }}-racket-current-${{ hashFiles('.racket-version') }}
-      - run: raco pkg install --auto --skip-installed pollen sha while-loop
+      - run: raco pkg install --auto --skip-installed pollen sha
       - run: raco pollen render
       - run: raco pollen reset
       - name: Setup Pages
