@@ -1,14 +1,14 @@
 # Mastering-42
 less pain, more gain. An opinionated strategy guide on how to get the most out of 42 School, and/or learning to program in general.
 
-This guide is written from 42 Students for 42 Students. 
-Its [website](https://haglobah.github.io/Mastering-42) is built on top of [Pollen](https://pollenpub.com). 
+This guide is written from 42 Students for 42 Students.
+Its [website](https://haglobah.github.io/Mastering-42) is built on top of [Pollen](https://pollenpub.com).
 
 # Why?
-You probably only got to this guide in the first place because there was something missing you needed to properly go on with your work at 42. 
-We've seen and experienced these obstacles, and decided to do something about it. 
+You probably only got to this guide in the first place because there was something missing you needed to properly go on with your work at 42
+We've seen and experienced these obstacles, and decided to do something about it.
 
-With this guide, we try to get everyone of us the teammate we would've liked to have when we were stuck, or even unsure how to start. 
+With this guide, we try to get everyone of us the team mate we would've liked to have when we were stuck, or even unsure how to start.
 
 # Getting up and Running
 
@@ -21,8 +21,7 @@ With this guide, we try to get everyone of us the teammate we would've liked to 
 4. (when creating new files, add them to ```index.ptree```)
 4. Install the dependecies for the repo:
 ```
-λ raco pkg install sha
-λ raco pkg install while-loop
+λ raco pkg install --auto sha
 ```
 4. Start Pollens' project server:
 ```
@@ -42,7 +41,7 @@ If you're using VS Code, open your ```keybindings.json``` and paste the followin
 
 # Contributing
 
-If you miss anything, feel free to create a Pull request, file an issue, or just write me on Slack (Intra: bhagenlo). 
+If you miss anything, feel free to create a Pull request, file an issue, or just write me on Slack (Intra: bhagenlo).
 
 # Writing
 
@@ -50,9 +49,9 @@ In particular, so that you can start writing more easily if you want to write ar
 
 | Tag | Effect |
 |------------------------------|-----------------------------------------------------------------|
-| ```◊title[#:sub "by bhagenlo"]{libft}``` | Title of the Subpage, along with its subtitle. |
+| ```◊title[#:sub "by marvin" #:version "42"]{libft}``` | Title of the Subpage, along with its subtitle and version. |
 | ```◊heading[1]{libft}``` | A Heading with its _level_(1 in this case). |
-| ```◊sec[#:sub "Don't try this at Home!" 2]{Burning your PC.}``` | A Section which can be opened (or closed), with subtitle and level. |
+| ```◊sec[#:sub "Don't try this at Home!" 2 #:open? #f]{Burning your PC.}``` | A Section which can be opened (or closed), with subtitle and level. |
 | ```◊link["https://intra.42.fr"]{The Intra}``` | A Link. |
 | ```◊b{bold}``` | **bold** text. |
 | ```◊e{italic}``` | _emphasized_ text. |
