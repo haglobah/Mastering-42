@@ -5,7 +5,7 @@ This guide is written from 42 Students for 42 Students.
 Its [website](https://haglobah.github.io/Mastering-42) is built on top of [Pollen](https://pollenpub.com).
 
 # Why?
-You probably only got to this guide in the first place because there was something missing you needed to properly go on with your work at 42
+You probably only got to this guide in the first place because there was something missing you needed to properly go on with your work at 42.
 We've seen and experienced these obstacles, and decided to do something about it.
 
 With this guide, we try to get everyone of us the team mate we would've liked to have when we were stuck, or even unsure how to start.
