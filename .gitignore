@@ -1,0 +1,9 @@
+
+# Ignore .html files
+**.html
+
+# Ignore compiled/* files
+**compiled/
+
+# Ignore emacs safe files
+**~
