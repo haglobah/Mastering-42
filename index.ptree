@@ -18,6 +18,7 @@
 		core/makefiles.html
 		core/vscode_debugger.html
 		core/memleaks.html
+		core/exams.html
         ◊;core/libft-additions.html
 		◊;core/val-arrays.html
     }

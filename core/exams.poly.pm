@@ -16,7 +16,7 @@ In general, (at least at 42Heilbronn), in an Exam you have to do the following:
 		Username: ◊c{exam}
 		Password: ◊c{exam}}
 	◊li{Start up a shell. Execute ◊c{kinit <intraname>}
-		With that, you should be up and running}
+		With that, you should be up and running.}
 	◊li{There, you can see the Exam shell.
 	You'll mostly need the commands ◊c{grademe} and ◊c{status} which both do the obvious things.}
 	◊li{Start working in the ◊c{~/rendu} folder. Before even starting to write code, ◊e{make completely sure} the folder structure is exactly right. Really.}
