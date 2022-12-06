@@ -1,6 +1,6 @@
 #lang pollen
 
-◊title[#:sub "by marv�u��z�" #:version "NULL"]{ft_transcendence}
+◊title[#:sub "by marv�u��z�" #:version "NULL"]{Philosophers}
 
 ◊narr{Hi!
 
@@ -13,7 +13,6 @@ Cool, now that you're here, let me take a look at my map, so that I am able to s
 ...
 
 Could ◊e{you} help me?
-
 }
 
 The poor guide. Fortunately, you ◊e{can} help them. You could:

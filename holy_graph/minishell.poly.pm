@@ -1,6 +1,6 @@
 #lang pollen
 
-◊title[#:sub "by marv�u��z�" #:version "NULL"]{Template}
+◊title[#:sub "by marv�u��z�" #:version "NULL"]{minishell}
 
 ◊narr{Hi!
 
@@ -8,9 +8,12 @@ Cool, now that you're here, let me take a look at my map, so that I am able to s
 
 ...
 
-Oh no! That part ◊(gen-reason 0) – I am very sorry. Without my map, I won't be of much help to anyone – and there are people in dire need of my assistance.
+◊p{Oh no! That part ◊(gen-reason 0) – I am very sorry. Without my map, I won't be of much help to anyone – and there are people in dire need of my assistance.}
+
+...
 
 Could ◊e{you} help me?
+
 }
 
 The poor guide. Fortunately, you ◊e{can} help them. You could:

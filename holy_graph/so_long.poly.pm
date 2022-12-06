@@ -1,6 +1,6 @@
 #lang pollen
 
-◊title[#:sub "by marv�u��z�" #:version "NULL"]{ft_transcendence}
+◊title[#:sub "by marv�u��z�" #:version "NULL"]{so_long}
 
 ◊narr{Hi!
 
