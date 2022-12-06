@@ -597,11 +597,20 @@ pre p {
     overflow: auto;
     font-size: 0.9rem;
 }
+
+.filename {
+    position: absolute;
+    right: 0.8rem;
+    font-size: .75rem;
+    margin: 0.6rem 0 0 0;
+    color: hsla(0,0%,100%,.4);
+}
+
 .highlight > pre {
     padding: 0 1em;
 }
 .linenos {
-    padding: 0 1em;
+    padding: 0 1em 0 0;
     vertical-align: top;
 }
 
