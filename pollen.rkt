@@ -5,7 +5,8 @@
          pollen/unstable/pygments
          sha)
 (provide title link l b e irr heading h sub quote-block sec requirements hint sec-hint 
-	ul ol li ul-mark ol-mark img code c code-block narr hline spoiler table) ;tag functions: use in *.poly.pm
+	ul ol li ul-mark ol-mark img code c code-block hline spoiler table) ;tag functions: use in *.poly.pm
+(provide narr gen-reason)
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path 
 	pagetree-code root latex-replace) ;Utilities - for use in the templates
 
@@ -170,6 +171,17 @@
 (define-tag (narr . elements)
 	(apply string-append `("\\emph{" ,@elements "}"))
 	`(div [[class "narrator"]] ,@elements))
+
+(define (splice-reason level)
+  (cond [(= level 0) "is still uncharted territory"]
+		[(= level 1) "has been ripped out"]
+		[(= level 2) "has been washed out almost completely"]
+		[(= level 3) "looks like it's had a hard time with termites"]
+		[(= level 4) "has a coffee coffee stain on it"]))
+
+(define-tag (gen-reason level)
+	(splice-reason level)
+	`(span [[class "reason"]] ,(splice-reason level)))
 
 (define-tag (irr . elements)
 	(apply string-append `("\\emph{" ,@elements "}"))
