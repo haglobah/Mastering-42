@@ -40,17 +40,72 @@ I think this is even cleaner than the 'normal' style, as you can see at one glan
 ◊h[2]{Hacking together the ternary operator}
 
 ◊code-block['c #:nums? #f]{
-	a = (isneg ? -num : num)
+	a = (isneg ? -num : num);
 }
 
 becomes
 
 ◊code-block['c #:nums? #f]{
-	a = num * (-2 * isneg + 1)
+	a = num * (-2 * isneg + 1);
 }
 
 – which is totally legal.
 
+◊h[2]{Going crazy with returns.}
+
+It happens regularly that you want to exit from a function inside an ◊c{if}, but you have to do some cleanup beforehand. Unfortunately, ◊e{this function has a return value} (and they often differ from function to function), so we can't just easily handle that situation.
+
+Original code:
+
+◊code-block['c #:nums? #f]{
+	while (true)
+	{
+		if (somecondition() == true)
+		{
+			free_stuff();
+			return (1);
+		}
+		...
+	}
+	return (0);
+}
+
+I, until recently, refactored that to the following:
+
+◊code-block['c #:nums? #f]{
+
+	int	free_stuff1(void)
+	{
+		free_stuff();
+		return (1);
+	}
+
+	int	somefun(void)
+	{
+		while (true)
+		{
+			if (somecondition() == true)
+				return (free_stuff1());
+			...
+		}
+		return (0);
+	}
+}
+
+But you can also just do this:
+
+◊code-block['c #:nums? #f]{
+	while (true)
+	{
+		if (somecondition() == true)
+			return (free_stuff(), 1);
+		...
+	}
+	return (0);
+}
+
+This return uses the ◊l["https://en.wikipedia.org/wiki/Comma_operator"]{◊e{comma operator}}, which is a different beast than the comma ◊e{seperator} used almost anywhere else.
+It evaluates both expressions, but discards the value of the first — which is exactly what we want here.
 
 ◊h[1]{Oh no: I'm declaring too many variables}
 
@@ -58,7 +113,7 @@ becomes
 
 Well, for that — provided the arguments are of the same length – you can just use an array.
 
-This way, 
+This way,
 ◊code-block['c #:filename "myfun.c"]{
 
 	void	myfun(void)
@@ -67,9 +122,9 @@ This way,
 		int	j;
 		int	wordcount;
 		int	charcount;
-		int word_started;
+		int	word_started;
 		int	x;
-		int y;
+		int	y;
 	}
 }
 
@@ -79,7 +134,7 @@ becomes
 
 	void	myfun(void)
 	{
-		int vars[7];
+		int	vars[7];
 
 		vars = populate_vars();
 	}
@@ -99,9 +154,9 @@ You can just declare a struct.
 		int	j;
 		int	wordcount;
 		int	charcount;
-		int word_started;
+		int	word_started;
 		int	x;
-		int y;
+		int	y;
 	}	t_mf;
 }
 
@@ -114,8 +169,8 @@ With that, ◊c{myfun} becomes:
 		t_mf	mf_struct;
 
 		mf_struct = (t_mf){.i = 0, .j = 0,
-						   .wordcount = 0, .charcount = 0, .word_started = 0,
-						   .x = 0, .y = 0};
+		.wordcount = 0, .charcount = 0, .word_started = 0,
+		.x = 0, .y = 0};
 	}
 }
 
