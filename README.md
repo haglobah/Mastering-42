@@ -45,7 +45,7 @@ First of all, thanks for considering to contribute! :blush:
 
 There are two main ways to contribute:
 
-1. Fixing/adding something to an existing guide.
+1. Fixing something in/Adding something to an existing guide.
 2. Adding a whole new guide.
 
 For both of these options, you have to:
@@ -64,7 +64,21 @@ If you want to join us (to maintain the repo) or have any other questions, just 
 
 # Writing
 
-In particular, so that you can start writing more easily if you want to write articles on your own, here are all the commands you can use:
+## Style guide
+Considering styling & content formatting, we're trying to create a consistent experience across the whole repo. 
+
+In general, we:
+- format code and file names as `code`
+- format concepts that are mentioned for the first time as _concept_
+- format menus or buttons as _button_ or _menu > sub-menu_
+
+We use sections as the main tool for content that can be minimized. 
+Sec-hints are only for hints that are only relevant for some people, or only relevant once or twice.
+
+And, last but not least, there is a narrator you can make use of :)
+
+## Tags
+So that writing becomes even easier, here are all the tags with their corresponding effects:
 
 | Tag | Effect |
 |------------------------------|-----------------------------------------------------------------|
