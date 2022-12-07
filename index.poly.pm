@@ -51,6 +51,7 @@ HERE
     ◊li{◊link["core/makefiles.html"]{Writing Makefiles}}
     ◊li{◊link["core/vscode_debugger.html"]{Using the VS Code Debugger}}
     ◊li{◊link["core/memleaks.html"]{Finding Memory Leaks}}
+	◊li{◊link["core/exams.html"]{Writing Exams}}
     ◊li{◊link["core/ft_norm.html"]{Fighting the Norm}}
 }
 
