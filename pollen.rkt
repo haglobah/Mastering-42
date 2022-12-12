@@ -4,7 +4,7 @@
          pollen/core pollen/setup pollen/tag pollen/decode pollen/misc/tutorial
          pollen/unstable/pygments
          sha)
-(provide title link l b e irr heading h sub quote-block sec requirements hint sec-hint 
+(provide title link l p b e irr heading h sub quote-block sec requirements hint sec-hint 
 	ul ol li ul-mark ol-mark img code c code-block hline spoiler table) ;tag functions: use in *.poly.pm
 (provide narr gen-reason)
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path 
@@ -152,6 +152,10 @@
 	(apply string-append `("\\href{" ,url "}{" ,@elements "}"))
 	`(a [[href ,url]] ,@elements))
 (define l link)
+
+(define-tag (p . elements)
+	(apply string-append `( ,@elements))
+	`(p ,@elements))
 
 (define-tag (b . elements)
 	(apply string-append `("\\bf{" ,@elements "}"))

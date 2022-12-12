@@ -1,26 +1,11 @@
 #lang pollen
 
+◊(require "../templates.rkt")
+◊(define-meta level "0")
+
 ◊title[#:sub "by marv�u��z�" #:version "NULL"]{Philosophers}
 
-◊narr{Hi!
-
-Cool, now that you're here, let me take a look at my map, so that I am able to show you around properly.
-
-...
-
-◊p{Oh no! That part ◊(gen-reason 0) – I am very sorry. Without my map, I won't be of much help to anyone – and there are people in dire need of my assistance.}
-
-...
-
-Could ◊e{you} help me?
-}
-
-The poor guide. Fortunately, you ◊e{can} help them. You could:
-◊ul{
-	◊li{Add things you found helpful to the list of ◊l["#Pointers"]{Pointers}.}
-	◊li{Write (a part of) the guide yourself – any of the sections would help already.}
-}
-For either of those, take a look at the ◊l["https://github.com/haglobah/Mastering-42/tree/main/holy_graph"]{source code} of this page. There, you'll find further instructions.
+◊(insert-intro (string->number (select 'level metas)))
 
 ◊;{
 
@@ -38,7 +23,7 @@ After you're done, don't forget to:
 - Add your name to the list of collaborators.
 - Update the version number to the one that's in the subject (replacing NULL)
 - In addition to that:
-  - If you added a section, increase the level of ◊(gen-reason _) by one.
+  - If you added a section, increase the level of ◊(insert-intro _) by one. (e.g.: ◊(insert-intro 0) -> ◊(insert-intro 1))
   - If you completed the guide (it has no sections that are commented out anymore), remove marv�u��z� from the list of collaborators.
 
 Looking forward to your pull request!
