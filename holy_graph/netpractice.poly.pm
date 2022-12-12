@@ -1,11 +1,11 @@
 #lang pollen
 
 ◊(require "../templates.rkt")
-◊(define-meta level "0")
+◊(define-meta level "5")
 
 ◊title[#:sub "by marv�u��z�" #:version "NULL"]{NetPractice}
 
-◊(insert-intro (string->number (select 'level metas)))
+◊(insert-intro (select 'level metas))
 
 ◊;{
 

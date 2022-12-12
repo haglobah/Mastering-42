@@ -160,6 +160,14 @@ p {
 	opacity: 0.3;
 }
 
+.stub {
+	opacity: 0.5;
+}
+
+.in-progress {
+	opacity: 0.75;
+}
+
 .divisor {
 	margin: 1rem 1rem 1rem 2rem;
 	width: 70%;

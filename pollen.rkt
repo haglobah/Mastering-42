@@ -177,11 +177,12 @@
 	`(div [[class "narrator"]] ,@elements))
 
 (define (splice-reason level)
-  (cond [(= level 0) "is still uncharted territory"]
-		[(= level 1) "has been ripped out"]
-		[(= level 2) "has been washed out almost completely"]
-		[(= level 3) "looks like it's had a hard time with termites"]
-		[(= level 4) "has a coffee coffee stain on it"]))
+  (cond 
+    [(equal? level "5") "is still uncharted territory"]
+		[(equal? level "4") "has been ripped out"]
+		[(equal? level "3") "has been washed out almost completely"]
+		[(equal? level "2") "looks like it's had a hard time with termites"]
+		[(equal? level "1") "has a coffee coffee stain on it"]))
 
 (define-tag (gen-reason level)
 	(splice-reason level)
