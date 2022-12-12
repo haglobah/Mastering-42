@@ -8,12 +8,21 @@
 		holy_graph/get_next_line.html
     	holy_graph/push_swap.html
 		holy_graph/minitalk.html
-		◊;holy_graph/pipex.html
-		◊;holy_graph/so_long.html
+		holy_graph/pipex.html
+		holy_graph/so_long.html
 		holy_graph/FdF.html
-		◊;holy_graph/fract_ol.html
+		holy_graph/fract_ol.html
 		holy_graph/philosophers.html
+		holy_graph/minishell.html
+		holy_graph/netpractice.html
+		holy_graph/cpp.html
+		holy_graph/miniRT.html
+		holy_graph/cub3D.html
+		holy_graph/inception.html
+		holy_graph/webserv.html
+		holy_graph/ft_irc.html
 		holy_graph/ft_containers.html
+		holy_graph/ft_transcendence.html
     }
     ◊core/index.html{
 		core/makefiles.html

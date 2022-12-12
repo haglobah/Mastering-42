@@ -24,7 +24,7 @@ Sadly, that is not the case. The problem statement goes on:
     ◊li{Philosophers don't know whether another philosopher is about to die.}
 }
 
-And gone is the open space for creativity. In exchange for that, you learn about ◊e{threads}, ◊e{mutexes}, and how to create proper abstractions. Which, at least, is quite nice, too.
+And gone is the open space for creativity. In exchange for that, you learn about ◊e{threads}, ◊e{mutexes}, and how to create proper abstractions. Which, at least, is quite nice too.
 
 ◊sec["Prerequisites" 1]{
 
@@ -69,7 +69,6 @@ Finally, mutexes:
 Well, ◊e{find out ◊l["https://linux.die.net/man/3/pthread_mutex_init"]{what} ◊l["https://linux.die.net/man/3/pthread_mutex_unlock"]{they} ◊l["https://www.geeksforgeeks.org/mutex-lock-for-linux-thread-synchronization/"]{do}}.
 
 And again. Create some working examples, and write a wrapper when you see fit.
-
 }
 
 ◊sec["During" 1]{
@@ -101,6 +100,7 @@ And again. Create some working examples, and write a wrapper when you see fit.
         ◊li{Don't use anything that might block (like mutexes and semaphores), except you must. Use things relying on the ◊l["https://en.wikipedia.org/wiki/Actor_model"]{Actor Model} instead.}
         ◊li{Avoid (global) mutable state as early as modeling your problem. (Hint: You rarely need it.)}
     }
+
 }
 
 ◊sec["Pointers" 1]{

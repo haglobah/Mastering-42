@@ -136,11 +136,13 @@ h3 {
     font-size: 1.1rem;
 }
 h4 {
+	text-transform: none;
     font-size: 0.95rem;
 }
 
 .subhead {
     opacity: 0.5;
+	margin-bottom: 0.4rem;
 }
 
 p {
@@ -156,6 +158,14 @@ p {
 
 .irrelevant {
 	opacity: 0.3;
+}
+
+.stub {
+	opacity: 0.5;
+}
+
+.in-progress {
+	opacity: 0.75;
 }
 
 .divisor {
