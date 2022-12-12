@@ -90,16 +90,16 @@ And again. Create some working examples, and write a wrapper when you see fit.
 
 ◊sec["Aftercare" 1 #:open? #f]{
 
-    Now that you're done, I can say it out loud.
+    Now that you're done, I can say it out loud:
 
     ◊quote-block{Almost everything you used or did in this project was bad practice.}
 
     If you want or need to write a concurrent program, then:
     ◊ol{
-        ◊li{◊e{don't use C}. Use languages that are ◊l["https://go.dev/"]{suited} ◊li["https://www.rust-lang.org/"]{for} ◊li["https://www.erlang.org/"]{that}.}
-        ◊li{don't even think of writing everything by hand. Use ◊e{libraries}.}
-        ◊li{don't use anything that might block (like mutexes and semaphores), except you must. Use things relying on the ◊li["https://en.wikipedia.org/wiki/Actor_model"]{Actor Model} instead.}
-        ◊li{avoid (global) mutable state as early as modeling your problem. (Hint: You rarely need it.)}
+        ◊li{◊e{Don't use C}. Use languages that are ◊l["https://go.dev/"]{suited} ◊l["https://www.rust-lang.org/"]{for} ◊l["https://www.erlang.org/"]{that}.}
+        ◊li{Don't even think of writing everything by hand. Use ◊e{libraries}.}
+        ◊li{Don't use anything that might block (like mutexes and semaphores), except you must. Use things relying on the ◊l["https://en.wikipedia.org/wiki/Actor_model"]{Actor Model} instead.}
+        ◊li{Avoid (global) mutable state as early as modeling your problem. (Hint: You rarely need it.)}
     }
 }
 
