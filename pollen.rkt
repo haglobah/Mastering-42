@@ -234,11 +234,11 @@
         [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
         [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])
   (let ([current-id (words->id elements)])
-	   `(linked [[class "heading"]]
-				(,(string->symbol (string-append "h" (number->string (+ level 1))))
-          		  [[id ,current-id]]
+	     `(div [[class "heading"]]
+				      (,(string->symbol (string-append "h" (number->string (+ level 1))))
+          		    [[id ,current-id]]
                   (a [[class "heading-anchor"] [href ,(string-append "#" current-id)]] "#")
-		  		,@elements))))
+		  		      ,@elements))))
 (define h heading)
 
 (define-tag (sec title level #:sub [subtitle ""] #:open? [open #t] . elements)
