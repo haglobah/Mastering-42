@@ -23,8 +23,8 @@ After you're done, don't forget to:
 - Add your name to the list of collaborators.
 - Update the version number to the one that's in the subject (replacing NULL)
 - In addition to that:
-  - If you added a section, increase the level of ◊(insert-intro _) by one. (e.g.: ◊(insert-intro 0) -> ◊(insert-intro 1))
-  - If you completed the guide (it has no sections that are commented out anymore), remove marv�u��z� from the list of collaborators.
+  - If you added a section, reduce the level of ◊(define-meta level _) by one.
+  - If you completed the guide (it has no sections that are commented out anymore), remove this section, ◊(insert-intro ...) and lines 3 & 4, as well as marv�u��z� from the list of collaborators.
 
 Looking forward to your pull request!
 

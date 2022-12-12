@@ -36,7 +36,7 @@ After you're done, don't forget to:
 - Add your name to the list of collaborators.
 - Update the version number to the one that's in the subject (replacing NULL)
 - In addition to that:
-  - If you added a section, increase the level of ◊(gen-reason _) by one.
+  - If you added a section, reduce the level of ◊(define-meta level _) by one.
   - If you completed the guide (it has no sections that are commented out anymore), remove marv�u��z� from the list of collaborators.
 
 Looking forward to your pull request!
