@@ -35,5 +35,6 @@
     }
     ◊explainers/index.html{
         ◊;cs_theory/datatypes.html
+		explainers/iterator_traits.html
     }
 }

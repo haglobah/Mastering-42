@@ -58,5 +58,5 @@ HERE
 ◊heading[2]{◊link["explainers/index.html"]{Explainers}}
 
 ◊ul{
-    ◊;li{◊link["explainers.html"]{Compound Data Types}}
+    ◊li{◊link["explainers/iterator_traits.html"]{Iterator Traits}}
 }
