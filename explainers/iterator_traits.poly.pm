@@ -7,7 +7,7 @@
 
 ◊sec["The short answer" 1]{
 	◊b{because raw pointers are also valid iterators.}
-	Jup, that's really the own reason for the existance of the ◊c{iterator_traits} structures, but let's elaborate further.
+	Jup, that's really the only reason for the existance of the ◊c{iterator_traits} structures, but let's elaborate further.
 }
 
 ◊hline{}
@@ -71,29 +71,29 @@
 			}
 		}
 		As you can see the ◊c{iterator} structure just has four ◊c{typedefs} of its template parameters.
-		It serves as an ◊b{interface} for the specific implementations of iterators (e.g. the ◊c{reverse_iterator}, ...), so they are all guranteed to have those four ◊c{typedefs}
-		◊irr{Please note that (as you can see ◊l["https://www.quora.com/Why-was-std-iterator-deprecated-in-c-17?share=1"]{here}) directly inheriting from ◊c{iterator} was depricated in C++17}
+		It serves as an ◊e{interface} for the specific iterator implementations (e.g. the ◊c{reverse_iterator}, ...), so they are all guranteed to have those four ◊c{typedef}s.
+		◊irr{Please note that (as you can see ◊l["https://www.quora.com/Why-was-std-iterator-deprecated-in-c-17?share=1"]{here}) directly inheriting from ◊c{iterator} was deprecated in C++17.}
 	}
 	◊hline{}
 	The ◊c{iterator_traits} serve as a gateway between iterators and the functions inside the ◊c{algorithm} header.
-	However, as you can read ◊l["https://cplusplus.com/reference/iterator/RandomAccessIterator/"]{here}, ◊b{all pointers are also considered valid random access iterators}, therfore this has to be valid code:
+	However, as you can read ◊l["https://cplusplus.com/reference/iterator/RandomAccessIterator/"]{here}, ◊b{all pointers are also considered valid random access iterators}. This is why this is/has to be valid code:
 	◊code-block['C++]{
 		int array[] = { 1, 5, 2, 4, 3 };
 		std::sort(array, array + 5);
 	}
 	Internally the ◊c{std::sort} function might need to access the ◊c{typedefs} of the ◊e{iterators} it was supplied with, but if you recall you can't simply extract ◊c{typedefs} from a fundamental type like a ◊e{pointer}.
 	This is where ◊c{iterator_traits} come into play, by providing the four ◊c{typedefs} every ◊e{iterator} has to have.
-	◊hint[#:type "info"]{See the lower two structs of the implementation. The first is used for normal and the second for ◊c{const} ◊e{pointers}}
+	◊hint[#:type "info"]{See the lower two structs of the implementation. The first is used for normal and the second for ◊c{const} ◊e{pointers}.}
 
 }
 
 ◊sec["Usage example" 1]{
-	Let's take a look at how to use those ◊c{iterator_traits} in practice by re-implementing the ◊c{std::distance} function, shall we?
+	Let's take a look at how to use those ◊c{iterator_traits} in practice. Let's re-implement the ◊c{std::distance} function, shall we?
 	◊narr{This function might also prove useful during your ◊e{ft_containers} ;)}
-	After consulting the ◊l["https://cplusplus.com/reference/iterator/distance/"]{reference} we can see that there are two ways of implementing this function:
+	After consulting the ◊l["https://cplusplus.com/reference/iterator/distance/"]{C++ reference} we can see that there are two ways of implementing this function:
 	◊ol{
-		◊li{Through a call to the ◊c{operator-}, if it exists}
-		◊li{Through repeated calls to the ◊c{operator++} and a counter}
+		◊li{Through a call to the ◊c{operator-}, if it exists.}
+		◊li{Through repeated calls to the ◊c{operator++} and a counter.}
 	}
 	Also, the function is prototyped as follows:
 	◊code-block['C++]{
@@ -101,10 +101,12 @@
 		typename iterator_traits<Iter>::difference_type // <-- Return type
 		distance(Iter first, Iter last);
 	}
-	Note that the return type already utilizes ◊c{iterator_traits} to retrive the ◊e{difference_type}.
-	Alright, I'll provide you with the generic implementation and a testing ◊c{main} for our ◊c{distance} function and you add the two specializations mentioned above. Deal?
+	Note that the return type already utilizes ◊c{iterator_traits} to retrieve the ◊e{difference_type}.
+	Alright, I'll provide you with the generic implementation and a testing ◊c{main} for our ◊c{distance} function and you add the two specializations mentioned above. 
+	
+	◊narr{Deal?}
 
-	◊sec-hint[#:type "info" "ft::distance generic implementation"]{
+	◊sec["generic ft::distance implementation" 2 #:open? #f]{
 		◊code-block['C++]{
 			#include <iterator>
 
@@ -122,7 +124,7 @@
 		}
 	}
 
-		◊sec-hint[#:type "info" "testing main"]{
+		◊sec["main.cpp" 2 #:open? #f]{
 			◊code-block['C++]{
 				#include <iostream>
 				#include <iomanip>
