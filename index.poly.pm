@@ -42,6 +42,7 @@ HERE
 	◊li{◊link["holy_graph/FdF.html"]{FdF}}
     ◊li{◊link["holy_graph/minitalk.html"]{minitalk}}
     ◊li{◊link["holy_graph/push_swap.html"]{push_swap}}
+    ◊li{◊link["holy_graph/philosophers.html"]{Philosophers}}
     ◊li{◊link["holy_graph/ft_containers.html"]{ft_containers}}
 }
 
