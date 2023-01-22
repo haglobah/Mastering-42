@@ -12,7 +12,7 @@ Hm. Okay. That is definitely right. But, to be more specific:
 	
 	Let's go for that instead, shall we?}
 
-Let's turn this project learning-wise into the project it could also be.
+Let's turn this project learning-wise into the project it could (or should?) have been.
 
 We'll try to learn about the following:
 
@@ -40,7 +40,7 @@ We'll try to learn about the following:
 			For ◊ol-mark{3.}, read ◊l["https://en.wikipedia.org/wiki/Request_for_Comments"]{this} Wikipedia article.
 		}
 		◊li{
-			◊ol-mark{4.} & ◊ol-mark{5.} are already covered by ◊ol-mark{1.}, however, you might want to take a look at some other guides and see whether you've understodd everything just from that.
+			◊ol-mark{4.} & ◊ol-mark{5.} are already covered by ◊ol-mark{1.}, however, you might want to take a look at some other guides and see whether you've really understood it.
 		}
 		◊li{
 			For completing the exercises (aka ◊ol-mark{6.}), take a look at ◊l["https://www.youtube.com/watch?v=5WfiTHiU4x8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF"]{this} series for general understanding.
@@ -58,13 +58,17 @@ We'll try to learn about the following:
 
 	◊ol{
 		◊li{First, delete the content of every field you can write to. (Repeatedly hitting ◊e{TAB}, followed by ◊e{DEL})}
-		◊li{Fill in network after network. Make their IPs simple. (◊c{1.1.1.1} is simple.)}
+		◊li{Fill in network after network. Make their IPs simple. (◊c{1.1.1.1} is simple, ◊c{192.168.12.1} is not.)}
 		◊li{Make the IP range of a network as small as possible. This means making their subnet mask big. Normally, this means setting the mask to ◊c{/30}.}
 	}
 
-	If you're doing it like that, it should be relatively easy to set up the respective nets on their own correctly. In case you're still encountering issues, it is quite probable that some of your nets overlap where they shouldn't, or are in different networks where they should be in the same.
+	If you're doing it like that, it should be relatively easy to set up the respective nets on their own correctly. In case you're still encountering issues, it is quite probable that either: 
+	◊ul{
+		◊li{some of your nets overlap where they shouldn't} 
+		◊li{or they are in different networks although they should be in the same.}
+	}
 
-	That being said, it's still mostly practice. It'll probably take at least some time.
+	That being said, it's still mostly practice. It'll probably take some time.
 
 	While doing the exercises, don't hesitate to take a look at tblaases ◊l["https://github.com/tblaase/Net_Practice"]{solutions} when you're stuck. ◊e{Whenever you don't understand everything (you don't easily go through the exercises), please ask a knowledgeable peer for help/explanations.}
 }
