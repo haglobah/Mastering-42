@@ -5,7 +5,7 @@
          pollen/unstable/pygments
          sha)
 (provide title link l p b e irr heading h sub quote-block sec requirements hint sec-hint 
-	ul ol li ul-mark ol-mark img code c code-block hline spoiler table) ;tag functions: use in *.poly.pm
+	ul ol il li ul-mark ol-mark img code c code-block hline spoiler table) ;tag functions: use in *.poly.pm
 (provide narr gen-reason)
 (provide find-link get-date get-year get-folder-name compare-path get-pdf-path 
 	pagetree-code root latex-replace) ;Utilities - for use in the templates
@@ -298,6 +298,10 @@
 (define-tag (ol . elements)
   (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
   `(ol ,@elements))
+
+(define-tag (il . elements)
+  (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
+  `(ul [[class "invisible-list"]] ,@elements))
 
 (define-tag (li . elements)
   (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
