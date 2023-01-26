@@ -8,16 +8,10 @@ Tokens, the environment and builtins await. Come in, come in :)}
 
 You'll be creating a working and day-to-day usable shell. It will be able to execute arbitrary commands, have its own environment, write to/read from files, and so on.
 
-◊hint[#:type "warning"]{
+◊hint[#:type "info"]{
+	Disliking minishell?
 
-	I've yet to meet someone who genuinely enjoyed this project throughout. Almost everyone I've talked to is complaining about edge the possible edge cases they still have to/need to fix.
-
-	They all start out implementing their own shell, and then end up implementing every peculiarity of ◊c{bash}. 
-	◊e{Taking something as a reference} ◊b{is not the same as} ◊e{copying its behaviour to the tiniest detail}.
-
-	I don't think that this is the point of the subject, but more importantly, it ◊e{should} not be. We're here to learn, remember? You can learn a lot from this subject. Heck, you're writing your own little programming language! But somehow, the joy this brings gets lost in all the edge case-fixing I've encountered.
-
-	◊narr{Want to do something about this? ◊l["#Evaluating minishell"]{Read on}.}
+	I don't think the issue's the project, but rather how we handle it. Read on ◊l["#Evaluating minishell"]{here}, if you're interested.
 }
 
 For all of the following, there's one thing to keep in mind: 
@@ -80,27 +74,33 @@ That being said, let's go.
 
 ◊sec["Aftercare" 1]{
 
-	I hope that during this project, you learned a lot. If I may guess, you've probably been fed up by it at least two weeks ago. It was 'almost' done, but there were somehow still bugs occurring regularly. 
-
-	What you've experienced here is how hard/impossible it is to write general, good-working systems in C. ◊e{It was due to the language you've been using for that}.
+	Well, after minishell, you should know about:
 	◊ul{
-		◊li{You don't have to write languages ◊e{and especially parsers} in C anymore.}
-		◊li{Please, don't write parsers by hand. Use libraries.}
+		◊li{Writing a lexer}
+		◊li{Writing a parser}
+		◊li{Creating pipes, and handling IO in general}
+		◊li{How hard (-> ◊e{time-consuming}) it is to write reliable, good-working big(ger) systems in C.}
 	}
 
-	So, no further work on something like this for you today. Instead, you might want to take a look on how to do it differently. You may choose:
+	In case you don't feel like you do, try to think it through again. I consider parsers and lexers to be generally very useful tools, and ◊c{microshell} awaits :)
+
+	Concerning the last one, in case you're not convinced:
+	It's quite probable a large part of all your errors were bugs related to the manual allocation of memory. ◊l["https://www.chromium.org/Home/chromium-security/memory-safety/"]{And it's not only you}.
+	Fortunately, it's 2023, and at least since ◊l["https://blog.rust-lang.org/2015/05/15/Rust-1.0.html"]{May 15, 2015}, there is only very little reason to still introduce them to our codebases. The two key terms here are ◊l["https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)"]{Garbage Collection} and ◊l["https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html"]{Ownership}.
+
+	So, no further work writing a parser by hand for you today. Instead, you might want to take a look on how to do it differently. Have fun and enjoy exploring!
 	◊ul{
 		◊li{Q: I like C. How would I write a parser in a C codebase?
 			A: As far as I know, you'd use ◊l["https://en.wikipedia.org/wiki/Yacc"]{◊c{yacc}}.}
 		◊li{Q: I want to have speed and complete control. Which language should I pick?
 			A: How about ◊l["https://www.rust-lang.org/"]{Rust}?}
 		◊li{Q: I want to have the most advanced language building technology. Where should I look?
-			A: For that, take a look at the ◊e{Programming Language} Programming Language (no typo): ◊l["https://racket-lang.org/"]{Racket}.}
+			A: For that, take a look at the self-proclaimed ◊e{Programming Language} Programming Language: ◊l["https://racket-lang.org/"]{Racket}.}
 	}
 }
 
 
-◊narr{Huh, what a project. One experiences the highest highs and the lowest lows. See you at the next one. 
+◊narr{Huh, what a project. Nasty sometimes, but full of learning. See you at the next one. 
 
 And may your grammars always be consistent.}
 
@@ -117,7 +117,20 @@ And may your grammars always be consistent.}
 
 ◊sec["Evaluating minishell" #:open? #f 1]{
 
-	I'd like this project to be different. More about understanding, and less about tedious replication. How can we achieve that?
+	◊hint[#:type "warning"]{
+
+		I've yet to meet someone (who finished the project) and hasn't been complaining about the project/all the annoying edge cases they needed to "fix".	◊irr{(Sure, people like to complain, I know that, too. With minishell, it's at a whole other level.)}
+
+		It goes like the following: 
+		They all start out implementing their own shell, and then end up implementing every peculiarity of ◊c{bash}. 
+		◊e{Taking something as a reference} ◊b{is not the same as} ◊e{copying its behaviour to the tiniest detail}.
+
+		I don't think that this is the point of the subject, but more importantly, it ◊e{should} not be. We're here to learn, remember? You can learn a lot from this subject. Heck, you're writing your own little programming language! But somehow, the joy this brings gets lost in all the edge case-fixing I've encountered. (Or, at least, it only rarely gets mentioned by the people who've completed minishell.)
+
+		◊narr{Want to do something about this? Read on.}
+	}
+
+	I think this project can be different, and it's up to us to make this happen. It can be more about understanding, and less about tedious replication. How can we achieve that?
 
 	I think it all comes down to how minishell gets evaluated.
 
@@ -151,7 +164,7 @@ And may your grammars always be consistent.}
 
 	The point here is: In contrast to the normal eval sheet, the evaluator checks for ◊e{understanding}, and then tests whether the code is working ◊e{in general}.
 
-	They ◊e{do not} try to break the shell's (or its builtins) parser at all costs, checking for every test case they know. Neither do they check only for the specific test cases of the eval sheet, which one can easily guard against.
+	They ◊e{do not} try to break the shell's (or its builtins') parser at all costs, checking for every test case they know. Neither do they check only for the specific test cases of the eval sheet, which one can easily guard against.
 
 	◊narr{I'd love to see you join me on this.
 
