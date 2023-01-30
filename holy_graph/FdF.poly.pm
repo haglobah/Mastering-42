@@ -38,7 +38,7 @@ We need to:
 	◊li{Draw them, as well as the lines in between.}
 }
 
-And that's already it. Along the lines, you'll discover ◊l["https://en.wikipedia.org/wiki/Isometric_projection"]{isometric projection}, as well as 'the' original ◊l["https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm"]{line drawing algorithm}.
+And that's already it. Along the lines, you'll discover ◊l["http://www.gandraxa.com/isometric_projection.xml"]{isometric projection}, as well as 'the' original ◊l["https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm"]{line drawing algorithm}.
 
 Some minor remarks:
 ◊ul{
