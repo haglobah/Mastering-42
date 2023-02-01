@@ -3,12 +3,12 @@ name: Build and Deploy to Pages
 
 on:
   # Runs on pushes targeting the default branch
-  #push:
-  #  branches: ["main"]
+  push:
+    branches: ["main"]
   
   # runs every day at 00:42 UTC
-  schedule:
-  - cron: "42 0 * * *"
+  # schedule:
+  # - cron: "42 0 * * *"
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
