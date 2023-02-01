@@ -68,7 +68,7 @@ Here are some important topics you will learn about during the project:
 
 ◊sec["Cleaning up" 1]{
 
-Before sumitting the project make sure:
+Before submitting the project make sure:
 ◊ul{
 	◊li{That only the required methods are public in your containers}
 	◊li{That the container inside your stack has the right name and is ◊e{protected}, not private or public}
