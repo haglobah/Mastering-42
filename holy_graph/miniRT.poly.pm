@@ -1,80 +1,72 @@
 #lang pollen
 
-◊(require "../templates.rkt")
-◊(define-meta level "5")
+◊title[#:sub "by bhagenlo" #:version "7.1"]{miniRT}
 
-◊title[#:sub "by marv�u��z�" #:version "NULL"]{miniRT}
+◊narr{
+	Okay. Let's take a step back for a moment. Remember what we initially said?
 
-◊(insert-intro (select 'level metas))
+	◊quote-block{We said that we want to provide a map for each project.}
 
-◊;{
+	What would that look like for ◊e{miniRT}? What would that look like for a ray tracer in general?
 
-For just playing around, please follow [Getting up and running](https://github.com/haglobah/Mastering-42#getting-up-and-running).
-
-To actually change something on the website, please first read our [Contributing](https://github.com/haglobah/Mastering-42#contributing) guideline.
-
-Then, add/change what you want to add/change. Below, you find a template and some common code examples.
-
-For writing new content, please try to stick with our [style guide](https://github.com/haglobah/Mastering-42/blob/main/README.md#style-guide).
-
-Make sure _you commit your stuff to a new branch_.
-
-After you're done, don't forget to:
-- Add your name to the list of collaborators.
-- Update the version number to the one that's in the subject (replacing NULL)
-- In addition to that:
-  - If you added a section, reduce the level of ◊(define-meta level _) by one.
-  - If you completed the guide (it has no sections that are commented out anymore), remove this section, ◊(insert-intro ...) and lines 3 & 4, as well as marv�u��z� from the list of collaborators.
-
-Looking forward to your pull request!
-
+	Well, let's find out. But it's certainly gonna involve a some math.
 }
 
-◊;{
+Ray tracing is a technique to render images. The general idea is that you have a ◊e{camera} from which you shoot ◊e{rays}, those rays hit things, and from those hitpoints you trace new rays into the lights of your scene. And depending on whether/how you hit objects along the ray◊;{(sorry, that had to be ^^)}, you display a color for this particular pixel (of your ◊e{viewport}).
+
+◊; So, generally speaking, you'll have to to know how to handle (3d-)vectors
+
+Sounds good? Well, let's begin!
+
 ◊sec["Prerequisites" 1]{
 
-A
-◊ul{
-	◊li{list}
-	◊li{of}
-	◊li{prerequisites.}
-}
+	◊ul{
+		◊li{Write youself a ◊c{parse_double()} (and test it).}
+		◊li{Find out what the ◊e{dot product} is. Calculate a few of them. Understand its geometrical interpretation (-> find out what it 'does' with two vectors in 3d space).}
+		◊li{Find out what the ◊e{cross product} is. Calculate a few of them. Understand its geometrical interpretation (-> find out what it 'does' with two vectors in 3d space).}
+	}
 
-◊hint[#:type "warning"]{
-	Be very careful to check that!
-}
-
+	With that, you should be able to start. 
+	
+	If it's been some time since you last did math, and/or you did not take any math classes at university, it might be helpful if you do those as well:
+	◊ul{
+		◊li{Calculate the distance of two points in 3d.}
+		◊li{Calculate the hitpoint(s) of a line and a plane.}
+		◊li{Calculate the hitpoint(s) of a line and a sphere.}
+		◊li{Calculate the angle between two vectors. What does happen to their dot product if they are perpendicular to each other?}
+	}
 }
 
 ◊sec["During" 1]{
 
-	◊spoiler{I try not to steal the fun of thinking for oneself.} Shh. ◊spoiler{Don't let me be seen by accident.}
+	The nice thing about those graphics projects is that you can immediately see when something went wrong. Don't waste this advantage – get youself a working output as soon as possible!
 
-	◊sec["A subsection" #:sub "only sometimes important." 2 #:open? #f]{
-		Only for those who want to do the bonus.
-}
+	Also, you might want to ensure to work with a freely positionable camera as early as possible.
+
+	In addition to that:
+	◊ul{
+		◊li{Crazy colors? It's quite likely you're not adding/scaling you're colors correctly.}
+		◊li{Interesting distortions of any kind? Check whether you've normalized all the vectors that should be.}
+	}
+
+	Ah, and please: Do youself the favor to do every calculation on the stack. It's just so much faster.
 }
 
 ◊sec["Cleaning Up" 1]{
 
-An
-◊ol{
-	◊li{ordered}
-	◊li{list}
-	◊li{of}
-	◊li{clean-up steps.}
-}
+	Get yourself some example scenes, and test with them :)
 
+	In case you're field of view is rotated in any way: That's probably just your camera. And its orientation is not specified by the subject.
 }
 
 ◊sec["Aftercare" 1]{
 
 
 }
-}
+
 
 ◊narr{
-In case I do know other places where you'll might find what you need, I'll let you know ◊l["#Pointers"]{below}. Good luck with your search!
+
 }
 
 ◊sec["Pointers" 1]{
