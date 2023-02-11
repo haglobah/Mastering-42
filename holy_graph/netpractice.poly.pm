@@ -8,7 +8,7 @@ Hm. Okay. That is definitely right. But, to be more specific:
 
 	This project is an exercise ◊e{only} about how to set up ◊e{subnets} of Computer Networks.
 	
-	That's not unhelpful to know that, but does not give one a much bigger understanding of the Internet, either.
+	While not exactly being unhelpful, this does not give one a much bigger understanding of the Internet, either.
 	
 	Let's go for that instead, shall we?}
 
@@ -19,7 +19,7 @@ We'll try to learn about the following:
 ◊ol{
 	◊li{The general history/ideas of the Internet}
 	◊li{The ◊e{OSI Model}}
-	◊li{What an ◊e{RCF} is}
+	◊li{What an ◊e{RFC} is}
 	◊li{◊e{TCP/IP}}
 	◊li{◊e{HTTP}}
 	◊li{And, finally, how ◊e{subnetting} works.}
@@ -68,9 +68,9 @@ We'll try to learn about the following:
 		◊li{or they are in different networks although they should be in the same.}
 	}
 
-	That being said, it's still mostly practice. It'll probably take some time.
+	That being said, I encourage you to ask a peer for 5 minutes of their time to help you when you're stuck. It'll be worth it.
 
-	While doing the exercises, don't hesitate to take a look at tblaases ◊l["https://github.com/tblaase/Net_Practice"]{solutions} when you're stuck. ◊e{Whenever you don't understand everything (you don't easily go through the exercises), please ask a knowledgeable peer for help/explanations.}
+	In addition to that, don't hesitate to take a look at tblaases ◊l["https://github.com/tblaase/Net_Practice"]{solutions}.
 }
 
 ◊sec["Cleaning Up" 1]{
@@ -90,13 +90,17 @@ We'll try to learn about the following:
 	This one's easy. No more networks.
 	
 	Watch some other episode of ◊l["https://www.youtube.com/watch?v=3QhU9jd03a0&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo"]{Crash Course Computer Science}. 
-	Alternatively, may I interest you in reading a ◊l["https://www.rfc-editor.org/rfc/rfc3092"]{fun} RFC? Or a ◊l["https://www.rfc-editor.org/rfc/rfc2810"]{relevant} one?
+	Alternatively, may I interest you in reading a ◊l["https://www.rfc-editor.org/rfc/rfc3092"]{fun} RFC? Or ... a ◊l["https://www.rfc-editor.org/rfc/rfc2810"]{relevant} one?
 }
 
 
 
 ◊narr{
+	I hope I've fulfilled my promise, and you now not only know more about subnetting, but also about the Internet as a whole.
 
+	See you :)
+
+	And may your IP ranges never clash.	
 }
 
 ◊sec["Pointers" 1]{
