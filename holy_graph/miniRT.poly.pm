@@ -57,6 +57,8 @@ Sounds good? Well, let's begin!
 	Get yourself some example scenes, and test with them :)
 
 	In case you're field of view is rotated in any way: That's probably just your camera. And its orientation is not specified by the subject.
+
+	◊e{And make sure to name your executable ◊c{miniRT}}.
 }
 
 ◊sec["Aftercare" 1]{
