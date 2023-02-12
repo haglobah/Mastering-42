@@ -61,15 +61,42 @@ Sounds good? Well, let's begin!
 
 ◊sec["Aftercare" 1]{
 
-
+◊quote-block[#:author "Edsger Dijkstra"]{
+	A programming language is a tool that has profound influence on our thinking habits.
 }
 
+	And the choice of the tool matters.
+	
+	If you want to become an expert programmer (in anything, really), you not only should know how to use a tool, but also when to use which one: ◊e{You should know your toolkit.}
+
+	Up until now, if you didn't have any prior programming experience, you know only one such tool to solve the job: C. ◊irr{(+ a little bit of bash, if you want to count that.)}
+
+	But let us, for a moment, imagine you were such an expert (that knew what other tools looked like, and now wants to evaluate how C fits into his toolkit). 
+	You just completed the last project that you had to code in C. ◊e{What is C like, and when would you want to use it?}
+
+	Feel free to use these questions for inspiration:
+	◊ul{
+		◊li{What do you really like about C? What don't you like?}
+		◊li{For which problems is the language well-suited?}
+		◊li{At which point(s) did you have the feeling the language got in your way?}
+		◊li{How did it shape your thinking?}
+	}
+
+	I encourage you to write those answers down. On your journey to becoming an expert, they will change. And whenever they'll do, you then know you learned something not only about your tool, but also about your toolkit.
+
+	Let's see what the answers look like after you create something bigger in another language. C++ awaits ;)
+}
+
+Huh. And with that: Goodbye, C, and welcome, C++.
 
 ◊narr{
-
+	And may your mathematics always work out.
 }
 
 ◊sec["Pointers" 1]{
 
-
+	◊ul{
+		◊li{A ◊l["https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work.html"]{tutorial + website on graphics in general}}
+		◊li{Another ◊l["https://raytracing.github.io/books/RayTracingInOneWeekend.html"]{tutorial} (in C++, though).}
+	}
 }
