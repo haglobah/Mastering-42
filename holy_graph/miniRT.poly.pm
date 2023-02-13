@@ -9,7 +9,7 @@
 
 	What would that look like for ◊e{miniRT}? What would that look like for a ray tracer in general?
 
-	Well, let's find out. But it's certainly gonna involve a some math.
+	Well, let's find out. But it's certainly gonna involve some math.
 }
 
 Ray tracing is a technique to render images. The general idea is that you have a ◊e{camera} from which you shoot ◊e{rays}, those rays hit things, and from those hitpoints you trace new rays into the lights of your scene. And depending on whether/how you hit objects along the ray◊;{(sorry, that had to be ^^)}, you display a color for this particular pixel (of your ◊e{viewport}).
@@ -100,5 +100,9 @@ Huh. And with that: Goodbye, C, and welcome, C++.
 	◊ul{
 		◊li{A ◊l["https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work.html"]{tutorial + website on graphics in general}}
 		◊li{Another ◊l["https://raytracing.github.io/books/RayTracingInOneWeekend.html"]{tutorial} (in C++, though).}
+		◊li{Another ◊l["https://www.gabrielgambetta.com/computer-graphics-from-scratch/"]{tutorial} (very mathy)}
+		◊li{◊l["https://hugi.scene.org/online/hugi24/coding%20graphics%20chris%20dragan%20raytracing%20shapes.htm"]{Intersection formulas}}
+
+
 	}
 }
