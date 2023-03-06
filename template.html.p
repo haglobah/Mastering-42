@@ -114,10 +114,8 @@
         </p>
         <div class="links">
             <a href="legal.html">Legal</a>
-            <!-- <a href="impressum.html">Impressum</a> -->
         </div>
     </footer>
-    <script src="◊(find-link here 'get-path.js)"></script>
 </body>
 </html>
 
