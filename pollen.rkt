@@ -1,9 +1,6 @@
 #lang pollen/mode racket/base
 (require txexpr
-         racket/date racket/path racket/list racket/string racket/file racket/runtime-path
-         pollen/core pollen/setup pollen/tag pollen/decode pollen/misc/tutorial
-         pollen/unstable/pygments
-         sha)
+         racket/date racket/path racket/list racket/string racket/file pollen/setup pollen/decode)
 (provide title link l p b e irr heading h sub quote-block sec requirements hint sec-hint 
 	ul ol il li ul-mark ol-mark img code c code-block hline spoiler table) ;tag functions: use in *.poly.pm
 (provide narr gen-reason)
@@ -68,84 +65,17 @@
       expr ...
       (loop))))
 
-(define generate-hash
-  (let ([form-counter 0])
-    (λ ()
-      (inc! form-counter)
-      (substring (bytes->hex-string (sha1 (string->bytes/utf-8 (number->string form-counter)))) 0 8))))
-
-(define (wrap-forms node)
-  (if (not (txexpr? node))
-      node
-      (let ([children (get-elements node)]
-            [hash (generate-hash)])
-           (if (or (member (get-tag node) '(p img ol ul)) 
-                   (member (get-attrs node) '(((class "highlight")) ((class "sidepanel")))))
-               (txexpr 'div '((class "form-container"))
-                           `(,(attr-set node 'id hash)
-                           ,@(generate-form hash)))
-               (txexpr (get-tag node) (get-attrs node) (map wrap-forms children))))))
-
-(define (generate-form hash)
-        (define toggle-id (string-append "toggle_" hash))
-        `(,(txexpr 'input `((type "checkbox") (id ,toggle-id)))
-           ,(txexpr 'label `((for ,toggle-id)) '(""))
-           ,(txexpr 'form '((class "sendEmail") (method "POST") (action "/message.php"))
-                    `(,(txexpr 'textarea '((type "text") (class "comment") (name "comment") (placeholder "Kommentar")))
-                      ,(txexpr 'input '((type "text") (class "email") (name "email") (placeholder "E-Mail Adresse")))
-                      ,(txexpr 'input '((type "submit") (class "send") (value "Kommentieren")) empty)
-                      ,(txexpr 'input `((type "hidden") (name "link") (value ,(string-append "#" hash))))))))
-
-(define (is-inline? node)
-  (and (txexpr? node) (member (get-tag node) '(br a b i code))))
-
-(define (is-block? node)
-  (and (txexpr? node) (not (is-inline? node))))
-
-(define (p-contains-block? node)
-  (if (txexpr? node)
-      (if (equal? (get-tag node) 'p)
-          (if (empty? (filter is-block? (get-elements node)))
-              #f
-              #t)
-          #f)
-      #f))
-
-(define (unwrap-side-controls node)
-  (define (is-controls? x) (and (txexpr? x) (equal? (attr-ref x 'class #f) "sidepanel-controls")))
-  (define (replace-controls x)
-    (if (is-controls? x)
-            (get-elements x)
-            `(,x)))
-  (txexpr (get-tag node) (get-attrs node) (apply append (map replace-controls (get-elements node)))))
-
-(define (clear-empty-ps node)
-  (define (extract-blocks p)
-    (if (p-contains-block? p)
-      (get-elements p)
-      `(,p)))
-  (apply append (map extract-blocks (get-elements node))))
-
-(define (process-nodes node)
-  (cond 
-    [(and (txexpr? node) (not (equal? (get-tag node) 'table))) ;Do not mess with code elements
-     (let ([newElements (clear-empty-ps (unwrap-side-controls node))])
-          (txexpr (get-tag node) (get-attrs node) (map process-nodes newElements)))]
-    [else node]))
-
-(define (root . elements)
-  (case (current-poly-target)
-    [(ltx pdf) (txexpr 'root empty elements)]
-    [else (let ([output (decode-elements elements #:txexpr-elements-proc decode-paragraphs)])
-               ;(wrap-forms (process-nodes (txexpr 'root empty output))))]))
-			   (process-nodes (txexpr 'root empty output)))]))
-
-
 (define-syntax-rule (define-tag (TAG ... . REST) LTX HTML)
   (define (TAG ... . REST)
     (case (current-poly-target)
       [(ltx pdf) LTX]
       [else HTML])))
+
+(define-tag (root . elements)
+  `(root ,@elements)
+  (decode `(root ,@elements)
+  		  #:txexpr-elements-proc detect-paragraphs
+          #:exclude-tags '(pre)))
 
 ;TAG FUNCTIONS
 (define-tag (link url . elements)
@@ -352,7 +282,13 @@
   `(code ,@elements))
 (define c code)
 
-(define (code-block language #:filename [filename ""] #:nums? [nums #t] . lines)
+(define-tag (code-block language #:filename [filename ""] #:nums? [nums #t] . lines)
+  "Here should be code."
+  `(div [[class "code-block"]]
+  		(span [[class "filename"]] ,filename)
+		(pre (code ((class ,(format "language-~a" language))) ,@lines))))
+
+#;(define (code-block language #:filename [filename ""] #:nums? [nums #t] . lines)
   (define txcode (if (symbol? language)
                      (highlight language #:line-numbers? nums (apply string-append lines))
                      (highlight (string->symbol language) #:line-numbers? nums (apply string-append lines))))
