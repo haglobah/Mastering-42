@@ -19,15 +19,11 @@ With this guide, we try to get everyone of us the team mate we would've liked to
 ```
 3. Fork this repo
 4. (when creating new files, add them to ```index.ptree```)
-4. Install the dependecies for the repo:
-```
-λ raco pkg install --auto sha
-```
-4. Start Pollens' project server:
+5. Start Pollens' project server:
 ```
 λ raco pollen start
 ```
-5. edit some file; reload your browser window; see the change.
+6. edit some file; reload your browser window; see the change.
 
 # How do I get that damn "♢"?
 If you're using VS Code, open your ```keybindings.json``` and paste the following:
