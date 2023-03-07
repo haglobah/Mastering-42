@@ -28,12 +28,12 @@
 				(if (equal? link-selection #f)
 					'()
 					(filter string? link-selection))))
-		<link rel="icon" type="image/x-icon" href="/src/Images/white-42_logo.png">
+		<link rel="icon" type="image/x-icon" href="◊(find-link here 'src/Images/white-42_logo.png)">
 		<link rel="stylesheet" href="◊(find-link here 'fonts.css)">
 		<link rel="stylesheet" href="◊(find-link here 'style.css)">
 		<link rel="stylesheet" 
 			  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
-		<script src="/highlight.min.js"></script>
+		<script src="◊(find-link here 'highlight.min.js)"></script>
 		<script>
 		hljs.highlightAll();
 		</script>
