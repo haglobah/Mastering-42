@@ -28,9 +28,15 @@
 				(if (equal? link-selection #f)
 					'()
 					(filter string? link-selection))))
+		<link rel="icon" type="image/x-icon" href="/src/Images/white-42_logo.png">
 		<link rel="stylesheet" href="◊(find-link here 'fonts.css)">
 		<link rel="stylesheet" href="◊(find-link here 'style.css)">
-        <link rel="stylesheet" href="◊(find-link here 'pygments.css)">
+		<link rel="stylesheet" 
+			  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+		<script src="/highlight.min.js"></script>
+		<script>
+		hljs.highlightAll();
+		</script>
     </head>
     <body>
         <header>
@@ -108,10 +114,8 @@
         </p>
         <div class="links">
             <a href="legal.html">Legal</a>
-            <!-- <a href="impressum.html">Impressum</a> -->
         </div>
     </footer>
-    <script src="◊(find-link here 'get-path.js)"></script>
 </body>
 </html>
 
