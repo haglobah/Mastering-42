@@ -6,7 +6,8 @@
          racket/string
          racket/file
          pollen/setup
-         pollen/decode)
+         pollen/decode
+		 pollen/core)
 
 ; Tag functions
 (provide title
@@ -40,7 +41,8 @@
 
 ; Semantic markup for Mastering-42
 (provide narr
-         gen-reason)
+         gen-reason
+		 make-graph)
 
 ; Utilities - for use in the templates
 (provide find-link
@@ -153,6 +155,32 @@
             `(div [(class "irrelevant")] ,@elements))
 
 (define-tag (hline) (apply string-append `("\\hrule")) `(hr [(class "divisor")]))
+
+(define (make-graph articles)
+	(displayln articles)
+	(define core (filter (λ (a) (string-contains? a "core"))
+						 articles))
+	(define explainers (filter (λ (a) (string-contains? a "explainers"))
+						 articles))
+	(define holy-graph (filter (λ (a) (string-contains? a "holy_graph"))
+						 articles))
+	`(section [[class "graphs"]]
+	    (div [[class "core"]]
+		  ,@(map (λ (guide) 
+		  		   (@ `(span [[class "guide"]] ,guide)
+				      '(br)))
+			core))
+	    (div [[class "explainers"]]
+		  ,@(map (λ (guide) 
+		  		   (@ `(span [[class "guide"]] ,guide)
+				      '(br)))
+			explainers))
+	    (div [[class "holy-graph"]]
+		  ,@(map (λ (guide) 
+		  		   (@ `(span [[class "guide"]] ,guide)
+				      '(br)))
+			holy-graph))
+		)) 
 
 (define spoiler
   (let ([spoiler-counter 0])

@@ -7,6 +7,19 @@
 					 ".html" 
 					 #:left? #f) 
 		".poly.pm"))
+◊(define articles (flatten (filter-map children (flatten (map children (children 'pagetree-root))))))
+◊(define rootSite (first (children 'pagetree-root)))
+◊(define categories (children rootSite))
+◊(define currentCategory (get-folder-name here))
+◊(define currentCategoryIndex (unless (equal? currentCategory #f) (string-append currentCategory "/index.html")))
+◊(define currentArticles (if (equal? currentCategory #f)
+								#f
+								(children (string->symbol currentCategoryIndex))))
+◊(define linkedHeadings 
+	(let ([link-selection ('h2 . select-from-doc . doc)])
+		(if (equal? link-selection #f)
+			'()
+			(filter string? link-selection))))
 <html>
     <head>
         <meta charset="UTF-8">
@@ -15,19 +28,6 @@
         <meta property="og:title" value="◊(select 'h1 doc)">
         <meta property="og:image" value="◊(find-link here 'src/Images/42_logo.png)">
         <title>◊(select 'h1 doc)</title> <!-- or ◊|here| -->
-        ◊(define articles (flatten (filter-map children (flatten (map children (children 'pagetree-root))))))
-        ◊(define rootSite (first (children 'pagetree-root)))
-        ◊(define categories (children rootSite))
-        ◊(define currentCategory (get-folder-name here))
-        ◊(define currentCategoryIndex (unless (equal? currentCategory #f) (string-append currentCategory "/index.html")))
-        ◊(define currentArticles (if (equal? currentCategory #f)
-                                     #f
-                                     (children (string->symbol currentCategoryIndex))))
-		◊(define linkedHeadings 
-			(let ([link-selection ('h2 . select-from-doc . doc)])
-				(if (equal? link-selection #f)
-					'()
-					(filter string? link-selection))))
 		<link rel="icon" type="image/x-icon" href="◊(find-link here 'src/Images/white-42_logo.png)">
 		<link rel="stylesheet" href="◊(find-link here 'fonts.css)">
 		<link rel="stylesheet" href="◊(find-link here 'style.css)">
@@ -39,6 +39,7 @@
 		</script>
     </head>
     <body>
+		◊(->html (make-graph (map symbol->string articles)))
         <header>
             <nav>
                 <a class="nav-logo" href="◊(find-link here rootSite)">
