@@ -28,7 +28,7 @@
 				(if (equal? link-selection #f)
 					'()
 					(filter string? link-selection))))
-		<link rel="icon" type="image/x-icon" href="◊(find-link here 'src/Images/42_logo.png)">
+		<link rel="icon" type="image/x-icon" href="◊(find-link here 'src/Images/white-42_logo.png)">
 		<link rel="stylesheet" href="◊(find-link here 'fonts.css)">
 		<link rel="stylesheet" href="◊(find-link here 'style.css)">
 		<link rel="stylesheet" 
@@ -43,7 +43,7 @@
             <nav>
                 <a class="nav-logo" href="◊(find-link here rootSite)">
 					<!--<h3>Mastering</h3> -->
-                    <img src="◊(find-link here 'src/Images/42_logo_big.jpg)" alt="Mastering 42">
+                    <img src="◊(find-link here 'src/Images/42_logo.jpg)" alt="Mastering 42">
                 </a>
                 <input type="checkbox" name="hamburger-button" id="nav-toggle">
                 <div class="nav-list">
