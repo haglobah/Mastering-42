@@ -28,7 +28,7 @@
 				(if (equal? link-selection #f)
 					'()
 					(filter string? link-selection))))
-		<link rel="icon" type="image/x-icon" href="◊(find-link here 'src/Images/white-42_logo.png)">
+		<link rel="icon" type="image/x-icon" href="◊(find-link here 'src/Images/42_logo.png)">
 		<link rel="stylesheet" href="◊(find-link here 'fonts.css)">
 		<link rel="stylesheet" href="◊(find-link here 'style.css)">
 		<link rel="stylesheet" 
