@@ -43,7 +43,7 @@
             <nav>
                 <a class="nav-logo" href="◊(find-link here rootSite)">
 					<!--<h3>Mastering</h3> -->
-                    <img src="◊(find-link here 'src/Images/42_logo_big.jpg)" alt="Mastering 42">
+                    <img src="◊(find-link here 'src/Images/42_logo.jpg)" alt="Mastering 42">
                 </a>
                 <input type="checkbox" name="hamburger-button" id="nav-toggle">
                 <div class="nav-list">
