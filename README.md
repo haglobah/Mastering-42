@@ -12,18 +12,25 @@ With this guide, we try to get everyone of us the team mate we would've liked to
 
 # Getting up and Running
 
+## 1) 'Normal' install
 1. Download & Install [Racket](https://racket-lang.org): [download.racket-lang.org](https://download.racket-lang.org)
 2. Install [Pollen](https://pollenpub.com):
 ```
 λ raco pkg install pollen
 ```
-3. Fork this repo
-4. (when creating new files, add them to ```index.ptree```)
+3. Fork this repo.
+4. (When creating new files, add them to ```index.ptree```.)
 5. Start Pollens' project server:
 ```
 λ raco pollen start
 ```
 6. edit some file; reload your browser window; see the change.
+
+## 2) Using Docker
+1. Install [Docker](https://docs.docker.com/engine/install/).
+2. Fork this repo.
+3. Run ```docker compose up``` from the root of the repository.
+4. edit some file; reload your browser window; see the change.
 
 # How do I get that damn "♢"?
 If you're using VS Code, open your ```keybindings.json``` and paste the following:
