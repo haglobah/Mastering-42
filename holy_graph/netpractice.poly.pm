@@ -106,7 +106,7 @@ We'll try to learn about the following:
 ◊sec["Pointers" 1]{
 
 	◊ul{
-		◊li{The ◊l[""]{You suck at subnetting series}}
+		◊li{The ◊l["https://www.youtube.com/watch?v=5WfiTHiU4x8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF"]{You suck at subnetting series}}
 		◊li{tblaases ◊l["https://github.com/tblaase/Net_Practice"]{solutions}}
 	}
 }
