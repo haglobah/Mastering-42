@@ -365,7 +365,7 @@ pre > code {
 	font-size: 1.1rem;
 }
 
-.nav-node {
+/* .nav-node {
     width: 100%;
     position: relative;
 }
@@ -414,7 +414,7 @@ pre > code {
 		bottom: 0;
 		background-color: white;
     }
-}
+} */
 
 /* 4. Meta information */
 
@@ -532,7 +532,6 @@ pre p {
 
     .content {
         margin-top: 0;
-        margin-left: 200px; /* for the sidebar. */
     }
 }
 

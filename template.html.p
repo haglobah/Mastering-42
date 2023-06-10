@@ -67,26 +67,27 @@
               ""
               (->html ◊for/splice[[(category (in-list categories))]]{
                 ◊(if (compare-path category currentCategoryIndex)
-                     `(div ((class ,(if (compare-path category here)
-                                        "nav-node active"
-                                        "nav-node")))
-                           (a ((href ,(find-link here category)))
+                     `(div ((class "hover:text-inherit"))
+                           (a ((href ,(find-link here category))
+						   	   (class ,(string-append 
+										"pl-3 py-2 "
+							   			(if (compare-path category here) "border-l-4 border-[#97b6f0]" "" ))))
                               (span ((class "category")) ,(get-folder-name category)))
                            ,◊for/splice[[(article (in-list currentArticles))]]{
                               ◊`(div ((class ,(string-append 
-                                                "nav-node "
-                                                (if (compare-path article here) "active " "")
+                                                "pl-7 py-1.5 "
+                                                (if (compare-path article here) "border-l-4 border-[#97b6f0] " "")
                                                 (cond
-                                                  [(equal? (select 'level (get-metas article)) "5") "stub "]
+                                                  [(equal? (select 'level (get-metas article)) "5") " stub "]
                                                   [(member (select 'level (get-metas article)) 
                                                                    '("4" "3" "2" "1"))
-                                                   "in-progress "]
+                                                   " in-progress "]
                                                   [else ""]))))
                                      (a ((href ,(find-link here article))) 
                                         ,(or (select 'h1 article) "Without Title"))
 									 ,◊for/splice[[(link (in-list linkedHeadings))]]{
 										◊(if (compare-path article here)
-									         ◊`(div ((class "nav-node"))
+									         ◊`(div ((class "pl-3 py-2 text-sm"))
 										       (a ((href ,(string-append "#" link))) ,link))
 										     "")}
 								)})
