@@ -40,24 +40,25 @@
 		</script>
     </head>
     <body>
-        <header>
-            <nav>
-                <a class="nav-logo" href="◊(find-link here rootSite)">
-					<!--<h3>Mastering</h3> -->
-                    <img src="◊(find-link here 'src/Images/42_logo.png)" alt="Mastering 42">
-                </a>
-                <input type="checkbox" name="hamburger-button" id="nav-toggle">
-                <div class="nav-list">
-                    ◊for/splice[[(category (in-list categories))]]{
-                    ◊(if (equal? (get-folder-name category) currentCategory)
-                         (->html `(a ((href ,(find-link here category))
-                                      (class "nav-item active")) ,(get-folder-name category)))
-                         (->html `(a ((href ,(find-link here category))
-                                      (class "nav-item")) ,(get-folder-name category))))}
-                </div>
-                <label for="nav-toggle"></label>
-            </nav>
-        </header>
+		<div class="top-0 w-full">
+		  <div class="py-4 lg:px-8 mx-4 lg:mx-0">
+		  	<div class="relative flex items-center justify-between">
+			<a class="ml-10" href="◊(find-link here rootSite)">
+				<img class="h-8" src="◊(find-link here 'src/Images/42_logo.png)" alt="Mastering 42">
+			</a>
+			◊; <input type="checkbox" name="hamburger-button" id="nav-toggle">
+			<div class="nav-list">
+				◊for/splice[[(category (in-list categories))]]{
+				◊(if (equal? (get-folder-name category) currentCategory)
+						(->html `(a ((href ,(find-link here category))
+									(class "nav-item active")) ,(get-folder-name category)))
+						(->html `(a ((href ,(find-link here category))
+									(class "nav-item")) ,(get-folder-name category))))}
+			</div>
+			<label for="nav-toggle"></label>
+			</div>
+		  </div>
+		</div>
         <div class="flex">
             <aside class="h-[88vh] sticky top-14 w-[20rem] overflow-y-scroll">
            ◊(if (equal? currentCategory #f)
