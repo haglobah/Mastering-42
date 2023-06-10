@@ -47,15 +47,17 @@
 				<img class="h-8" src="◊(find-link here 'src/Images/42_logo.png)" alt="Mastering 42">
 			</a>
 			◊; <input type="checkbox" name="hamburger-button" id="nav-toggle">
-			<div class="nav-list">
+			<div class="">
 				◊for/splice[[(category (in-list categories))]]{
 				◊(if (equal? (get-folder-name category) currentCategory)
 						(->html `(a ((href ,(find-link here category))
-									(class "nav-item active")) ,(get-folder-name category)))
+									 (class "underline decoration-[#97b6f0] decoration-[3px] underline-offset-[5px] mx-4 my-1 hover:text-inherit hover:decoration-[#97b6f0] hover:decoration-[3px] hover:underline-offset-[5px]"))
+									,(get-folder-name category)))
 						(->html `(a ((href ,(find-link here category))
-									(class "nav-item")) ,(get-folder-name category))))}
+									 (class "mx-4 my-1 hover:text-inherit hover:decoration-[#97b6f0] hover:decoration-[3px] hover:underline-offset-[5px]"))
+									,(get-folder-name category))))}
 			</div>
-			<label for="nav-toggle"></label>
+			◊; <label for="nav-toggle"></label>
 			</div>
 		  </div>
 		</div>
