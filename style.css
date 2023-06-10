@@ -463,13 +463,6 @@ nav a:hover {
 	font-size: 1.1rem;
 }
 
-.sidenav {
-    position: relative;
-    width: 100%;
-    box-shadow: none;
-    flex-shrink: 0;
-}
-
 .nav-node {
     width: 100%;
     position: relative;

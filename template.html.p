@@ -33,6 +33,7 @@
 		<link rel="stylesheet" href="◊(find-link here 'style.css)">
 		<link rel="stylesheet" 
 			  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="◊(find-link here 'highlight.min.js)"></script>
 		<script>
 		hljs.highlightAll();
@@ -57,8 +58,8 @@
                 <label for="nav-toggle"></label>
             </nav>
         </header>
-        <main>
-            <div class="sidenav">
+        <div class="flex">
+            <aside class="h-[88vh] sticky top-14 w-[20rem] overflow-y-scroll">
            ◊(if (equal? currentCategory #f)
               ""
               (->html ◊for/splice[[(category (in-list categories))]]{
@@ -87,8 +88,8 @@
 										     "")}
 								)})
                      `(div ((class "nav-node"))))}))
-            </div>
-            <div class="content">
+            </aside>
+            <main class="content">
                 ◊when/splice[(and #false (member here articles))]{
                 <input type="checkbox" id="side-toggle">
                 <label for="side-toggle">Toggle sidepanels</label>
@@ -106,8 +107,8 @@
                     ◊when/splice[next-page]{
                     <div id="next"><a href=◊(string-append "/Mastering-42/" (symbol->string next-page))>◊(or (select 'h1 next-page) "Without Title")</a> →</div>}
                 </div>
-            </div>
-        </main>
+            </main>
+        </div class="flex">
     <footer>
         <p class="copyright">
             ◊(get-year)
