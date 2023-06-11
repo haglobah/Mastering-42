@@ -62,7 +62,7 @@
 		  </div>
 		</div>
         <div class="flex">
-            <aside class="h-[88vh] sticky top-14 w-[18rem] overflow-y-scroll">
+            <aside class="h-[88vh] sticky top-14 w-52 overflow-y-scroll">
            ◊(if (equal? currentCategory #f)
               ""
               (->html ◊for/splice[[(category (in-list categories))]]{
@@ -92,13 +92,7 @@
 								)})
                      `(div ((class "nav-node"))))}))
             </aside>
-            <main class="content">
-                ◊when/splice[(and #false (member here articles))]{
-                <input type="checkbox" id="side-toggle">
-                <label for="side-toggle">Toggle sidepanels</label>
-                <!--<div class="meta">
-                    <a href="◊(find-link here (get-pdf-path here))" class="pdf" target="_blank" rel="noopener noreferrer">Konzept herunterladen</a>
-                </div>!-->}
+            <main class="mx-auto">
                 ◊(->html doc)
                 <div class="adjacent-nav">
                     ◊(define prev-page (previous here))
@@ -112,11 +106,9 @@
                 </div>
             </main>
         </div>
-    <footer>
-        <p class="copyright">
-            ◊(get-year)
-        </p>
-        <div class="links">
+    <footer class="text-center py-10 bg-[var(--fst-clr-bg)]">
+        <p>◊(get-year)</p>
+        <div class="flex justify-center links">
             <a href="legal.html">Legal</a>
         </div>
     </footer>
