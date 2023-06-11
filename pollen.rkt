@@ -111,7 +111,7 @@
 (define-tag
  (root . elements)
  `(root ,@elements)
- (decode `(root ,@elements) #:txexpr-elements-proc detect-paragraphs #:exclude-tags '(pre)))
+ (decode `(root [(class "block max-w-prose px-4")] ,@elements) #:txexpr-elements-proc detect-paragraphs #:exclude-tags '(pre)))
 
 ;TAG FUNCTIONS
 (define-tag (link url
