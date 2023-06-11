@@ -41,17 +41,6 @@
 	/*--bg-clr: #F9F4F5;*/ --bg-color: #F3F3F3;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-	background-color: var(--bg-clr);
-}
-
-body {
-    width: 100%;
-}
-
 b {
 	font-weight: 500;
 }
