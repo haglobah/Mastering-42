@@ -13,8 +13,6 @@
 
 :root {
     font-family: "Fira Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18.5px;
-    line-height: 1.5;
     color: var(--font-clr);
     hyphens: auto;
 
@@ -41,12 +39,6 @@
 
     --font-clr: #4B4E6D;
 	/*--bg-clr: #F9F4F5;*/ --bg-color: #F3F3F3;
-
-    --hover-transition: all ease-in-out 75ms;
-
-    --shadow-normal: rgba(0, 0, 0, 0.2) 2px 5px 10px -4px;
-    --border-top-normal: 1px solid rgba(255, 255, 255, 0.1);
-    --border-bottom-normal: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -346,16 +338,6 @@ pre > code {
 /* 4. Meta information */
 
 /* 5. Main and content styles */
-
-root {
-    display: block;
-    max-width: 35rem;
-    width: 80%;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-}
 
 code pre, .code pre, .linenos pre, .highlight > pre {
     font-family: "Fira Code", monospace;
