@@ -60,14 +60,14 @@ body {
     width: 100%;
 }
 
-a {
+/* a {
     color: var(--fst-clr-weak);
     text-decoration: none;
 }
 a:hover {
     color: var(--fst-clr);
     text-decoration: underline;
-}
+} */
 
 b {
 	font-weight: 500;
@@ -159,14 +159,6 @@ p {
 
 .irrelevant {
 	opacity: 0.3;
-}
-
-.stub {
-	opacity: 0.5;
-}
-
-.in-progress {
-	opacity: 0.75;
 }
 
 .divisor {
@@ -359,62 +351,6 @@ pre > code {
 /* 2. Main navigation bar */
 
 /* 3. Side navigation bar */
-
-.category {
-	font-weight: 500;
-	font-size: 1.1rem;
-}
-
-/* .nav-node {
-    width: 100%;
-    position: relative;
-}
-.nav-node a {
-    display: block;
-    color: inherit;
-    width: 100%;
-    border-left: 4px solid transparent;
-    padding: 0.4rem 1rem;
-    transition: var(--hover-transition);
-}
-.nav-node.active > a {
-    border-color: var(--fst-clr);
-    border-width: 0;
-    border-left-width: 4px;
-    box-sizing: border-box;
-    width: 100%;
-    border-style: solid;
-}
-.nav-node > a:hover {
-    color: inherit;
-	text-decoration: underline;
-	text-decoration-thickness: 3px;
-	text-decoration-color: var(--fst-clr);
-}
-.nav-node > .nav-node > a {
-    padding-left: 2rem;
-}
-
-.nav-node > .nav-node > .nav-node > a {
-	padding-left: 3rem;
-	font-size: 0.9em;
-	text-decoration: none;
-}
-
-.nav-node > .nav-node > .nav-node > a:hover {
-	color: var(--fst-clr-weak);
-}
-
-@media screen and (min-width: 725px) {
-    .sidenav {
-		position: fixed;
-        width: 200px;
-		overflow-y: scroll;
-		top: 86px;
-		bottom: 0;
-		background-color: white;
-    }
-} */
 
 /* 4. Meta information */
 

@@ -51,10 +51,10 @@
 				◊for/splice[[(category (in-list categories))]]{
 				◊(if (equal? (get-folder-name category) currentCategory)
 						(->html `(a ((href ,(find-link here category))
-									 (class "underline decoration-[#97b6f0] decoration-[3px] underline-offset-[5px] mx-4 my-1 hover:text-inherit hover:decoration-[#97b6f0] hover:decoration-[3px] hover:underline-offset-[5px]"))
+									 (class "underline decoration-[#97b6f0] decoration-[3px] underline-offset-[5px] mx-4 my-1 hover:decoration-[#6E98E8] hover:decoration-[3px] hover:underline-offset-[5px]"))
 									,(get-folder-name category)))
 						(->html `(a ((href ,(find-link here category))
-									 (class "mx-4 my-1 hover:text-inherit hover:decoration-[#97b6f0] hover:decoration-[3px] hover:underline-offset-[5px]"))
+									 (class "mx-4 my-1 hover:underline hover:decoration-[#6E98E8] hover:decoration-[3px] hover:underline-offset-[5px]"))
 									,(get-folder-name category))))}
 			</div>
 			◊; <label for="nav-toggle"></label>
@@ -62,32 +62,31 @@
 		  </div>
 		</div>
         <div class="flex">
-            <aside class="h-[88vh] sticky top-14 w-[20rem] overflow-y-scroll">
+            <aside class="h-[88vh] sticky top-14 w-[18rem] overflow-y-scroll">
            ◊(if (equal? currentCategory #f)
               ""
               (->html ◊for/splice[[(category (in-list categories))]]{
                 ◊(if (compare-path category currentCategoryIndex)
-                     `(div ((class "hover:text-inherit"))
+                     `(div ((class ""))
                            (a ((href ,(find-link here category))
 						   	   (class ,(string-append 
 										"pl-3 py-2 "
-							   			(if (compare-path category here) "border-l-4 border-[#97b6f0]" "" ))))
-                              (span ((class "category")) ,(get-folder-name category)))
+							   			(if (compare-path category here) "border-l-4 border-[#6E98E8]" "border-l-4 border-[var(--bg-color)] hover:border-[#97b6f0] "))))
+                              (span ((class "text-lg font-medium")) ,(get-folder-name category)))
                            ,◊for/splice[[(article (in-list currentArticles))]]{
                               ◊`(div ((class ,(string-append 
                                                 "pl-7 py-1.5 "
-                                                (if (compare-path article here) "border-l-4 border-[#97b6f0] " "")
-                                                (cond
-                                                  [(equal? (select 'level (get-metas article)) "5") " stub "]
-                                                  [(member (select 'level (get-metas article)) 
-                                                                   '("4" "3" "2" "1"))
-                                                   " in-progress "]
-                                                  [else ""]))))
-                                     (a ((href ,(find-link here article))) 
+                                                (if (compare-path article here) "border-l-4 border-[#6E98E8] " "border-l-4 border-[var(--bg-color)] hover:border-[#97b6f0] ")
+												(cond
+													[(equal? (select 'level (get-metas article)) "5") " opacity-50 "]
+													[(member (select 'level (get-metas article)) 
+															 '("4" "3" "2" "1")) " opacity-75 "]
+													[else ""]))))
+                                     (a ((href ,(find-link here article)) (class ,(if (compare-path article here) "text-[#97b6f0] text-lg" "")))
                                         ,(or (select 'h1 article) "Without Title"))
 									 ,◊for/splice[[(link (in-list linkedHeadings))]]{
 										◊(if (compare-path article here)
-									         ◊`(div ((class "pl-3 py-2 text-sm"))
+									         ◊`(div ((class "pl-3 py-2 text-sm hover:text-[#97b6f0] hover:no-underline"))
 										       (a ((href ,(string-append "#" link))) ,link))
 										     "")}
 								)})
@@ -112,7 +111,7 @@
                     <div id="next"><a href=◊(string-append "/Mastering-42/" (symbol->string next-page))>◊(or (select 'h1 next-page) "Without Title")</a> →</div>}
                 </div>
             </main>
-        </div class="flex">
+        </div>
     <footer>
         <p class="copyright">
             ◊(get-year)
