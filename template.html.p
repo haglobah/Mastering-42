@@ -94,15 +94,31 @@
             </aside>
             <main class="mx-auto">
                 ◊(->html doc)
-                <div class="adjacent-nav">
+                <div class="flex justify-around items-center pt-8 pb-4">
                     ◊(define prev-page (previous here))
                     ◊when/splice[prev-page]{
-                    <div id="prev">← <a href=◊(string-append "/Mastering-42/" (symbol->string prev-page))>◊(or (select 'h1 prev-page) "Without Title")</a></div>}
+					  <div>
+						<a class="text-sm text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]"
+						   href=◊(string-append "/Mastering-42/" (symbol->string prev-page))>
+							◊(string-append "← " (or (select 'h1 prev-page) "Without Title"))
+						</a>
+					  </div>
+					}
+
+					<div>
+					  <p class="text-xs italic opacity-75 font-light">Found something to improve? Edit this page on <a class="text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]" href=◊(mk-edit-link here) target="_blank"> Github</a>!</p>
+					</div>
+
                     ◊(define next-page (next here))
 					◊;(print here)
-					<div id="contrib">Found something to improve? Edit this page on <a href=◊(mk-edit-link here) target="_blank"> Github</a>!</div>
                     ◊when/splice[next-page]{
-                    <div id="next"><a href=◊(string-append "/Mastering-42/" (symbol->string next-page))>◊(or (select 'h1 next-page) "Without Title")</a> →</div>}
+					  <div>
+						<a class="text-sm text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]"
+							href=◊(string-append "/Mastering-42/" (symbol->string next-page))>
+							◊(string-append (or (select 'h1 next-page) "Without Title") " →")
+						</a>
+					  </div>
+					}
                 </div>
             </main>
         </div>
