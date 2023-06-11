@@ -404,20 +404,6 @@ label[for="side-toggle"] {
 
 /* 5. Main and content styles */
 
-main {
-    display: flex;
-    flex-direction: column;
-    padding-top: 2rem;
-}
-
-.content {
-    position: relative;
-    margin-left: 1rem;
-    margin-top: 2rem;
-    text-align: right;
-    width: calc(100% - 2rem);
-}
-
 root {
     display: block;
     max-width: 35rem;
@@ -639,17 +625,6 @@ form {
 }
 /* 9. Footer */
 
-footer {
-    text-align: center;
-    padding: 2em;
-	border-top: 1px solid var(--fst-clr-bg);
-    background-color: var(--fst-clr-bg);
-
-}
-.links {
-    display: flex;
-    justify-content: center;
-}
 .links > * {
     display: flex;
     color: inherit;
