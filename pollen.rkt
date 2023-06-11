@@ -146,8 +146,15 @@
 (define-tag (quote-block #:author [author ""] . elements)
             (apply string-append `("\\emph{" ,@elements "}"))
             (if (equal? author "")
-                `(figure (blockquote ,@elements))
-                `(figure (blockquote ,@elements) (figcaption (p ,author)))))
+                `(figure [(class "my-5 mx-10")]
+						 (blockquote [(class "text-[var(--fst-clr)] text-sm font-fira-code")]
+						 			 ,@elements))
+                `(figure [(class "my-5 mx-10")] 
+						 (blockquote [(class "text-[var(--fst-clr)] text-sm font-fira-code")]
+						 			 ,@elements)
+						 (figcaption [(class "italic text-sm text-right")]
+						 			 (span [(class "before:content-['—'] before:left-8")]
+									 	   ,author)))))
 
 (define-tag (narr . elements)
             (apply string-append `("\\emph{" ,@elements "}"))

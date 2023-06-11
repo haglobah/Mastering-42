@@ -239,26 +239,10 @@ li::marker{
 	color: var(--snd-clr);
 }
 
-figure {
-    margin: 1.5rem 3rem;
-}
-
-blockquote {
+.font-fira-code {
 	font-family: 'Fira Code', monospace;
-	color: var(--fst-clr);
-	font-size: 0.9rem;
 }
 
-figcaption {
-	font-style: italic;
-	font-size: 0.9rem;
-	text-align: right;
-}
-
-figcaption p:before {
-	content: '—';
-	left: 2em;
-}
 
 .hint {
     padding: 0px 0px 12px;
