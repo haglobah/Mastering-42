@@ -52,15 +52,6 @@ body {
     width: 100%;
 }
 
-/* a {
-    color: var(--fst-clr-weak);
-    text-decoration: none;
-}
-a:hover {
-    color: var(--fst-clr);
-    text-decoration: underline;
-} */
-
 b {
 	font-weight: 500;
 }

@@ -113,11 +113,14 @@
  `(root ,@elements)
  (decode `(root [(class "block max-w-prose px-4")] ,@elements) #:txexpr-elements-proc detect-paragraphs #:exclude-tags '(pre)))
 
-;TAG FUNCTIONS
+; Tag functions
+
 (define-tag (link url
                   . elements)
             (apply string-append `("\\href{" ,url "}{" ,@elements "}"))
-            `(a [[href ,url]] ,@elements))
+            `(a [(href ,url)
+				 (class "text-[var(--fst-clr-weak)] hover:underline hover:decoration-2 hover:underline-offset-2 hover:decoration-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)] ")]
+				 ,@elements))
 (define l link)
 
 (define-tag (p . elements) (apply string-append `(,@elements)) `(p ,@elements))
