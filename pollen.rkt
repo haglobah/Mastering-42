@@ -158,7 +158,7 @@
 
 (define-tag (narr . elements)
             (apply string-append `("\\emph{" ,@elements "}"))
-            `(div [(class "narrator")] ,@elements))
+            `(div [(class "opacity-75 font-fira-code text-sm my-3")] ,@elements))
 
 (define (splice-reason level)
   (cond
