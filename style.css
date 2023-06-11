@@ -324,15 +324,6 @@ figcaption p:before {
     cursor: pointer;
 }
 
-#contrib {
-	font-size: 0.6rem;
-	font-style: italic;
-	opacity: 0.7;
-	margin-left: auto;
-	margin-right: 0;
-	width: 80%;
-}
-
 code {
     background: #f9f9f9;
     padding: 0 0.1rem 0 0.1rem;
@@ -607,22 +598,6 @@ form {
 
 /* 8. Adjacent navigation bar */
 
-.adjacent-nav {
-    display: flex;
-    padding: 1em 0;
-    justify-content: space-between;
-	max-width: 64rem;
-	width: 80%;
-	margin: 5rem auto 0 auto;
-}
-#next {
-    margin-left: auto;
-}
-#contrib {
-	width: 48%;
-	max-width: 32rem;
-	padding: 0 0.5rem;
-}
 /* 9. Footer */
 
 .links > * {
