@@ -539,63 +539,6 @@ form {
 
 /* 7. Sidepanel */
 
-.sidepanel {
-    position: relative;
-}
-
-.sidepanel {
-    width: max-content;
-    inline-size: fit-content;
-    padding: 0.1rem 0.2rem 0rem;
-    background: var(--bg-clr-active);
-    border-radius: 5px;
-}
-
-.sidepanel:hover {
-    background: var(--bg-clr-hover);
-    transition-property: background;
-    transition-duration: 0.2s;
-    border-radius: 4px;
-}
-
-.sidepanel > input[type="checkbox"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    visibility: hidden;
-}
-
-.sidepanel > label {
-    cursor: pointer;
-}
-
-.sidepanel > input[type="checkbox"]:checked ~ .sidepanel-content {
-    display: block;
-}
-
-.sidepanel-content {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1em);
-    left: 0;
-    right: 0;
-    max-width: 30em;
-    padding: 1em;
-    background-color: var(--bg-clr);
-    z-index: 2;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-.sidepanel-content::before {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    height: 1em;
-    width: 1em;
-    background-color: var(--bg-clr);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
 /* 8. Adjacent navigation bar */
 
 /* 9. Footer */
