@@ -108,10 +108,21 @@
       [(ltx pdf) LTX]
       [else HTML])))
 
-(define-tag
- (root . elements)
+(define-tag (root . elements)
  `(root ,@elements)
- (decode `(root [(class "block max-w-prose px-4")] ,@elements) #:txexpr-elements-proc detect-paragraphs #:exclude-tags '(pre)))
+ (begin 
+ 	(define with-paras
+ 			(decode `(root [(class "block max-w-prose px-4")] ,@elements)
+					#:txexpr-elements-proc detect-paragraphs
+					#:exclude-tags '(pre)))
+	(define (add-classes-to-paras tx)
+		(if (equal? (get-tag tx) 'p)
+			(txexpr
+				'p
+				(cons '(class "my-2") (get-attrs tx))
+				(get-elements tx))
+			tx))
+ 	(decode with-paras #:txexpr-proc add-classes-to-paras)))
 
 ; Tag functions
 
@@ -123,7 +134,10 @@
 				 ,@elements))
 (define l link)
 
-(define-tag (p . elements) (apply string-append `(,@elements)) `(p ,@elements))
+(define-tag (p . elements)
+			(apply string-append `(,@elements))
+			`(p [(class "my-2")]
+				,@elements))
 
 (define-tag (b . elements) (apply string-append `("\\bf{" ,@elements "}")) `(b ,@elements))
 
