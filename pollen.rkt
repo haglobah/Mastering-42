@@ -170,11 +170,11 @@
 
 (define-tag (gen-reason level)
             (splice-reason level)
-            `(span [(class "reason")] ,(splice-reason level)))
+            `(span ,(splice-reason level)))
 
 (define-tag (irr . elements)
             (apply string-append `("\\emph{" ,@elements "}"))
-            `(div [(class "irrelevant")] ,@elements))
+            `(div [(class "opacity-30")] ,@elements))
 
 (define-tag (hline) (apply string-append `("\\hrule")) `(hr [(class "divisor")]))
 
