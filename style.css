@@ -117,15 +117,6 @@ h4 {
 	margin-bottom: 0.4rem;
 }
 
-
-.divisor {
-	margin: 1rem 1rem 1rem 2rem;
-	width: 70%;
-	justify-content: center;
-	background-color: var(--snd-clr-weak);
-	border-top: 1px solid var(--snd-clr-weak);
-}
-
 .spoiler {
     width: max-content;
     inline-size: fit-content;

@@ -176,7 +176,9 @@
             (apply string-append `("\\emph{" ,@elements "}"))
             `(div [(class "opacity-30")] ,@elements))
 
-(define-tag (hline) (apply string-append `("\\hrule")) `(hr [(class "divisor")]))
+(define-tag (hline)
+			(apply string-append `("\\hrule"))
+			`(hr [(class "mx-auto my-6 w-5/6 bg-[var(--snd-clr-weak)] border-t-2 border-[var(--snd-clr-weak)]")]))
 
 (define spoiler
   (let ([spoiler-counter 0])
