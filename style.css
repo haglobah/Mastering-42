@@ -108,12 +108,12 @@ details > summary {
 	margin: 0 1rem 0 0;
 }
 
-summary {
+/* summary {
     border-bottom: 1px solid var(--snd-clr-weak);
     line-height: 1;
     margin-bottom: 1rem;
     cursor: pointer;
-}
+} */
 
 summary .heading {
     display: inline-block;
