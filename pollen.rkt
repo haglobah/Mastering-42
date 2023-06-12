@@ -215,7 +215,6 @@
   (if (string? element) element (parse-to-string (append* element))))
 
 (define (words->id . elements)
-  ;(println elements)
   (if (string? (caar elements)) (caar elements) (parse-to-string (get-elements (caar elements)))))
 
 (define (level->size lvl)
