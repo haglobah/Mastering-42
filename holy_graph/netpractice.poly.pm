@@ -31,19 +31,19 @@ We'll try to learn about the following:
 
 	◊il{
 		◊li{
-			For ◊ol-mark{1.}, watch Episode 28, 29 & 30 of ◊l["https://www.youtube.com/watch?v=3QhU9jd03a0&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=29"]{this} (generally really good) series.
+			For ◊li-mark{1.}, watch Episode 28, 29 & 30 of ◊l["https://www.youtube.com/watch?v=3QhU9jd03a0&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=29"]{this} (generally really good) series.
 		}
 		◊li{
-			For ◊ol-mark{2.}, spend at least ten minutes reading through ◊l["https://en.wikipedia.org/wiki/OSI_model#Layer_architecture"]{this} section.
+			For ◊li-mark{2.}, spend at least ten minutes reading through ◊l["https://en.wikipedia.org/wiki/OSI_model#Layer_architecture"]{this} section.
 		}
 		◊li{
-			For ◊ol-mark{3.}, read ◊l["https://en.wikipedia.org/wiki/Request_for_Comments"]{this} Wikipedia article.
+			For ◊li-mark{3.}, read ◊l["https://en.wikipedia.org/wiki/Request_for_Comments"]{this} Wikipedia article.
 		}
 		◊li{
-			◊ol-mark{4.} & ◊ol-mark{5.} are already covered by ◊ol-mark{1.}, however, you might want to take a look at some other guides and see whether you've really understood it.
+			◊li-mark{4.} & ◊li-mark{5.} are already covered by ◊li-mark{1.}, however, you might want to take a look at some other guides and see whether you've really understood it.
 		}
 		◊li{
-			For completing the exercises (aka ◊ol-mark{6.}), take a look at ◊l["https://www.youtube.com/watch?v=5WfiTHiU4x8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF"]{this} series for general understanding.
+			For completing the exercises (aka ◊li-mark{6.}), take a look at ◊l["https://www.youtube.com/watch?v=5WfiTHiU4x8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF"]{this} series for general understanding.
 		}
 	}
 }
