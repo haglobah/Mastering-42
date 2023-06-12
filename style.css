@@ -41,10 +41,6 @@
 	/*--bg-clr: #F9F4F5;*/ --bg-color: #F3F3F3;
 }
 
-b {
-	font-weight: 500;
-}
-
 linked {
 	display: block;
 }
@@ -85,19 +81,6 @@ h4:hover .heading-anchor {
 
 input:checked + label{
 	color: var(--font-clr);
-}
-
-.img {
-	width: 100%;
-	margin: 1rem 0;
-}
-
-img {
-	object-fit: cover;
-}
-
-.imgcaption {
-	font-size: 0.8rem;
 }
 
 summary .heading {
