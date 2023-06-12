@@ -332,9 +332,9 @@
 
 (define-tag (code-block language #:filename [filename ""] #:nums? [nums #t] . lines)
             "Here should be code."
-            `(div [(class "code-block")]
-                  (span [(class "filename")] ,filename)
-                  (pre (code ((class ,(format "language-~a" language))) ,@lines))))
+            `(div [(class "my-4 relative")]
+                  (h3 [(class "absolute italic text-sm right-5 top-4 text-gray-500")] ,filename)
+                  (pre [(class "")] (code ((class ,(string-append (format "language-~a" language) " rounded-md"))) ,@lines))))
 
 #;(define (code-block language #:filename [filename ""] #:nums? [nums #t] . lines)
     (define txcode
