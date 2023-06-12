@@ -202,18 +202,16 @@
                                                  (string-split row ",")))))
                            rows)))
 
-(define-tag (sub . elements) (apply string-append '(" ")) `(h4 [(class "subhead")] ,@elements))
-
-(define-tag (version . elements) (apply string-append '(" ")) `(span [(class "version")] ,@elements))
+(define-tag (sub . elements) (apply string-append '(" ")) `(h4 [(class "opacity-50 my-2")] ,@elements))
 
 (define-tag (title #:sub [subtitle ""] #:version [version ""] . elements)
             (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))
-            `(div [(class "title")]
-                  (h1 ,@elements)
+            `(div [(class "text-center mb-10")]
+                  (h1 [(class "uppercase font-light text-3xl my-2")] ,@elements)
                   ,(sub subtitle)
                   ,(if (equal? version "")
                        ""
-                       `(span [(class "version")] ,(string-append "written for version " version)))))
+                       `(h4 [(class "italic text-xs")] ,(string-append "written for version " version)))))
 
 (define (parse-to-string element)
   (if (string? element) element (parse-to-string (append* element))))
