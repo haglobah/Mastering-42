@@ -202,12 +202,12 @@
                                                  (string-split row ",")))))
                            rows)))
 
-(define-tag (sub . elements) (apply string-append '(" ")) `(h4 [(class "opacity-50 my-2")] ,@elements))
+(define-tag (sub . elements) (apply string-append '(" ")) `(h4 [(class "opacity-50 my-2 mx-4 inline-block")] ,@elements))
 
 (define-tag (title #:sub [subtitle ""] #:version [version ""] . elements)
             (apply string-append `("{\\Huge " ,@elements "\\par} \\vspace{1.75em}"))
             `(div [(class "text-center mb-10")]
-                  (h1 [(class "uppercase font-light text-3xl my-2")] ,@elements)
+                  (h1 [(class "uppercase font-light text-3xl my-2 mx-2")] ,@elements)
                   ,(sub subtitle)
                   ,(if (equal? version "")
                        ""
@@ -233,7 +233,7 @@
    [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
    [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])
  (let ([current-id (words->id elements)])
-   `(div [(class "heading mt-3 mb-1 border-b border-[var(--snd-clr-weak)]")]
+   `(div [(class "heading inline-block mt-3 mb-1 border-b border-[var(--snd-clr-weak)]")]
          (,(string->symbol (string-append "h" (number->string (+ level 1))))
           [[id ,current-id] (class ,(string-append (level->size level) " uppercase font-light"))]
           (a [(class "heading-anchor px-1 text-xl font-normal opacity-0 transition-opacity hover:opacity-100 duration-300 text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]")
@@ -248,7 +248,7 @@
    [(= level 2) (apply string-append `("\\subsection{" ,title "}" ,@elements))]
    [(= level 3) (apply string-append `("\\subsubsection{" ,title "}" ,@elements))]) ;include #:subs
  `(details ,(if open '[[open ""]] empty)
-           (summary [(class "border-b border-[var(--snd-clr-weak)] mb-3 cursor-pointer")]
+           (summary [(class "border-b border-[var(--snd-clr-weak)] mb-3 cursor-pointer marker:text-[var(--snd-clr-weak)]")]
 					,(heading level title) ,(if (equal? subtitle "") "" (sub subtitle)))
            (p ,@elements)))
 
