@@ -128,7 +128,7 @@
     <footer class="text-center py-10 bg-[var(--fst-clr-bg)]">
         <p>◊(get-year)</p>
         <div class="flex justify-center links">
-            <a href="legal.html">Legal</a>
+            <a href="legal.html" class="hover:underline hover:decoration-2 hover:underline-offset-2 hover:decoration-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]">Legal</a>
         </div>
     </footer>
 </body>
