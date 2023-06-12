@@ -151,15 +151,6 @@ summary .heading {
     cursor: pointer;
 }
 
-code {
-    background: #f9f9f9;
-    padding: 0 0.1rem 0 0.1rem;
-}
-
-pre > code {
-    background: none;
-}
-
 @media screen and (min-width: 725px) {
     :root {
         hyphens: none;
@@ -173,38 +164,6 @@ pre > code {
 /* 4. Meta information */
 
 /* 5. Main and content styles */
-
-code pre, .code pre, .linenos pre, .highlight > pre {
-    font-family: "Fira Code", monospace;
-}
-
-pre p {
-    margin-bottom: 1.2em;
-}
-
-.highlight {
-    padding: 1em;
-    margin-bottom: 1em;
-    max-width: 100%;
-    overflow: auto;
-    font-size: 0.9rem;
-}
-
-.filename {
-    position: absolute;
-    right: 0.8rem;
-    font-size: .75rem;
-    margin: 0.6rem 0 0 0;
-    color: hsla(0,0%,100%,.4);
-}
-
-.highlight > pre {
-    padding: 0 1em;
-}
-.linenos {
-    padding: 0 1em 0 0;
-    vertical-align: top;
-}
 
 /* 6. Email Form */
 
