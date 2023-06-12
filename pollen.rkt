@@ -21,7 +21,6 @@
          sub
          quote-block
          sec
-         requirements
          hint
          sec-hint
          ul
@@ -251,10 +250,6 @@
            (summary [(class "border-b border-[var(--snd-clr-weak)] mb-3 cursor-pointer marker:text-[var(--snd-clr-weak)]")]
 					,(heading level title) ,(if (equal? subtitle "") "" (sub subtitle)))
            (p ,@elements)))
-
-(define-tag (requirements . elements)
-            (apply string-append `("\\emph{" ,@elements "}")) ;include #:subs
-            `(details [(class "requirements")] (summary ,(heading 1 "Anforderungen") (p ,@elements))))
 
 (define-tag (hint #:type [type "info"] . elements)
             (apply string-append elements)
