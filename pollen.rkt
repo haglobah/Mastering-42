@@ -227,10 +227,11 @@
    [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
    [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])
  (let ([current-id (words->id elements)])
-   `(div [(class "heading")]
+   `(div [(class "heading mt-3 mb-1 border-b-1 border-[var(--snd-clr-weak)]")]
          (,(string->symbol (string-append "h" (number->string (+ level 1))))
-          [[id ,current-id]]
-          (a [(class "heading-anchor") [href ,(string-append "#" current-id)]] "#")
+          [[id ,current-id] (class ,(string-append "text-" (number->string (- 3 level)) "xl uppercase font-light"))]
+          (a [(class "heading-anchor px-1 text-xl font-normal opacity-0 transition-opacity hover:opacity-100 duration-300 text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]")
+		  	  [href ,(string-append "#" current-id)]] "#")
           ,@elements))))
 (define h heading)
 
