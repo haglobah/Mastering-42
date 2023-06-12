@@ -76,47 +76,6 @@ h4:hover .heading-anchor {
 	text-decoration:none
 }
 
-.title {
-	margin-bottom: 1.5rem;
-	text-align: center;
-}
-
-.title .subhead {
-	text-transform: none;
-	margin-bottom: 0.4rem;
-}
-
-.title .version {
-	font-style: italic;
-	font-size: 0.7rem;
-}
-
-h1, h2, h3, h4 {
-	text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 0.4px;
-}
-
-h1 {
-    font-size: 2rem;
-	font-weight: 300;
-}
-h2 {
-    font-size: 1.4rem;
-}
-h3 {
-    font-size: 1.1rem;
-}
-h4 {
-	text-transform: none;
-    font-size: 0.95rem;
-}
-
-.subhead {
-    opacity: 0.5;
-	margin-bottom: 0.4rem;
-}
-
 .spoiler {
     width: max-content;
     inline-size: fit-content;
