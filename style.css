@@ -100,32 +100,8 @@ img {
 	font-size: 0.8rem;
 }
 
-details > * {
-	margin: 1rem 0 0 1rem;
-}
-
-details > summary {
-	margin: 0 1rem 0 0;
-}
-
-/* summary {
-    border-bottom: 1px solid var(--snd-clr-weak);
-    line-height: 1;
-    margin-bottom: 1rem;
-    cursor: pointer;
-} */
-
 summary .heading {
-    display: inline-block;
 	border-bottom: none;
-}
-
-summary::marker {
-	color: var(--snd-clr-weak);
-}
-
-summary .subhead {
-    text-indent: 1.12rem;
 }
 
 ol, ul {
