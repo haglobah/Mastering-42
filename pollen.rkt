@@ -112,7 +112,7 @@
  	(define with-paras
  			(decode `(root [(class "block max-w-prose px-4")] ,@elements)
 					#:txexpr-elements-proc detect-paragraphs
-					#:exclude-tags '(pre)))
+					#:exclude-tags '(pre figure)))
 	(define (add-classes-to-paras tx)
 		(if (equal? (get-tag tx) 'p)
 			(txexpr
@@ -301,15 +301,15 @@
           ,url
           "}\\end{figure}"))
  `(figure
-   [(class "img")]
+   [(class "object-cover w-100 my-4")]
    (img [[src ,url]
          [style
           ,(string-append
-            (if (= height 0) "height: auto;" (string-append "height: " (number->string height) "em;"))
+            (if (= height 0) "height: auto; " (string-append "height: " (number->string height) "em; "))
             (if (= width 0)
                 "width: auto;"
                 (string-append "width: " (number->string (* width 100)) "%")))]])
-   (figcaption [(class "imgcaption")] ,@caption)))
+   (figcaption [(class "text-sm italic text-right")] ,@caption)))
 
 (define note
   (let ([note-counter 0])
