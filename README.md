@@ -101,7 +101,7 @@ So that writing becomes even easier, here are all the tags with their correspond
 | ```◊img["./path/to/img.jpg" #:height 10 #:width 100]{This is a caption.}``` | An image  —  beware that if you explicitly set height _and_ width, you most likely distort the picture.|
 | ```◊ol{◊li{}}``` | An ordered list. |
 | ```◊ul{◊li{}}``` | An unordered list. |
-| ```◊ol-mark{a.}/◊ul-mark{o}``` | Something that formats anything as a list point, so that one can mention it in the accompanying text.|
+| ```◊li-mark{a.}``` | Something that formats anything as a list point, so that one can mention it in the accompanying text.|
 | ```◊code{#this is code.}``` | Inline code. |
 | ```◊code-block['python]{#this is python code.}``` | A code block, with syntax highlighting.|
 

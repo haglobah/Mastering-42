@@ -21,7 +21,7 @@ In my view, there are two sensible ways to approach this project. You either:
 ◊sec["Prerequisites" 1]{
 In my opinion, there shouldn't be any things you should know before diving right into an introductory project like that, but sadly, there are.
 
-If you're going for ◊ol-mark{1.}, it might be a good idea to read chapters 2.-10. of ◊link["https://tldp.org/HOWTO/Unix-and-Internet-Fundamentals-HOWTO/"]{Unix and Internet Fundamentals}. Otherwise (◊ol-mark{2.}), go find yourself some walkthrough online ;)
+If you're going for ◊li-mark{1.}, it might be a good idea to read chapters 2.-10. of ◊link["https://tldp.org/HOWTO/Unix-and-Internet-Fundamentals-HOWTO/"]{Unix and Internet Fundamentals}. Otherwise (◊li-mark{2.}), go find yourself some walkthrough online ;)
 
 ◊hint[#:type "warning"]{
 	Either way:
