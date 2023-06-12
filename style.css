@@ -104,26 +104,6 @@ summary .heading {
 	border-bottom: none;
 }
 
-ol, ul {
-    padding-left: 1.5rem;
-}
-
-.invisible-list {
-	list-style: none;
-}
-
-li {
-	margin-bottom: 0.5rem;
-}
-
-.ol-mark, .ul-mark {
-	color: var(--snd-clr);
-}
-
-li::marker{
-	color: var(--snd-clr);
-}
-
 .font-fira-code {
 	font-family: 'Fira Code', monospace;
 }
