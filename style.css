@@ -1,35 +1,7 @@
-/* Table of contents
-    1. General stylings and basic tags
-    2. Main navigation bar
-    3. Side navigation bar
-    4. Meta information
-    5. Main and content styles
-    6. Email Form
-    7. Sidepanel
-    8. Adjacent navigation bar
-    9. Footer */
-
-/* 1. General stylings and basic tags */
-
 :root {
     font-family: "Fira Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--font-clr);
     hyphens: auto;
-
-/*    --clr-link: #7fced1;
-    --clr-link-hover: #00babc;
-    --bg-clr-active: #f8cef5;
-    --bg-clr-hover: #f1abdb;
-
-    --font-clr: #4B4E6D;
-    --bg-clr: white;
-	   --clr-link: #7fced1;
-    --clr-link-hover: #00babc;
-    --bg-clr-active: #f8cef5;
-    --bg-clr-hover: #f1abdb;
-
-    --font-clr: #4B4E6D;
-    --bg-clr: white;*/   
 	
 	--fst-clr-bg: #f1f5ff;
 	--fst-clr-weak: #97b6f0;
@@ -90,20 +62,6 @@ summary .heading {
 .font-fira-code {
 	font-family: 'Fira Code', monospace;
 }
-
-/* 2. Main navigation bar */
-
-/* 3. Side navigation bar */
-
-/* 4. Meta information */
-
-/* 5. Main and content styles */
-
-/* 6. Email Form */
-
-/* 7. Sidepanel */
-
-/* 8. Adjacent navigation bar */
 
 /* 9. Footer */
 
