@@ -27,8 +27,7 @@
          ol
          il
          li
-         ul-mark
-         ol-mark
+		 li-mark
          img
          code
          c
@@ -265,27 +264,23 @@
 
 (define-tag (ul . elements)
             (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
-            `(ul ,@elements))
+            `(ul [(class "pl-8 marker:text-[var(--snd-clr)] list-disc")] ,@elements))
 
 (define-tag (ol . elements)
             (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
-            `(ol ,@elements))
+            `(ol [(class "pl-8 marker:text-[var(--snd-clr)] list-decimal")] ,@elements))
 
 (define-tag (il . elements)
             (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
-            `(ul [(class "invisible-list")] ,@elements))
+            `(ul [(class "pl-8 list-none")] ,@elements))
 
 (define-tag (li . elements)
             (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
-            `(li ,@elements))
+            `(li [(class "my-2")] ,@elements))
 
-(define-tag (ol-mark . elements)
+(define-tag (li-mark . elements)
             (apply string-append `("\\emph{" ,@elements "}"))
-            `(span [(class "ol-mark")] ,@elements))
-
-(define-tag (ul-mark . elements)
-            (apply string-append `("\\emph{" ,@elements "}"))
-            `(span [(class "ul-mark")] ,@elements))
+            `(span [(class "text-[var(--snd-clr)]")] ,@elements))
 
 (define-tag
  (img url #:height [height 0] #:width [width 0] . caption)
