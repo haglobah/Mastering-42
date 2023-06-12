@@ -106,7 +106,10 @@
 					}
 
 					<div>
-					  <p class="text-xs italic opacity-75 font-light">Found something to improve? Edit this page on <a class="text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]" href=◊(mk-edit-link here) target="_blank"> Github</a>!</p>
+					  <p class="text-xs italic opacity-75 font-light">
+					  	Found something to improve? Edit this page on
+							<a class="text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)] hover:underline hover:decoration-2 hover:underline-offset-2 hover:decoration-[var(--fst-clr-weak)]"
+							   href=◊(mk-edit-link here) target="_blank"> Github</a>!</p>
 					</div>
 
                     ◊(define next-page (next here))
