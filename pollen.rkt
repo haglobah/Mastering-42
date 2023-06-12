@@ -342,7 +342,7 @@
                            ,@elements))
                (div [(class "footnote-content")] ,@elements))]))))
 
-(define-tag (code . elements) (latex-escape (apply string-append elements)) `(code ,@elements))
+(define-tag (code . elements) (latex-escape (apply string-append elements)) `(code [(class "bg-[#f9f9f9] px-[0.1rem]")] ,@elements))
 (define c code)
 
 (define-tag (code-block language #:filename [filename ""] #:nums? [nums #t] . lines)
