@@ -250,16 +250,31 @@
 					,(heading level title) ,(if (equal? subtitle "") "" (sub subtitle)))
            (p ,@elements)))
 
+(define (hint-type->color type)
+  (case type
+  	[("info") "border-[#8cb3ff]"]
+  	[("warning") "border-[#fdf180da]"]
+  	[("error") "border-[#ff8c8c]"]
+  	[("resolved") "border-[#82f382]"]))
+
 (define-tag (hint #:type [type "info"] . elements)
             (apply string-append elements)
             (if (member type '("info" "warning" "error" "resolved"))
-                `(div [(class "hint")] (div [(class ,type)] ,@elements))
+                `(div [(class "my-4")] 	
+					  (div [(class ,(string-append "bg-[#f5f7f9] border-l-4 py-2 px-6 rounded-md w-full " (hint-type->color type)))]
+					  	   ,@elements))
                 (error "not a valid type for hint")))
 
 (define-tag (sec-hint title #:type [type "info"] . elements)
             (apply string-append elements)
             (if (member type '("info" "warning" "error" "resolved"))
-                `(div [(class "hint")] (details [(class ,type)] (summary ,title) (div ,@elements)))
+                `(div [(class "my-4")]
+					  (details 
+					  	[(class ,(string-append "bg-[#f5f7f9] border-l-4 py-2 px-6 rounded-md w-full " (hint-type->color type)))]
+						(summary 
+							[(class "cursor-pointer list-none")]
+							,title)
+						(div ,@elements)))
                 (error "not a valid type for hint")))
 
 (define-tag (ul . elements)
