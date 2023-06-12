@@ -220,6 +220,12 @@
   ;(println elements)
   (if (string? (caar elements)) (caar elements) (parse-to-string (get-elements (caar elements)))))
 
+(define (level->size lvl)
+  	(case lvl
+	  [(1) "text-2xl"]
+	  [(2) "text-xl"]
+	  [(3) "text-lg"]))
+
 (define-tag
  (heading level . elements)
  (cond
@@ -227,9 +233,9 @@
    [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
    [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])
  (let ([current-id (words->id elements)])
-   `(div [(class "heading mt-3 mb-1 border-b-1 border-[var(--snd-clr-weak)]")]
+   `(div [(class "heading mt-3 mb-1 border-b border-[var(--snd-clr-weak)]")]
          (,(string->symbol (string-append "h" (number->string (+ level 1))))
-          [[id ,current-id] (class ,(string-append "text-" (number->string (- 3 level)) "xl uppercase font-light"))]
+          [[id ,current-id] (class ,(string-append (level->size level) " uppercase font-light"))]
           (a [(class "heading-anchor px-1 text-xl font-normal opacity-0 transition-opacity hover:opacity-100 duration-300 text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]")
 		  	  [href ,(string-append "#" current-id)]] "#")
           ,@elements))))
@@ -242,7 +248,8 @@
    [(= level 2) (apply string-append `("\\subsection{" ,title "}" ,@elements))]
    [(= level 3) (apply string-append `("\\subsubsection{" ,title "}" ,@elements))]) ;include #:subs
  `(details ,(if open '[[open ""]] empty)
-           (summary ,(heading level title) ,(if (equal? subtitle "") "" (sub subtitle)))
+           (summary [(class "border-b border-[var(--snd-clr-weak)] mb-3 cursor-pointer")]
+					,(heading level title) ,(if (equal? subtitle "") "" (sub subtitle)))
            (p ,@elements)))
 
 (define-tag (requirements . elements)
