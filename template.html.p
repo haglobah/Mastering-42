@@ -51,10 +51,10 @@
 				◊for/splice[[(category (in-list categories))]]{
 				◊(if (equal? (get-folder-name category) currentCategory)
 						(->html `(a ((href ,(find-link here category))
-									 (class "underline decoration-[#97b6f0] decoration-[3px] underline-offset-[5px] mx-4 my-1 hover:decoration-[#6E98E8] hover:decoration-[3px] hover:underline-offset-[5px]"))
+									 (class "underline decoration-[var(--fst-clr-weak)] decoration-[3px] underline-offset-[5px] mx-4 my-1 hover:decoration-[var(--fst-clr)] hover:decoration-[3px] hover:underline-offset-[5px]"))
 									,(get-folder-name category)))
 						(->html `(a ((href ,(find-link here category))
-									 (class "mx-4 my-1 hover:underline hover:decoration-[#6E98E8] hover:decoration-[3px] hover:underline-offset-[5px]"))
+									 (class "mx-4 my-1 hover:underline hover:decoration-[var(--fst-clr)] hover:decoration-[3px] hover:underline-offset-[5px]"))
 									,(get-folder-name category))))}
 			</div>
 			◊; <label for="nav-toggle"></label>
@@ -71,22 +71,22 @@
                            (a ((href ,(find-link here category))
 						   	   (class ,(string-append 
 										"pl-3 py-2 "
-							   			(if (compare-path category here) "border-l-4 border-[#6E98E8]" "border-l-4 border-[var(--bg-color)] hover:border-[#97b6f0] "))))
+							   			(if (compare-path category here) "border-l-4 border-[var(--fst-clr)]" "border-l-4 border-[var(--bg-color)] hover:border-[var(--fst-clr-weak)] "))))
                               (span ((class "text-lg font-medium")) ,(get-folder-name category)))
                            ,◊for/splice[[(article (in-list currentArticles))]]{
                               ◊`(div ((class ,(string-append 
                                                 "pl-7 py-1.5 "
-                                                (if (compare-path article here) "border-l-4 border-[#6E98E8] " "border-l-4 border-[var(--bg-color)] hover:border-[#97b6f0] ")
+                                                (if (compare-path article here) "border-l-4 border-[var(--fst-clr)] " "border-l-4 border-[var(--bg-color)] hover:border-[var(--fst-clr-weak)] ")
 												(cond
 													[(equal? (select 'level (get-metas article)) "5") " opacity-50 "]
 													[(member (select 'level (get-metas article)) 
 															 '("4" "3" "2" "1")) " opacity-75 "]
 													[else ""]))))
-                                     (a ((href ,(find-link here article)) (class ,(if (compare-path article here) "text-[#97b6f0] text-lg" "")))
+                                     (a ((href ,(find-link here article)) (class ,(if (compare-path article here) "text-[var(--fst-clr-weak)] text-lg hover:text-[var(--fst-clr)]" "")))
                                         ,(or (select 'h1 article) "Without Title"))
 									 ,◊for/splice[[(link (in-list linkedHeadings))]]{
 										◊(if (compare-path article here)
-									         ◊`(div ((class "pl-3 py-2 text-sm hover:text-[#97b6f0] hover:no-underline"))
+									         ◊`(div ((class "pl-3 py-2 text-sm hover:text-[var(--fst-clr-weak)] hover:no-underline"))
 										       (a ((href ,(string-append "#" link))) ,link))
 										     "")}
 								)})
