@@ -231,7 +231,7 @@
    [(= level 2) (apply string-append `("\\par{\\Large " ,@elements "\\par} \\vspace{0.7em}"))]
    [(= level 3) (apply string-append `("\\par{\\large " ,@elements "\\par} \\vspace{0.5em}"))])
  (let ([current-id (words->id elements)])
-   `(div [(class "heading inline-block mt-3 mb-1 border-b border-[var(--snd-clr-weak)]")]
+   `(div [(class "heading mt-3 mb-1 inline-block w-11/12 border-b border-[var(--snd-clr-weak)]")]
          (,(string->symbol (string-append "h" (number->string (+ level 1))))
           [[id ,current-id] (class ,(string-append (level->size level) " uppercase font-light"))]
           (a [(class "heading-anchor px-1 text-xl font-normal opacity-0 transition-opacity hover:opacity-100 duration-300 text-[var(--fst-clr-weak)] hover:text-[var(--fst-clr)]")
@@ -246,7 +246,7 @@
    [(= level 2) (apply string-append `("\\subsection{" ,title "}" ,@elements))]
    [(= level 3) (apply string-append `("\\subsubsection{" ,title "}" ,@elements))]) ;include #:subs
  `(details ,(if open '[[open ""]] empty)
-           (summary [(class "border-b border-[var(--snd-clr-weak)] mb-3 cursor-pointer marker:text-[var(--snd-clr-weak)]")]
+           (summary [(class "border-b border-[var(--snd-clr-weak)] mb-3 cursor-pointer marker:inline marker:text-[var(--snd-clr-weak)]")]
 					,(heading level title) ,(if (equal? subtitle "") "" (sub subtitle)))
            (p ,@elements)))
 
@@ -301,7 +301,7 @@
           ,url
           "}\\end{figure}"))
  `(figure
-   [(class "object-cover w-100 my-4")]
+   [(class "object-cover w-full my-4")]
    (img [[src ,url]
          [style
           ,(string-append
