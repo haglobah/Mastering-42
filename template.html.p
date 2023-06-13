@@ -62,26 +62,17 @@
 			</div>
 		  </div>
 		</div>
-		<div class="flex items-center p-4 md:hidden">
+		<div class="flex items-center py-4 px-6 md:hidden">
 		  <button type="button" id="hamburger-button" class="text-xl cursor-pointer">
 		  	&#9776;
 		  </button>
-		  <ol class="flex text-sm ml-4">
-		  	◊; <li>
-			◊;   ◊|currentCategory|
-		  	◊; </li>
-		  	<li>
-			  ◊(->html `(a [(href ,(find-link here here))] ,(find-link here here)))
-		  	</li>
-		  </ol>
 		</div>
-		<div id="mobile-sidenav" class="fixed overflow-y-auto hidden lg:hidden z-50 inset-0">
-		  <div class="relative bg-white w-80 p-6 ">
+		<div id="mobile-sidenav" class="fixed bg-white overflow-y-auto hidden lg:hidden z-50 inset-0">
 			◊(if (equal? currentCategory #f)
               ""
               (->html ◊for/splice[[(category (in-list categories))]]{
                 ◊(if (compare-path category currentCategoryIndex)
-                     `(div ((class ""))
+                     `(div ((class "relative p-6 "))
                            (a ((href ,(find-link here category))
 						   	   (class ,(string-append 
 										"pl-3 py-2 "
@@ -105,7 +96,6 @@
 										     "")}
 								)})
                      `(div ((class "nav-node"))))}))
-		  </div>
 		</div>
         <div class="flex">
           <aside class="h-[88vh] sticky top-14 w-52 overflow-y-scroll hidden md:block">
