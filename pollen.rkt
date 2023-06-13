@@ -110,7 +110,7 @@
  `(root ,@elements)
  (begin 
  	(define with-paras
- 			(decode `(root [(class "block max-w-prose px-4")] ,@elements)
+ 			(decode `(root [(class "block max-w-prose px-6")] ,@elements)
 					#:txexpr-elements-proc detect-paragraphs
 					#:exclude-tags '(pre figure)))
 	(define (add-classes-to-paras tx)
