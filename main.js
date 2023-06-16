@@ -4,7 +4,7 @@ const initApp = () => {
 
 	const toggleSidenav = () => {
 		mobileSidenav.classList.toggle('hidden')
-		mobileSidenav.classList.toggle('flex')
+		// mobileSidenav.classList.toggle('block')
 	}
 
 	hamburgerBtn.addEventListener('click', toggleSidenav)

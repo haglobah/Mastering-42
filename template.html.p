@@ -19,10 +19,6 @@
         ◊(define rootSite (first (children 'pagetree-root)))
         ◊(define categories (children rootSite))
         ◊(define currentCategory (get-folder-name here))
-        ◊(define currentCategoryIndex (unless (equal? currentCategory #f) (string-append currentCategory "/index.html")))
-        ◊(define currentArticles (if (equal? currentCategory #f)
-                                     #f
-                                     (children (string->symbol currentCategoryIndex))))
 		◊(define linkedHeadings 
 			(let ([link-selection ('h2 . select-from-doc . doc)])
 				(if (equal? link-selection #f)
@@ -67,18 +63,15 @@
 		  	&#9776;
 		  </button>
 		</div>
-		<div id="mobile-sidenav" class="fixed bg-white overflow-y-auto hidden lg:hidden z-50 inset-0">
-			◊(if (equal? currentCategory #f)
-              ""
-              (->html ◊for/splice[[(category (in-list categories))]]{
-                ◊(if (compare-path category currentCategoryIndex)
-                     `(div ((class "relative p-6 "))
+		<div id="mobile-sidenav" class="fixed bg-white overflow-y-scroll hidden lg:hidden z-50 inset-0">
+              ◊for/splice[[(category (in-list categories))]]{
+                ◊(->html `(div ((class "relative p-6 "))
                            (a ((href ,(find-link here category))
 						   	   (class ,(string-append 
 										"pl-3 py-2 "
 							   			(if (compare-path category here) "border-l-4 border-[var(--fst-clr)]" "border-l-4 border-[var(--bg-color)] hover:border-[var(--fst-clr-weak)] "))))
                               (span ((class "text-lg font-medium")) ,(get-folder-name category)))
-                           ,◊for/splice[[(article (in-list currentArticles))]]{
+                           ,◊for/splice[[(article (in-list (children category)))]]{
                               ◊`(div ((class ,(string-append 
                                                 "pl-7 py-1.5 "
                                                 (if (compare-path article here) "border-l-4 border-[var(--fst-clr)] " "border-l-4 border-[var(--bg-color)] hover:border-[var(--fst-clr-weak)] ")
@@ -94,22 +87,18 @@
 									         ◊`(div ((class "pl-3 py-2 text-sm hover:text-[var(--fst-clr-weak)] hover:no-underline"))
 										       (a ((href ,(string-append "#" link))) ,link))
 										     "")}
-								)})
-                     `(div ((class "nav-node"))))}))
+								)}))}
 		</div>
         <div class="flex">
           <aside class="h-[88vh] sticky top-14 w-52 overflow-y-scroll hidden md:block">
-           ◊(if (equal? currentCategory #f)
-              ""
-              (->html ◊for/splice[[(category (in-list categories))]]{
-                ◊(if (compare-path category currentCategoryIndex)
-                     `(div ((class ""))
+              ◊for/splice[[(category (in-list categories))]]{
+                ◊(->html `(div ((class "relative p-6 "))
                            (a ((href ,(find-link here category))
 						   	   (class ,(string-append 
 										"pl-3 py-2 "
 							   			(if (compare-path category here) "border-l-4 border-[var(--fst-clr)]" "border-l-4 border-[var(--bg-color)] hover:border-[var(--fst-clr-weak)] "))))
                               (span ((class "text-lg font-medium")) ,(get-folder-name category)))
-                           ,◊for/splice[[(article (in-list currentArticles))]]{
+                           ,◊for/splice[[(article (in-list (children category)))]]{
                               ◊`(div ((class ,(string-append 
                                                 "pl-7 py-1.5 "
                                                 (if (compare-path article here) "border-l-4 border-[var(--fst-clr)] " "border-l-4 border-[var(--bg-color)] hover:border-[var(--fst-clr-weak)] ")
@@ -125,8 +114,7 @@
 									         ◊`(div ((class "pl-3 py-2 text-sm hover:text-[var(--fst-clr-weak)] hover:no-underline"))
 										       (a ((href ,(string-append "#" link))) ,link))
 										     "")}
-								)})
-                     `(div ((class "nav-node"))))}))
+								)}))}
             </aside>
             <main class="mx-auto">
                 ◊(->html doc)
