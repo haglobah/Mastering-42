@@ -73,7 +73,7 @@ Sounds good? Well, let's begin!
 
 	Up until now, if you didn't have any prior programming experience, you know only one such tool to solve the job: C. ◊irr{(+ a little bit of bash, if you want to count that.)}
 
-	But let us, for a moment, imagine you were such an expert (that knew what other tools looked like, and now wants to evaluate how C fits into his toolkit). 
+	But let us, for a moment, imagine you were such an expert (that knows what other tools looked like, and now wants to evaluate how C fits into his toolkit). 
 	You just completed the last project that you had to code in C. ◊e{What is C like, and when would you want to use it?}
 
 	Feel free to use these questions for inspiration:
