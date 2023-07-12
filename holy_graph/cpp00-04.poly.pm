@@ -244,5 +244,5 @@ One last bit of advice for this module: Since the exam is almost exactly ex03 of
 
 	Good luck on your further journey through programming and C++.
 
-	And may you mental models always be in touch with reality.	
+	And may your code never get too complex.	
 }
