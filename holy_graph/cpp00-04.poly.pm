@@ -119,7 +119,85 @@ Two last things before you start:
 
 ◊sec["CPP 02" #:sub "written for version 7.1" 1]{
 
+	Ookay. Let's get to know the ◊e{Orthodox Canonical Form}, shall we?
+	Inside the 'New rules' part, there is an attempt to explain what this is. I'm quite sure that this second sentence is a pure translation accident. To make that concrete and clear:
+
+	Let's say your want to have Table Tennis-Ball objects. Then, the header file ◊c{TableTennisBall.hpp} should at least contain this:
+
+	◊code-block['cpp #:filename "TableTennisBall.hpp"]{
+
+		class TableTennisBall
+		{
+			private:
+
+			public:
+			TableTennisBall();
+			TableTennisBall(TableTennisBall &other);
+			TableTennisBall &operator=(TableTennisBall &other);
+			~TableTennisBall();
+		};
+	}
+
+	Per constructor, destructor (sometimes also abbreviated: ctor & dtor) and operator overload in the Header that is inside of a public declaration, you also need to have an implementation that goes in your  TableTennisBall.cpp. That one should at least contain this:
+
+	◊code-block['cpp #:filename "TableTennisBall.cpp"]{
+
+		TableTennisBall(){}
+		TableTennisBall(TableTennisBall &other){}
+		TableTennisBall &operator=(TableTennisBall &other){}
+		~TableTennisBall(){}
+	}
+
+	On how to implement those properly, refer to [this](https://cplusplus.com/articles/y8hv0pDG/) article.
+
+	◊e{In the CPP Exam, this form is interestingly called Copliens Form.} Why?
+	I don't know. 
+
+	Well, since this is done, back to the subject. 
 	
+	Read the articles they're linking:
+	◊ul{
+		◊li{◊l["https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html"]{C++ Article - Understanding Floating Point Numbers - Cprogramming.com}}
+		◊li{◊l["https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html"]{Introduction to Fixed Point Number Representation}}
+	}
+
+	The next challenge you might encounter is overloading operators. This is a little difficult at the beginning. Please ask someone for 5min of their time if you're unsure how to implement that.
+
+	I've now regularly seen the post-increment operators done wrong. Make sure you understand what you should have been doing, what this smallest representable is, and that you did implement them correctly, too.
+
+	Here's a test to make sure everything's working:
+
+	◊code-block['cpp #:filename "main.cpp"]{
+
+		using std::cout;
+		using std::endl;
+
+		int main()
+		{
+			Fixed a(1);
+
+			cout << endl << "=== Mutation ===" << endl;
+			cout << "a: " << a << endl;
+			cout << "a--: " << a-- << endl;
+			cout << "a: " << a << endl;
+			cout << "++a: " << ++a << endl;
+			cout << "a: " << a << endl;
+			cout << "a++: " << a++ << endl;
+			cout << "a: " << a << endl;
+			cout << "--a: " << --a << endl;
+			cout << "a: " << a << endl;
+		}
+	}
+
+	(Yes, those usings are allowed.)
+	You're able to figure out what the printout ◊e{should} be, aren't you?
+
+	And now — with ◊c{ex03} comes an actually interesting exercise. 
+	In case you want to do that: Read about binary space partitioning.
+	You might want to start here for a general overview: ◊l["https://twobithistory.org/2019/11/06/doom-bsp.html"]{BSP: Doom}
+	After you're done reading that, a small internet search will surely be able to help you.
+
+	Try to write the code so that other people can read it. That is not trivial in this case.
 }
 
 
