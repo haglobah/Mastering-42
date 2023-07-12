@@ -47,6 +47,7 @@ HERE
     ◊li{◊link["holy_graph/minishell.html"]{minishell}}
     ◊li{◊link["holy_graph/netpractice.html"]{NetPractice}}
     ◊li{◊link["holy_graph/miniRT.html"]{miniRT}}
+    ◊li{◊link["holy_graph/cpp00-04.html"]{CPP00-04}}
     ◊li{◊link["holy_graph/ft_containers.html"]{ft_containers}}
 }
 
