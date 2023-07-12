@@ -189,7 +189,7 @@ Two last things before you start:
 		}
 	}
 
-	(Yes, those usings are allowed.)
+	(Yes, those ◊c{using}s are allowed.)
 	You're able to figure out what the printout ◊e{should} be, aren't you?
 
 	And now — with ◊c{ex03} comes an actually interesting exercise. 
