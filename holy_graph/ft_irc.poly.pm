@@ -15,6 +15,10 @@ So, what would make sense?
 How could/should ft_irc be structured?
 How should one work on such a big project in general?
 
+Those are questions to ask yourself (as a team) beforehand.
+
+The answers are distributed among the datastructures to use, which functionality belongs to which object, and how you want to communicate as a team. Take the time.
+
 ◊sec["Prerequisites" 1]{
 
 	There are two areas of attack:
