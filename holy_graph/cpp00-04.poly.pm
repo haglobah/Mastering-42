@@ -52,13 +52,15 @@ How you resolve this tension is up to you. At every line you write.
 	Use the power of C++ wisely, or it will come back to bite you.
 }
 
-◊; ◊heading[1]{General remarks about the piscine}
+◊heading[1]{General remarks about the piscine}
 
-◊; The subjects are good for getting to know a concept, but not so much for understanding it. Because of this, our advice for working on the subjects is the following:
+The subjects are good for getting to know a concept, but not so much for understanding it. Because of this, my advice for working on the subjects is the following:
 
-◊; ◊ol{
-◊; 	◊li{Do each }
-◊; }
+◊ol{
+	◊li{Read through each subject and take note of every concept/word you haven't heard about before.}
+	◊li{Try to understand each of them by doing a short internet search. (Since programming languages are way more alike than they are different, you can also use resources that aren't made for C++ specifically.)}
+	◊li{And only after you're sure you at least understood what the purpose/use case of each concept is, ◊e{start with coding} - and maybe reading what others did.}
+}
 
 Two last things before you start:
 
@@ -77,16 +79,47 @@ Two last things before you start:
 
 	This one is mostly for getting to know CPP, so let's use it to setting things up properly.
 
-	Since there's no Norm in CPP anymore, I can only encourage you to write yourself a new Makefile. ◊spoiler{If you need some inspiration, you can look at the one I used: ◊l["https://github.com/haglobah/minimal-Makefile"]{https://github.com/haglobah/minimal-Makefile}.}
+	Since there's no Norm in CPP anymore, I can only encourage you to write yourself a new Makefile.
+	
+	If you need some inspiration, you can look at mine: ◊l["https://github.com/haglobah/minimal-Makefile"]{https://github.com/haglobah/minimal-Makefile}.
 
-	Apart from that, there's not that much you need to know here:
+	Apart from that, there's not that much you need to know up front:
 	◊ul{
 		◊li{Consult the documentation}
 		◊li{Read code from others}
 	}
 
-	
+	◊sec["During" 2]{
 
+		◊ul{
+			◊li{I just don't know why, but your phonebook ◊e{cannot have any empty fields}. That is, you need to check that even the ◊c{darkest secret} has something filled in for every contact.}
+			◊li{
+				If you're just starting to learn C++ right now, and/or C++ is your second programming language, I can only encourage you not to do ◊c{ex02}. (You might want to come back later and do it then.)
+
+				In case you're doing it, don't waste time on getting the destructor order 'right'. There's nothing you can do about it - this is even mentioned in the subject.
+			}
+		}
+	}
+}
+
+◊sec["CPP 01" #:sub "written for version 9.2" 1]{
+
+	Welcome to the monster module. It has a remarkable seven exercises, and the different sections are only very loosely related.
+
+	The first two exercises are about memory allocation. You'll want to make sure that you know about the difference between the Stack and the Heap by now.
+
+	Then, it's about pointers vs. references. Read up on their difference.
+
+	After that, it's about being able to use ◊c{std::string} properly (and efficiently). Spend some time on the respective online documentation page, and on StackOverflow/Github :)
+
+	For ◊c{ex05}, read the CPP FAQ on ◊l["https://isocpp.org/wiki/faq/pointers-to-members"]{Pointers to member functions}.
+
+	And, last but not least, get to know the ◊c{switch (x) case ..: ...} construct.
+}
+
+◊sec["CPP 02" #:sub "written for version 7.1" 1]{
+
+	
 }
 
 
