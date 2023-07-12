@@ -200,8 +200,49 @@ Two last things before you start:
 	Try to write the code so that other people can read it. That is not trivial in this case.
 }
 
+◊sec["CPP 03" #:sub "written for version 6" 1]{
 
-◊sec["Pointers" 1]{
+	Wohoo, you've arrived at the core of class-based object oriented programming: ◊e{Inheritance}.
 
+	◊; But before going into that, it is quite useful to understand what an object really is. For this, refer to ◊article{The Essence of Objects}.
 
+	So: Read up on how C++ inheritance works:
+	◊ul{
+		◊li{◊l["https://isocpp.org/wiki/faq/basics-of-inheritance"]{Inheritance: Basics}}
+		◊li{◊l["https://isocpp.org/wiki/faq/strange-inheritance"]{Inheritance: What your mother never told you}}
+	}
+
+	After that, the keywords to search for are: ◊c{virtual}, ◊c{protected}, and ◊e{diamond of death cpp}.
+
+	Well, I'll be supplying a little more help. Here is what Wikipedia says about multiple inheritance in C++: 
+	◊hint{
+		◊l["https://en.wikipedia.org/wiki/C%2B%2B"]{C++} by default follows each inheritance path separately, so a ◊c{D} object would actually contain two separate ◊c{A} objects, and uses of ◊c{A}'s members have to be properly qualified. If the inheritance from ◊c{A} to ◊c{B} and the inheritance from ◊c{A} to ◊c{C} are both marked "◊c{virtual}" (for example, ◊c{class B : virtual public A}), C++ takes special care to only create one ◊c{A} object, and uses of ◊c{A}'s members work correctly. If ◊l["https://en.wikipedia.org/wiki/Virtual_inheritance"]{virtual inheritance} and nonvirtual inheritance are mixed, there is a single virtual ◊c{A}, and a nonvirtual ◊c{A} for each nonvirtual inheritance path to ◊c{A}. C++ requires stating explicitly which parent class the feature to be used is invoked from i.e. ◊c{Worker::Human.Age}. C++ does not support explicit repeated inheritance since there would be no way to qualify which superclass to use (i.e. having a class appear more than once in a single derivation list [◊c{class Dog : public Animal, Animal}]). C++ also allows a single instance of the multiple class to be created via the virtual inheritance mechanism (i.e. ◊c{Worker::Human} and ◊c{Musician::Human} will reference the same object).
+	}
+
+	Even though it's not that easy to understand, everything what you need is in there.
+	Good luck! :)
+}
+
+◊sec["CPP 04" #:sub "written for version 10" 1]{
+
+	This module is about understanding how abstract classes work in C++.
+
+	So, spend some time on the internet to find out:
+	◊ul{
+		◊li{How ◊c{virtual} member functions are different from 'normal' ones}
+		◊li{What a ◊e{pure virtual} function is}
+	}
+
+	With that, there is not much more than hard work awaiting :)
+}
+
+One last bit of advice for this module: Since the exam is almost exactly ex03 of CPP04, write it as soon you can. It is worth it. 
+
+◊narr{
+
+	Wow. What a giant amount of typing. But well done!
+
+	Good luck on your further journey through programming and C++.
+
+	And may you mental models always be in touch with reality.	
 }
