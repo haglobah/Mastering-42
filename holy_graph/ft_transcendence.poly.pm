@@ -71,6 +71,20 @@ In this time, you might want to do the following:
 	This allows idle team members to test, test, and test - increasing your bug count, and bringing you closer to making sure you implement features correctly before moving on to the next.}
 }
 
+Does that sound like a lot? It is.
+
+But do those points also sound like not doing them up front might become very costly in the long term? 
+
+I bet they do.
+
+So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest of it much more.
+
+◊narr{
+	I wish you the most of fun.
+}
+
+
+
 ◊sec["Prerequisites" 1]{
 
 
