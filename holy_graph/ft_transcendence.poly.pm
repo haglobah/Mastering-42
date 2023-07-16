@@ -80,10 +80,8 @@ I bet they do.
 So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest of it much more.
 
 ◊narr{
-	I wish you the most of fun.
+	I wish you the most of fun :)
 }
-
-
 
 ◊sec["Prerequisites" 1]{
 
