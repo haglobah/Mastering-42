@@ -47,7 +47,7 @@ In this time, you might want to do the following:
 
 ◊il{
 	◊li{For ◊li-mark{1.}, it's kinda obvious, isn't it? You split yourself up, and then do a piscine in TypeScript+(your backend framework), SQL, and HTML & CSS.}
-	◊li{Why is ◊li-mark{2.} even a problem. Shouldn't more people 'just' mean 'more work gets done'? To understand why this isn't necessarily the case, read Fred Brooks essay ◊e{The Mythical Man-Month} or have a look ◊l["https://youtu.be/vuScajG_FuI?t=623"]{here} for a good summary.}
+	◊li{Why is ◊li-mark{2.} even a problem. Shouldn't more people 'just' mean 'more work gets done'? To understand why this isn't necessarily the case, read Fred Brooks' essay ◊e{The Mythical Man-Month} or have a look ◊l["https://youtu.be/vuScajG_FuI?t=623"]{here} for a good summary.}
 	◊li{(◊li-mark{3.}) is the case in just about every real-world project.
 	Find out how other people are doing it.
 	
@@ -85,7 +85,67 @@ So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest 
 
 ◊sec["Prerequisites" 1]{
 
+	I hope that I could convince you of this plan. Our proposed prerequisites for this project are the outcome of the things written above. Some of them could use some more clarification, though:
 
+	◊sec["Learning the Programming Languages" #:open? #f 2]{
+
+		Fittingly, there are at least five different (domain specific) languages you need to use/understand for transcendence. It's definitely useful if all of you know all of these languages a little, but in case you ◊e{need} to split it up, I'd go for:
+		◊ul{
+			◊li{◊c{SQL}: 1 person}
+			◊li{◊c{TS & NestJS}: 2 people}
+			◊li{◊c{HTML, CSS, frontend}: 2 people}
+		}
+		Yes, hopefully the SQL person will be able to switch after some time.
+
+		◊heading[3]{TypeScript}
+
+		For TypeScript, the most important thing to understand is to understand ◊e{what it is}. So, what is it?
+
+		TypeScript is JavaScript with way less random 'surprises'. It is JavaScript, but enhanced in a way that lets you build bigger applications more easily.
+
+		The enhancement that makes this posssible is TypeScripts ◊e{Gradual Type System}.
+
+		But enough of this. You don't need to become a TypeScript expert, you just have to be able to read and write little snippets.
+		For this, you need to understand a few features of it first:
+
+		◊ol{
+			◊li{Function 'Objects' (a.k.a ◊e{lambdas})
+				◊ul{
+					◊li{
+
+					}
+				}
+			}
+			◊li{Higher order functions
+				◊ul{
+					◊li{
+
+					}
+				}
+			}
+			◊li{A gradual type system
+				◊ul{
+					◊li{
+
+					}
+				}
+			}
+		} 
+
+		◊heading[3]{SQL}
+		◊heading[3]{HTML & CSS}
+		◊heading[3]{(your frontend framework)}
+		◊heading[3]{NestJS}
+	}
+
+	◊hint{
+
+		This guide will always assume that you 'obey the rules'. That is, that when the subject asks for NestJS in the backend, and you think you know better/want use something different, it assumes that you'll still use NestJS.
+
+		Thankfully, 42 'allowed' us to choose much more freely, here. In contrast to all of the other projects, not checking every box in the Basics part of the evaluation sheet won't let you fail immediately, but only remove a few percent from your end result (and you can pass with 90%).
+
+		I think this is on purpose, and makes it possible for us to choose differently when we see fit, which is very nice. In case you're wondering how I know this: This is what I did.
+	}
 }
 
 ◊sec["During" 1]{
