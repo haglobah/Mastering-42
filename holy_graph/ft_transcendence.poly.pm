@@ -46,8 +46,8 @@ So. Take yourself, as a team, two weeks (or whatever you find suitable - I took 
 In this time, you might want to do the following:
 
 ◊il{
-	◊li{For ◊li-mark{1.}, it's kinda obvious, isn't it? You split yourself up, and then do a piscine in TypeScript+(your backend framework), SQL, and HTML & CSS.}
-	◊li{Why is ◊li-mark{2.} even a problem. Shouldn't more people 'just' mean 'more work gets done'? To understand why this isn't necessarily the case, read Fred Brooks' essay ◊e{The Mythical Man-Month} or have a look ◊l["https://youtu.be/vuScajG_FuI?t=623"]{here} for a good summary.}
+	◊li{For ◊li-mark{1.}, it's kinda obvious, isn't it? You split yourself up, and then do a piscine in TypeScript, (your backend framework), SQL, HTML & CSS and your frontend framework. Easy, isn't it?}
+	◊li{Why is ◊li-mark{2.} even a problem? Shouldn't more people 'just' mean 'more work gets done'? To understand why this isn't necessarily the case, read Fred Brooks' essay ◊e{The Mythical Man-Month} or have a look ◊l["https://youtu.be/vuScajG_FuI?t=623"]{here} for a good summary.}
 	◊li{(◊li-mark{3.}) is the case in just about every real-world project.
 	Find out how other people are doing it.
 	
@@ -81,6 +81,15 @@ So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest 
 
 ◊narr{
 	I wish you the most of fun :)
+}
+
+◊hint{
+
+	This guide will always assume that you 'obey the rules'. That is, that when the subject asks for NestJS in the backend, and you think you know better/want use something different, it assumes that you'll stick with NestJS.
+
+	Thankfully, 42 'allowed' us to choose much more freely, here. In contrast to all of the other projects, not checking every box in the Basics part of the evaluation sheet won't let you fail immediately, but only remove a few percent from your end result (and you can pass with 90%).
+
+	I think this is on purpose, and makes it possible for us to choose differently when we see fit, which is very nice. In case you're wondering how I know this: This is what I did.
 }
 
 ◊sec["Prerequisites" 1]{
@@ -203,39 +212,61 @@ So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest 
 		◊ol{
 			◊li{Get into you router, and create a different routes.}
 		}
-
 	}
 
-	◊hint{
+	Apart from the Programming Languages part, I think I've already said enough in the beginning. 
 
-		This guide will always assume that you 'obey the rules'. That is, that when the subject asks for NestJS in the backend, and you think you know better/want use something different, it assumes that you'll stick with NestJS.
+	One last thing I want to mention again: 
 
-		Thankfully, 42 'allowed' us to choose much more freely, here. In contrast to all of the other projects, not checking every box in the Basics part of the evaluation sheet won't let you fail immediately, but only remove a few percent from your end result (and you can pass with 90%).
-
-		I think this is on purpose, and makes it possible for us to choose differently when we see fit, which is very nice. In case you're wondering how I know this: This is what I did.
-	}
+	◊e{Set up you ◊c{docker compose}d infrastructure.}
 }
 
 ◊sec["During" 1]{
 
+	After this incredibly long info, there's not so much left. There are a few things that are a little nasty (e.g. getting all the chat roles right), but you definitely have some intuition of what's right there. So, not much during 'during'.
+
+	Whenever you have idle team members, let them test ☝️
 }
 
 ◊sec["Cleaning Up" 1]{
 
+	Not much to say here, either. Well, make sure you implemented what the subject asks us to do (or deviate, and have a good reason for it).
 
+	The eval sheet is comparatively sane. There's one surprise on it, though:
+
+	It asks about a spectator mode for the game. The subject does not, so this one is up to you :)
 }
 
 ◊sec["Aftercare" 1]{
 
+	Aftercare? For transcendence?
 
+	First, give each other a pat on your shoulders. Well done.
+
+	Since you're now going out into the grand world: How about we employ some good open source practices for the end?
+
+	Let's write some good documentation. If you don't already have one, create a ◊c{README} for your transcendence, and fill it with anything useful. What should such a repo have so that people can use it efficiently?
 }
 
+And then: Enjoy your life without the black hole, and probably working as a software engineer.
 
 ◊narr{
 
+	Wow. I'm amazed. You finished the Core Curriculum of 42.
+	The end of a long journey.
+
+	Take some time to enjoy yourself, and pat yourself on the shoulder.
+
+	I wish you the best on you further journey. I'm a little sad to see you leave, but also quite proud of what you achieved.
+	I hope this is not only a farewell, but also a goodbye.
+
+	And may your paths always be crossed by people you enjoy working with.
 }
 
 ◊sec["Pointers" 1]{
 
-
+	◊ul{
+		◊li{◊l[""]{}}
+		◊li{◊l[""]{}}
+	}
 }
