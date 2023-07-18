@@ -133,9 +133,45 @@ So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest 
 		} 
 
 		◊heading[3]{SQL}
+
+		◊ol{
+			◊li{Write a migration that creates a table ◊c{products} with ◊c{product_id} (index), ◊c{name}(unique) and ◊c{price}.}
+			◊li{Write a query that:
+				◊ul{
+					◊li{... gives you one particular product by name/by id.}
+					◊li{... gives you all the products for a certain price.}
+					◊li{... all the products with a name in which ◊c{(pattern)} occurs.}
+				}
+			}
+			◊li{Create a ◊c{users} table (◊c{user_id}, ◊c{name}) and a ◊c{friends} table (◊c{user_id, user_id}). Then, write a query gets you the names of the friends of a particular user. For this, you might want to get to know what a (left/right/inner/outer) ◊e{join} is.}
+		}
+
 		◊heading[3]{HTML & CSS}
+		
+		◊ol{
+			◊li{HTML & CSS basics:
+				◊ul{
+					◊li{Read/Scroll through MDNs ◊l["https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"]{HTML basics}, followed by their ◊l["https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics"]{CSS basics}.}
+					◊li{Then, have a look at various websites, and try to understand what they're doing. (Hint: ◊spoiler{Use the ◊e{Inspector}})}
+				}
+			}
+			◊li{Understand one of the most important bits of CSS knowledge: That CSS has different rendering algorithms. For this, read on ◊l["https://www.joshwcomeau.com/css/understanding-layout-algorithms/"]{here}.}
+			◊li{Learn the one layout algorithm you're gonna use most of the time: Flexbox. (-> CSS tricks' ◊l["https://css-tricks.com/snippets/css/a-guide-to-flexbox/)"]{◊e{A Guide to Flexbox}})}
+		}
+		
+
 		◊heading[3]{(your frontend framework)}
+		
+		◊ol{
+			◊li{}
+		}
+
 		◊heading[3]{NestJS}
+		
+		◊ol{
+			◊li{}
+		}
+
 	}
 
 	◊hint{
