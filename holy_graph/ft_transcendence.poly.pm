@@ -109,26 +109,50 @@ So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest 
 		For this, you need to understand a few features of it first:
 
 		◊ol{
-			◊li{Function 'Objects' (a.k.a ◊e{lambdas})
+			◊li{Open up the ◊l["https://www.typescriptlang.org/play"]{TypeScript Playground}}
+			◊li{◊e{Anonymous Functions} a.k.a ◊e{lambdas}
 				◊ul{
-					◊li{
+					◊li{JS/TS has two ways to create a function:
+					
+						◊code-block['js #:filename "example.js"]{
 
+							function inc(a) {
+								return (a + 1)
+							}
+
+							var inc2 = ((a) => {
+								return (a + 1)
+							})
+						}
 					}
+					◊li{Pick a few simple functions you can come up with, and implement them in both ways.}
 				}
 			}
-			◊li{Higher order functions
+			◊li{Higher order functions: JS/TS have so-called ◊e{Higher order functions}, and developers use them all the time.
 				◊ul{
-					◊li{
-
-					}
+					◊li{Get to know the mighty three: ◊c{map}, ◊c{filter} and ◊c{reduce}.
+					Implement the examples in ◊l["https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d"]{this} article.}
 				}
 			}
-			◊li{A gradual type system
-				◊ul{
-					◊li{
+			◊li{A gradual type system:
+				You're almost done. Now, let a few things go wrong. Call functions with the 'wrong' arguments (a ◊c{string} instead of a ◊c{number}) and see what happens. 
 
+				Not so good, right?
+
+				Then, add type annotations to every function you broke. For example:
+
+				◊code-block['ts #:filename "example.ts"]{
+
+					function inc(a : number) : number {
+						return (a + 1)
 					}
+
+					var inc2 = ((a : number) : number => {
+						return (a + 1)
+					})
 				}
+
+				I think that those are the major hindrances to getting started with TypeScript. If you know of more: Please let me know! :)
 			}
 		} 
 
@@ -152,7 +176,7 @@ So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest 
 			◊li{HTML & CSS basics:
 				◊ul{
 					◊li{Read/Scroll through MDNs ◊l["https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"]{HTML basics}, followed by their ◊l["https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics"]{CSS basics}.}
-					◊li{Then, have a look at various websites, and try to understand what they're doing. (Hint: ◊spoiler{Use the ◊e{Inspector}})}
+					◊li{Then, have a look at various websites, and try to understand what they're doing. The MDN docs are reasonably simple, imo. (Hint: ◊spoiler{Use the ◊e{Inspector}})}
 				}
 			}
 			◊li{Understand one of the most important bits of CSS knowledge: That CSS has different rendering algorithms. For this, read on ◊l["https://www.joshwcomeau.com/css/understanding-layout-algorithms/"]{here}.}
@@ -162,21 +186,29 @@ So, be a nice 42 student, do your pre-transcendence piscine, and enjoy the rest 
 
 		◊heading[3]{(your frontend framework)}
 		
+
+		This is relatively straigthforward. 'Just' create simple UI elements you think you might need. For example:
+
+
 		◊ol{
-			◊li{}
+			◊li{Create a simple form.}
+			◊li{Create a friend list.}
+			◊li{Create a chat interface. (Chat list + messages in the room + write form, or something like that.)}
 		}
 
 		◊heading[3]{NestJS}
-		
+
+		🤷. As I did not use Nest at all, I am a little reluctant to propose something specific to it here. I think it comes down to a 'Get familiar with you backend framework', and that's it. One thing I can think of:
+
 		◊ol{
-			◊li{}
+			◊li{Get into you router, and create a different routes.}
 		}
 
 	}
 
 	◊hint{
 
-		This guide will always assume that you 'obey the rules'. That is, that when the subject asks for NestJS in the backend, and you think you know better/want use something different, it assumes that you'll still use NestJS.
+		This guide will always assume that you 'obey the rules'. That is, that when the subject asks for NestJS in the backend, and you think you know better/want use something different, it assumes that you'll stick with NestJS.
 
 		Thankfully, 42 'allowed' us to choose much more freely, here. In contrast to all of the other projects, not checking every box in the Basics part of the evaluation sheet won't let you fail immediately, but only remove a few percent from your end result (and you can pass with 90%).
 
