@@ -286,7 +286,7 @@
 
 (define-tag (il . elements)
             (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
-            `(ul [(class "pl-8 list-none")] ,@elements))
+            `(ul [(class "pl-8 list-none [&>*]:py-1")] ,@elements))
 
 (define-tag (li . elements)
             (apply string-append `("\\begin{itemize}" ,@elements "\\end{itemize}"))
