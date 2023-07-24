@@ -104,4 +104,5 @@ So that writing becomes even easier, here are all the tags with their correspond
 | ```◊li-mark{a.}``` | Something that formats anything as a list point, so that one can mention it in the accompanying text.|
 | ```◊code{#this is code.}``` | Inline code. |
 | ```◊code-block['python]{#this is python code.}``` | A code block, with syntax highlighting.|
+| ```◊under-construction{...}``` | Indicates that some part is not finished yet.|
 
