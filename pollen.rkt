@@ -28,6 +28,7 @@
          il
          li
 		 li-mark
+		 under-construction
          img
          code
          c
@@ -324,6 +325,17 @@
                 "width: auto;"
                 (string-append "width: " (number->string (* width 100)) "%")))]])
    (figcaption [(class "text-sm italic text-right")] ,@caption)))
+
+(define-tag (under-construction . elements)
+  "This part is not done yet."
+  `(div [(class "my-10")]
+    (div [(class "flex justify-between")]
+	  (div [(class "basis-1/4")] ,(hline))
+	  (h1 [(class "basis-1/4 text-xl bold text-center")] "Draft in Progress")
+	  (div [(class "basis-1/4")] ,(hline))
+	)
+    (div [(class "[&>*]:opacity-60")]
+      ,@elements)))
 
 (define note
   (let ([note-counter 0])

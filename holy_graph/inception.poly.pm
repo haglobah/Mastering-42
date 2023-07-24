@@ -16,10 +16,13 @@ I think that for using Docker properly, one first needs to understand the larger
 ◊sec["Prerequisites" 1]{
 
 	Okay. What ◊e{is} Docker, now?
+
+	And in which context does it exist?
 	
 	◊ul{
 		◊li{◊l["https://www.ibm.com/topics/docker"]{What is Docker?}}
-		◊li{◊l["https://www.youtube.com/watch?v=-2BO43FvBuA"]{Rust, WebAssembly and the future of serverless}}
+		◊li{WebAssembly seems to be somehow similar to it: ◊l["https://www.youtube.com/watch?v=-2BO43FvBuA"]{Rust, WebAssembly and the future of serverless}.}
+		◊li{And then, there's also ◊l["https://nixos.org/explore.html"]{Nix}. (◊l["https://nixos.org/guides/nix-pills/why-you-should-give-it-a-try.html"]{Why Nix?})}
 	}
 
 	To sum up:
@@ -32,6 +35,7 @@ I think that for using Docker properly, one first needs to understand the larger
 				◊li{To deploy software in an automated (and reliable way) - instead of setting up a VM by hand, you can just deploy your container image.}
 			}
 		}
+		◊li{Other tools seem to be doing similar things.}
 	}
 
 	After you've read all that, let's first ◊e{use} Docker for something, and then start Inception from there.
@@ -41,27 +45,47 @@ I think that for using Docker properly, one first needs to understand the larger
 	For example, you can try this one: ◊l["https://github.com/pauldev20/minilinux"]{https://github.com/pauldev20/minilinux}
 }
 
-◊sec["During" 1]{
+◊under-construction{
 
+	◊sec["During" 1]{
 
-}
+		◊ul{
+			◊li{Read through carefully what the ◊c{start.sh} of minilinux does.}
+			◊li{Then, try to write a ◊e{docker compose} file for minilinux.}
+		}
 
-◊sec["Cleaning Up" 1]{
+		After you've done that, go take some time to read documentation on the various services you need to set up.
 
+		
+	}
 
-}
+	◊sec["Cleaning Up" 1]{
 
-◊sec["Aftercare" 1]{
+		Well, make sure it works.
 
+		In addition to that:
+		
+		◊ul{
+			◊li{Know how to access the Database inside the container.}
+		}
+	}
 
-}
+	◊sec["Aftercare" 1]{
 
-◊narr{
+		Time to actually ◊e{use} containers for something!
 
+		Make a project of yours more accessible by automating a development setup. After Inception, I added a ◊c{docker-compose.yaml} file to the repo for this website, so that people can contribute to it way more easily.
+	}
 
-}
+	◊narr{
 
-◊sec["Pointers" 1]{
+		You've just made a big step towards being a professional software developer. Nice!
 
+		And may your deployments always work reliably.
+	}
 
+	◊sec["Pointers" 1]{
+
+		
+	}
 }
