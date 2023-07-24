@@ -49,7 +49,7 @@ HERE
     ◊li{◊link["holy_graph/miniRT.html"]{miniRT}}
     ◊li{◊link["holy_graph/cpp00-04.html"]{CPP00-04}}
     ◊li{◊link["holy_graph/ft_irc.html"]{ft_irc}}
-    ◊li{◊link["holy_graph/ft_containers.html"]{ft_containers}}
+    ◊li{◊link["holy_graph/ft_transcendence.html"]{ft_transcendence}}
 }
 
 ◊heading[2]{◊link["core/index.html"]{Additions to the Core}}

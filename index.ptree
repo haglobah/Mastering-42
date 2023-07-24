@@ -15,14 +15,14 @@
 		holy_graph/philosophers.html
 		holy_graph/minishell.html
 		holy_graph/netpractice.html
-		holy_graph/cpp00-04.html
-		holy_graph/cpp05-09.html
 		holy_graph/miniRT.html
 		holy_graph/cub3D.html
+		holy_graph/cpp00-04.html
 		holy_graph/inception.html
 		holy_graph/webserv.html
 		holy_graph/ft_irc.html
-		holy_graph/ft_containers.html
+		holy_graph/cpp05-09.html
+		◊; holy_graph/ft_containers.html
 		holy_graph/ft_transcendence.html
     }
     ◊core/index.html{
@@ -31,11 +31,11 @@
 		core/memleaks.html
 		core/exams.html
 		core/ft_norm.html
-        ◊;core/libft-additions.html
-		◊;core/val-arrays.html
+        ◊; core/libft-additions.html
+		◊; core/val-arrays.html
     }
     ◊explainers/index.html{
-        ◊;cs_theory/datatypes.html
+        ◊; cs_theory/datatypes.html
 		explainers/iterator_traits.html
     }
 }
