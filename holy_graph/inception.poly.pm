@@ -2,6 +2,11 @@
 
 ◊title[#:sub "by bhagenlo" #:version "1.3"]{Inception}
 
+◊img["../src/Images/containers_2x.png"]{
+
+	Image originally from ◊l["https://xkcd.com/1988/"]{xkcd}
+}
+
 ◊narr{
 
 	Welcome to Inception.
