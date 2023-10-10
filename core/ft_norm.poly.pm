@@ -220,7 +220,7 @@ becomes
 	}
 }
 
-◊h[1]{Adding some C++ flavor }
+◊h[1]{Adding some C++ flavor}
 
 ◊h[2]{Using getter and setter functions}
 
