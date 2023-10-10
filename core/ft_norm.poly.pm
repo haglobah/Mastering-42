@@ -246,8 +246,6 @@ To still be able to access a struct, you can use a concept from C++ in a slightl
 	}
 }
 
-Just be aware that if you change the values of the underlying variable to update it using the setter function.
-
 ◊sec["Pointers" 1]{
 
 	◊ul{
