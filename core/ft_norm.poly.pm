@@ -220,6 +220,32 @@ becomes
 	}
 }
 
+◊h[1]{Adding some C++ flavor}
+
+◊h[2]{Using getter and setter functions}
+
+In larger projects like minishell, the need to access different structs from many functions may arise, and constantly passing them by reference to every function can be tedious. Some might think, "Then I'll just use a global struct to access them." However, this is forbidden by the norm.
+To still be able to access a struct, you can use a concept from C++ in a slightly C-adjusted manner. Having a static pointer to a variable within a getter function can help with this. Here is a minimal example for an int variable:
+
+◊code-block['c #:filename "default_getter.c"]{
+	int	*default_getter(void)
+	{
+		static int	status;
+
+		return (&status);
+	}
+}
+
+◊code-block['c #:filename "default_setter.c"]{
+	void	default_setter(int new_status)
+	{
+		int	*status;
+
+		status = default_getter();
+		*status = new_status;
+	}
+}
+
 ◊sec["Pointers" 1]{
 
 	◊ul{

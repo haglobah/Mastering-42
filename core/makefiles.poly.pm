@@ -58,7 +58,7 @@ And trust me, it is worth it – especially when there are recursive calls to ot
 	◊heading[2]{◊c{all}}
 
 	◊ul{
-		◊li{Higly likely to be the first rule in your Makefile, as your first rule gets called implicitly when just calling ◊c{make} without parameters.}
+		◊li{Highly likely to be the first rule in your Makefile, as your first rule gets called implicitly when just calling ◊c{make} without parameters.}
 		◊li{Consists usually only of ◊c{$(NAME)} (as a prerequisite), but also all the other startup chores you want/need to do.}
 	}
 	◊code-block['make]{
