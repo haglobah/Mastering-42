@@ -6,4 +6,6 @@
 **compiled/
 
 # Ignore emacs safe files
-**~
+**~.envrc
+
+.envrc
