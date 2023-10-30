@@ -32,6 +32,12 @@ With this guide, we try to get everyone of us the team mate we would've liked to
 3. Run ```docker compose up``` from the root of the repository.
 4. edit some file; reload your browser window; see the change.
 
+## 3) Using Nix & devenv (with flakes)
+1. Install [Nix](https://nixos.org/) with the installer from [Determinate Systems](https://zero-to-nix.com/start/install) (recommended)
+2. Fork this repo.
+3. Enter the nix development environment declared in ```flake.nix``` with ```nix develop --impure```.
+4. Then, run ```devenv up``` from the root of the repository.
+
 # How do I get that damn "♢"?
 If you're using VS Code, open your ```keybindings.json``` and paste the following:
 ```
