@@ -7,14 +7,39 @@
 					 ".html" 
 					 #:left? #f) 
 		".poly.pm"))
+
+◊(define title (select 'h1 doc))
+◊(define description "Less pain, more gain. An opinionated strategy guide on how to get the most out of 42.")
+◊(define url "https://haglobah.github.io/Mastering-42")
+◊(define image (find-link here 'src/Images/42_logo.png))
+◊(define icon (find-link here 'src/Images/white-42_logo.png))
+
 <html>
     <head>
+		<title>◊|title|</title>
+		<meta name="description" content="◊|description|" >
+		<link rel="icon" type="image/x-icon" href="◊|icon|">
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" value="◊(select 'h1 doc)">
-        <meta property="og:image" value="◊(find-link here 'src/Images/42_logo.png)">
-        <title>◊(select 'h1 doc)</title> <!-- or ◊|here| -->
+		<meta property="og:locale" value="en_US">
+		<meta property="og:type" value="website">
+		<meta property="og:site_name" content="◊|title|" >
+		<meta property="og:url" value="◊|url|" >
+		<meta property="og:title" value="◊|title|" >
+		<meta property="og:description" value="◊|description|" >
+		<meta property="og:image:secure_url" content="◊|url|" />
+		<meta property="og:image:type" content="image/jpg">
+		<meta property="og:image:width" content="800">
+		<meta property="og:image:height" content="1200">
+		<meta property="og:image:alt" content="◊|title|" >
+
+		<meta property="twitter:title" value="◊|title|" >
+		<meta property="twitter:description" value="◊|description|" >
+		<meta property="twitter:url" value="◊|url|" >
+		<meta property="twitter:image" value="◊|image|" >
+        <title>◊|title|</title> <!-- or ◊|here| -->
         ◊(define articles (flatten (filter-map children (flatten (map children (children 'pagetree-root))))))
         ◊(define rootSite (first (children 'pagetree-root)))
         ◊(define categories (children rootSite))
@@ -24,7 +49,7 @@
 				(if (equal? link-selection #f)
 					'()
 					(filter string? link-selection))))
-		<link rel="icon" type="image/x-icon" href="◊(find-link here 'src/Images/white-42_logo.png)">
+		<link rel="icon" type="image/x-icon" href="◊|icon|">
 		<link rel="stylesheet" href="◊(find-link here 'fonts.css)">
 		<link rel="stylesheet" href="◊(find-link here 'style.css)">
 		<link rel="stylesheet" 
