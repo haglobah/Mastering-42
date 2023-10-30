@@ -12,7 +12,7 @@
 	Welcome to Inception.
 }
 
-This project is somewhat special. It's underlying idea is great. ◊e{Docker} is an incredibly useful technology, and the idea of containerization revolutionized the software world over the last decade.
+This project is somewhat special. Its underlying idea is great. ◊e{Docker} is an incredibly useful technology, and the idea of containerization revolutionized the software world over the last decade.
 
 However, I think that this project is were the 42 assumption to learning (being ◊e{If you do everything only from the ground up, you learn it in the best way.}) finally breaks down.
 
