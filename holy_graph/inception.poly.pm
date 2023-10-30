@@ -30,7 +30,7 @@ I think that for using Docker properly, one first needs to understand the larger
 		◊li{And then, there's also ◊l["https://nixos.org/explore.html"]{Nix}. (◊l["https://nixos.org/guides/nix-pills/why-you-should-give-it-a-try.html"]{Why Nix?})}
 	}
 
-	To sum up:
+	To sum it up:
 	◊ul{
 		◊li{Docker is a tool to create, build and run ◊e{containers}.}
 		◊li{Containers are boxes/capsules you can run your software in, and for which you can specify how they're allowed to interact with the outside world.}
