@@ -9,3 +9,5 @@
 **~.envrc
 
 .envrc
+.direnv
+.devenv
