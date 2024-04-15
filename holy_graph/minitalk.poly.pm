@@ -56,7 +56,7 @@ Send the following to your server:
 	◊li{A segfault: ◊c{SIGSEGV}}
 	◊li{A bus error: ◊c{SIGBUS}}
 	◊li{Terminate the process: ◊c{SIGTERM}}
-	◊li{And, finally – kill the process ◊c{SIGKILL}}
+	◊li{And, finally – kill the process: ◊c{SIGKILL}}
 	◊li{And if you haven't got enough fun so far: You can get a pretty comprehensive list with
 	◊code-block['bash]{
 	$ kill -l
