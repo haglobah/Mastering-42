@@ -45,7 +45,7 @@
         ◊(define categories (children rootSite))
         ◊(define currentCategory (get-folder-name here))
 		◊(define linkedHeadings 
-			(let ([link-selection ('h2 . select-from-doc . doc)])
+			(let ([link-selection (select-from-doc 'h2 doc)])
 				(if (equal? link-selection #f)
 					'()
 					(filter string? link-selection))))
