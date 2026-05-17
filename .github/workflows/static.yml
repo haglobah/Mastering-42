@@ -32,14 +32,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: Bogdanp/setup-racket@v1.9
+      - uses: actions/checkout@v4
+      - uses: Bogdanp/setup-racket@v1.11
         with:
           architecture: 'x64'
           distribution: 'full'
           variant: 'CS'
           version: 'stable'
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.cache/racket
@@ -49,13 +49,13 @@ jobs:
       - run: raco pollen render
       - run: raco pollen reset
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
       
